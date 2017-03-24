@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<XmlNote>
+
+<Customer>
+<ListID>8000006A-1403812746</ListID>
+<SalesRepListID>80000004-1403812739</SalesRepListID>
+<TermsListID>80000008-1403812738</TermsListID>
+<Order_Template>
+  <Phone>779-3000</Phone>
+  <PlacedBy>LISA</PlacedBy>
+  <SkillReqd>Load / Unload</SkillReqd>
+  <ReportTo>LEONARD</ReportTo>
+  <EquipReqd>Boots^Hard Hat</EquipReqd>
+  <Offset>0</Offset>
+  <Duration>1</Duration>
+  <TimeslipsWeekly>true</TimeslipsWeekly>
+  <QtyReqd>2</QtyReqd>
+  <DispatchNote>njmhgh</DispatchNote>
+  <ID_Place>4190</ID_Place>
+  <DailyHrsBeforeOT>8</DailyHrsBeforeOT>
+  <WeeklyHrsBeforeOT>40</WeeklyHrsBeforeOT>
+  <Comments>fghgfh</Comments>
+</Order_Template>
+<OT>
+  <Certificate></Certificate>
+  <DailyHrsBeforeOT>8</DailyHrsBeforeOT>
+  <WeeklyHrsBeforeOT>40</WeeklyHrsBeforeOT>
+  <TimeslipMsg></TimeslipMsg>
+</OT>
+<POReqd>F</POReqd>
+<CC>F</CC>
+<DELQ>F</DELQ>
+<DiscMsg>T</DiscMsg>
+<Note></Note>
+<POUnique>F</POUnique>
+<HideEmpNm>F</HideEmpNm>
+</Customer>
+
+<Order>
+  <Phone>2331600(RENTAL DEPT)</Phone>
+  <PlacedBy>JEFF</PlacedBy>
+  <SkillReqd>_Flagger</SkillReqd>
+  <ReportTo>SUPERVISOR</ReportTo>
+  <EquipReqd>Boots</EquipReqd>
+  <Offset>0</Offset>
+  <Duration>1</Duration>
+  <TimeslipsWeekly>true</TimeslipsWeekly>
+  <QtyReqd>1</QtyReqd>
+  <DispatchNote>25th TO 29th</DispatchNote>
+</Order>
+
+<OrderTimeslip>
+  <Stat>00000352014-08-10</Stat>
+  <Roll>51111141900-01-01</Roll>
+  <Week>2014-08-03^2014-08-09</Week>
+  <IsOneDay>false</IsOneDay>
+  <Place>1359 St. James</Place>
+  <Msg>*********Timeslips to be signed by Supervisors Only*********</Msg>
+  <DispatchNote></DispatchNote>
+  <ReportTo>LISA 772-0322</ReportTo>
+  <Phone>791-2917</Phone>
+  <Dispatcher>Ike 16:22 Aug 07</Dispatcher>
+  <Completer>Ike        16:29 Aug 08</Completer>
+</OrderTimeslip>
+
+</XmlNote>

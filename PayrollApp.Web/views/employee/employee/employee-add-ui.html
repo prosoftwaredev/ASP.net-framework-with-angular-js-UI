@@ -1,0 +1,233 @@
+﻿<div id="content">
+    <div class="row">
+        <a class="btn btn-default hidden-mobile pull-right" data-ui-sref="app.employee.employee"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
+    </div>
+    <!-- widget grid -->
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" class="top-container-border" data-widget-colorbutton="false" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" role="widget">
+                    <div class="widget-body no-padding1">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12" customer-form>
+                                <form ng-submit="addEmployee(Employee)">
+                                    <div class="widget-body">
+                                        <ul id="myTab1" class="nav nav-tabs">
+                                            <li class="active">
+                                                <a href="#personal" data-toggle="tab" aria-expanded="true">Personal Information</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:return void(0);" class="disabled" data-toggle="tab">Labour Classification Information</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:return void(0);" class="disabled" data-toggle="tab">Certificate Information</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:return void(0);" class="disabled" data-toggle="tab" aria-expanded="false">Skills</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:return void(0);" class="disabled" data-toggle="tab" aria-expanded="false">Dissatisfied Customers</a>
+                                            </li>
+                                            <li class="">
+                                                <a href="javascript:return void(0);" class="disabled" data-toggle="tab" aria-expanded="false">Notes Collected</a>
+                                            </li>
+                                        </ul>
+                                        <div id="myTabContent1" class="tab-content padding-10">
+                                            <div class="tab-pane fade active in" id="personal">
+                                                <div class="row">
+                                                    <section class="col-sm-12 col-md-12 col-lg-6 smart-form">
+                                                        <div class="legend">
+                                                            <header>Contact Information</header>
+
+                                                            <div class="row line-height-35">
+                                                                <section class="col col-3">
+                                                                    <b>Name:</b><span class="form-required">&nbsp;*</span>
+                                                                </section>
+                                                                <section class="col col-4 form-group">
+                                                                    <input type="text" class="form-control" name="lastname" data-ng-model="Employee.LastName" required placeholder="Last Name" />
+                                                                </section>
+                                                                <section class="col col-4 form-group">
+                                                                    <input type="text" class="form-control" name="firstname" data-ng-model="Employee.FirstName" required placeholder="First Name" />
+                                                                </section>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <section class="col col-3"><b>Employee Number:</b></section>
+                                                                <section class="col col-4 form-group">
+                                                                    <input type="text" class="form-control" name="employeeno" placeholder="(auto assigned if blank)" data-ng-model="Employee.AccountNo" />
+                                                                </section>
+                                                                <section class="col col-5 form-group">
+                                                                    <label class="checkbox">
+                                                                        <input class="checkbox style-0" name="enable" data-ng-model="Employee.IsEnable" type="checkbox">
+                                                                        <i></i><b>Orientation</b>
+                                                                    </label>
+                                                                </section>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <section class="col col-3"><b>Phone:</b><span class="form-required">&nbsp;*</span></section>
+                                                                <section class="col col-4 form-group">
+                                                                    <input type="text" class="form-control" name="mobile" required data-ng-model="Employee.Phone" maxlength="17" />
+                                                                </section>
+                                                                <section class="col col-2 form-group">
+                                                                    <label class="checkbox">
+                                                                        <input class="checkbox style-0" name="enable" data-ng-model="Employee.IsEnable" type="checkbox">
+                                                                        <i></i><b>Active</b>
+                                                                    </label>
+                                                                </section>
+                                                                <section class="col col-2 form-group">
+                                                                    <label class="checkbox">
+                                                                        <input class="checkbox style-0" name="enable" data-ng-model="Employee.IsNeverUse" type="checkbox">
+                                                                        <i></i><b>Never Use</b>
+                                                                    </label>
+                                                                </section>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <section class="col col-3"><b>Gender:</b><span class="form-required">&nbsp;*</span></section>
+                                                                <section class="col col-4">
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="optradio"><b>Male</b>
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="optradio"><b>Female</b>
+                                                                    </label>
+                                                                    <!--<select name="gender" class="form-control" required ng-model="Employee.Gender">
+                                                                        <option value="" selected="" disabled="">Select</option>
+                                                                        <option value="Male">Male</option>
+                                                                        <option value="Female">Female</option>
+                                                                    </select>-->
+                                                                </section>
+
+                                                            </div>
+                                                            <div class="row">
+                                                                <section class="col col-3"><b>Address Line 1:</b><span class="form-required">&nbsp;*</span></section>
+                                                                <section class="col col-8 form-group">
+                                                                    <input type="text" class="form-control" required name="address1" data-ng-model="Employee.Address1" />
+                                                                </section>
+                                                            </div>
+                                                            <div class="row">
+                                                                <section class="col col-3"><b>Address Line 2:</b></section>
+                                                                <section class="col col-8 form-group">
+                                                                    <input type="text" class="form-control" name="address2" data-ng-model="Employee.Address2" />
+                                                                </section>
+                                                            </div>
+                                                            <div class="row">
+                                                                <section class="col col-3"><b>State / Province:</b><span class="form-required">&nbsp;*</span></section>
+                                                                <section class="col col-6 form-group">
+                                                                    <select name="state" class="form-control" required ng-model="Employee.StateID" ng-options="state.StateID as state.StateName + ' (' + (state.StateCode) + ')' for state in States" ng-change="getCitiesByStateID(Employee.StateID)">
+                                                                        <option value="" selected="" disabled="">Select</option>
+                                                                    </select>
+                                                                </section>
+                                                            </div>
+                                                            <div class="row">
+                                                                <section class="col col-3"><b>City:</b><span class="form-required">&nbsp;*</span></section>
+                                                                <section class="col col-6 form-group">
+                                                                    <select name="city" class="form-control" required ng-model="Employee.CityID" ng-options="city.CityID as city.CityName for city in Cities">
+                                                                        <option value="" selected="" disabled="">Select</option>
+                                                                    </select>
+                                                                </section>
+                                                            </div>
+                                                            <div class="row">
+                                                                <section class="col col-3"><b>Postal / Zip Code:</b><span class="form-required">&nbsp;*</span></section>
+                                                                <section class="col col-6 form-group">
+                                                                    <input type="text" class="form-control" required name="postalcode" data-ng-model="Employee.PostalCode" ng-focus="getZipCode()" />
+                                                                </section>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                    <section class="col-sm-12 col-md-12 col-lg-6 smart-form">
+                                                        <div class="legend">
+                                                            <header>Payroll Information</header>
+                                                            <div class="row line-height-35">
+                                                                <section class="col col-3"><b>Date of Birth:</b><span class="form-required">&nbsp;*</span></section>
+                                                                <section class="col col-3 form-group">
+                                                                    <input type="text" class="form-control" required name="dob" ng-model="Employee.DOB" placeholder="MM/DD/YYYY" dateconvert datepicker />
+                                                                </section>
+                                                                <section class="col col-4">
+                                                                    <label class="checkbox">
+                                                                        <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="Employee.Garnishee" />
+                                                                        <i></i><b>Garnishee</b>
+                                                                    </label>
+                                                                </section>
+                                                            </div>
+                                                            <div class="row">
+                                                                <section class="col col-3"><b>SIN #:</b><span class="form-required">&nbsp;*</span></section>
+                                                                <section class="col col-3 form-group">
+                                                                    <input type="text" class="form-control" name="sin" data-ng-model="Employee.SIN" />
+                                                                </section>
+                                                                <section class="col col-2 form-group">
+                                                                    <input type="text" class="form-control" name="sin" data-ng-model="Employee.SIN" />
+                                                                </section>
+                                                                <section class="col col-4 form-group">
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="optradio"><b>Percentage</b>
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="optradio"><b>Per Week</b>
+                                                                    </label>
+                                                                </section>
+                                                            </div>
+                                                            <div class="row">
+                                                                <section class="col col-3"><b>Withhold (%):</b></section>
+                                                                <section class="col col-3 form-group">
+                                                                    <input type="text" class="form-control" name="withhold" data-ng-model="Employee.Withholding" step="0.01" />
+                                                                </section>
+                                                                <section class="col col-3"></section>
+                                                            </div>
+                                                            <div class="row">
+                                                                <section class="col col-3"><b>Balance Due:</b></section>
+                                                                <section class="col col-3 form-group">
+                                                                    <input type="text" class="form-control" name="withhold" data-ng-model="Employee.Withholding" step="0.01" />
+                                                                </section>
+                                                            </div>
+                                                            <div class="row">
+                                                                <section class="col col-8  label">
+                                                                    <a href="#"><h1><u>Current Transactions</u></h1></a>
+                                                                </section>
+                                                            </div>
+                                                            <div class="row line-height-35">
+                                                                <section class="col col-3"><b>Pay Stubs:</b></section>
+                                                                <section class="col col-3 form-group">
+                                                                    <input type="text" class="form-control" name="paystub" data-ng-model="Employee.PayStubs" placeholder="MM/DD/YYYY" dateconvert datepicker />
+                                                                </section>
+                                                                <section class="col col-2"><button type="button" class="btn btn-primary"><i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;View Stub&nbsp;&nbsp;&nbsp;</button></section>
+
+                                                            </div>
+                                                            <div class="row">
+                                                                <section class="col col-3"><b>Dormant Funds:</b></section>
+                                                                <section class="col col-3 form-group">
+                                                                    <input type="text" class="form-control" name="dormant" data-ng-model="Employee.Dormant" step="0.01" />
+                                                                </section>
+                                                                <section class="col col-2"><button type="button" class="btn btn-primary"><i class="fa fa-undo"></i>&nbsp;&nbsp;&nbsp;Reinstate&nbsp;&nbsp;&nbsp;&nbsp;</button></section>
+                                                            </div>
+                                                            <div class="row">
+                                                                <section class="col col-3"><b>Payment Frequency:</b></section>
+                                                                <section class="col col-3 form-group">
+                                                                    <select name="type" class="form-control" ng-model="Employee.PayFrequencyID" ng-options="freq.PayFrequencyID as freq.PayFrequencyName for freq in PayFrequencies">
+                                                                        <option value="" selected="" disabled="">Select</option>
+                                                                    </select>
+                                                                </section>
+                                                                <section class="col col-2"><button type="button" class="btn btn-primary"><i class="fa fa-certificate"></i>&nbsp;&nbsp;Pay By Check</button></section>
+                                                                <section class="col col-2"><button type="button" class="btn btn-primary"><i class="fa fa-dollar"></i>&nbsp;&nbsp;Pay By Cash&nbsp;</button></section>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!--<br />
+                        <div data-ui-view="site" data-autoscroll="false"></div>-->
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

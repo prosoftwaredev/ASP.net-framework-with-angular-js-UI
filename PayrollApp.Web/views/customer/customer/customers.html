@@ -1,0 +1,190 @@
+<!-- MAIN CONTENT -->
+<div id="content">
+    <!--<div class="row">
+        <a class="btn btn-primary hidden-mobile pull-right" ng-click="OpenAddModal()"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add New Customer</a>
+        <a class="btn btn-primary hidden-mobile pull-right" ui-sref="app.customer.customer.add"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add New Customer</a>
+    </div>-->
+
+
+    <!-- widget grid -->
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" data-widget-color="darken" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Customers </h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding">
+                            <div class="dt-toolbar">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-lg-3">
+                                        <div id="DataTables_Table_1_filter" class="dataTables_filter">
+                                            <label class="control-label">Search anything</label>
+                                            <label>
+                                                <span class="input-group-addon input-sm">
+                                                    <i class="glyphicon glyphicon-search"></i>
+                                                </span>
+                                                <input class="form-control input-sm" placeholder="Search anything" aria-controls="DataTables_Table_1" type="search" ng-model="Search.globalSearch" ng-change="getCustomers()">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-lg-3">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-lg-3">
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 col-lg-1 hidden-xs">
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 col-lg-2">
+                                        <div class="pull-right">
+                                            <label class="control-label">Pagesize</label>
+                                            <label>
+                                                <select class="form-control input-sm" ng-model="pageSize" ng-options="size.PageSize as size.PageSize for size in PageSizes"></select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="display projects-table table table-striped table-bordered table-hover" bind-filters="true" width="100%">
+                                <thead>
+                                    <!--<tr>
+                                        <th>
+                                            <a href="" ng-click="order('CustomerNo')">Customer #</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'CustomerNo'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Name')">Name</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Name'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Contact')">Contact</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Contact'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Email')">Email</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Email'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Phone')">Phone</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Phone'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Mobile')">Mobile</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Mobile'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th width="14%">
+                                            <a href="" ng-click="order('DateCreated')">Date Created</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'DateCreated'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th width="8%">
+                                            <a href="" ng-click="order('IsActive')">IsActive</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'IsActive'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th width="8%">
+                                            <a href="" ng-click="order('Delinquent')">Delinquent</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Delinquent'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            Sites Count
+                                        </th>
+                                        <th width="18%">Actions</th>
+                                    </tr>-->
+
+                                    <tr>                                       
+                                        <th>
+                                            <a href="" ng-click="order('Name')">Name</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Name'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Contact')">Contact</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Contact'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Phone')">Phone</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Phone'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Fax')">Fax</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Fax'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('CustomerNo')">Customer Num</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'CustomerNo'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th width="18%">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--<tr dir-paginate="emp in Customers | date:'yyyy-MM-dd' | itemsPerPage: pageSize | orderBy:predicate:reverse" total-items="totalCustomers" current-page="pagination.current" ng-dblclick="goToDetails(emp.CustomerID)">
+                                        <td>{{emp.AccountNo}}</td>
+                                        <td>{{emp.CustomerName}}  </td>
+                                        <td>{{emp.PrContactName}}</td>
+                                        <td>{{emp.PrEmail}}</td>
+                                        <td>{{emp.PrPhone}}</td>
+                                        <td>{{emp.PrMobile}}</td>
+                                        <td>{{emp.Created | date:'dd-MMM-yyyy hh:mm:ss a'}}</td>
+                                        <td>
+                                            <span class="onoffswitch">
+                                                <input type="checkbox" name="enable{{emp.CustomerID}}" ng-model="emp.IsEnable" class="onoffswitch-checkbox" id="enable{{emp.CustomerID}}" ng-change="editCustomerIsEnable(emp.CustomerID, !emp.IsEnable)">
+                                                <label class="onoffswitch-label" for="enable{{emp.CustomerID}}">
+                                                    <span class="onoffswitch-inner" data-swchon-text="Yes" data-swchoff-text="No"></span>
+                                                    <span class="onoffswitch-switch"></span>
+                                                </label>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="onoffswitch">
+                                                <input type="checkbox" name="delinquent{{emp.CustomerID}}" ng-model="emp.Delinquent" class="onoffswitch-checkbox" id="delinquent{{emp.CustomerID}}" ng-change="editCustomerDelinquent(emp.CustomerID, !emp.Delinquent)">
+                                                <label class="onoffswitch-label" for="delinquent{{emp.CustomerID}}">
+                                                    <span class="onoffswitch-inner" data-swchon-text="Yes" data-swchoff-text="No"></span>
+                                                    <span class="onoffswitch-switch"></span>
+                                                </label>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            {{emp.SitesCount}}
+                                        </td>
+                                        <td>
+                                            <a class="btn-cust" title="Edit Customer" ui-sref="app.customer.customer.edit({id: emp.CustomerID})">   <i class="fa fa-edit"></i> Edit</a>&nbsp;
+                                            <a class="btn-cust" title="View Details of Customer" ui-sref="app.customer.customer.detail({id: emp.CustomerID})">   <i class="fa fa-search"></i> View</a>&nbsp;
+                                            <a class="btn-cust" title="Add Site of Customer" ui-sref="app.customer.customer.sites.add({id : emp.CustomerID})"><i class="fa fa-building-o"></i>&nbsp;&nbsp;Add Site</a>&nbsp;
+                                        </td>
+                                    </tr>-->
+
+                                    <tr dir-paginate="emp in Customers | date:'yyyy-MM-dd' | itemsPerPage: pageSize | orderBy:predicate:reverse" total-items="totalCustomers" current-page="pagination.current" ng-dblclick="goToDetails(emp.CustomerID)">
+                                       
+                                        <td>{{emp.CustomerName}}  </td>
+                                        <td>{{emp.PrContactName}}</td>
+                                        <td>{{emp.PrPhone}}</td>
+                                        <td>{{emp.PrFax}}</td>
+                                        <td>{{emp.AccountNo}}</td>
+                                        <td>
+                                            <a class="btn-cust" title="Edit Customer" ui-sref="app.customer.customer.edit({id: emp.CustomerID})">   <i class="fa fa-edit"></i> Edit</a>&nbsp;
+                                            <a class="btn-cust" title="View Details of Customer" ui-sref="app.customer.customer.detail({id: emp.CustomerID})">   <i class="fa fa-search"></i> View</a>&nbsp;
+                                            <a class="btn-cust" title="Add Site of Customer" ui-sref="app.customer.customer.sites.add({id : emp.CustomerID})"><i class="fa fa-building-o"></i>&nbsp;&nbsp;Add Site</a>&nbsp;
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="dt-toolbar-footer">
+                                <div class="col-sm-6 col-xs-12 hidden-xs">
+                                    <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">Showing total {{totalCustomers}} entries</div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="dataTables_paginate paging_full_numbers"
+                                         id="DataTables_Table_1_paginate">
+                                        <dir-pagination-controls boundary-links="true" on-page-change="pageChanged(newPageNumber)" template-url="../../../partials/layout/pagination.html"></dir-pagination-controls>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+
+
+

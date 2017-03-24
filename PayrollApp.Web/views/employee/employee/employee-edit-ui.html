@@ -1,0 +1,531 @@
+﻿<div id="content">
+    <div class="row">
+        <a class="btn btn-default hidden-mobile pull-right" data-ui-sref="app.employee.employee"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
+    </div>
+    <!-- widget grid -->
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" class="top-container-border" data-widget-colorbutton="false" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" role="widget">
+
+                    <div class="widget-body no-padding1">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12" customer-contact-form>
+                                <div class="widget-body no-padding1">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-12" customer-form>
+                                            <ul id="myTab1" class="nav nav-tabs">
+                                                <li class="active">
+                                                    <a href="#personal" data-toggle="tab" aria-expanded="true">Personal Information</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#labour" data-toggle="tab">Labour Classification Information</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#certificate" data-toggle="tab">Certificate Information</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#skills" data-toggle="tab" aria-expanded="false">Skills</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="#customers" data-toggle="tab" aria-expanded="false">Dissatisfied Customers</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="#notes" data-toggle="tab" aria-expanded="false">Notes Collected</a>
+                                                </li>
+                                            </ul>
+                                            <div id="myTabContent1" class="tab-content padding-10">
+                                                <div class="tab-pane fade active in" id="personal">
+                                                    <form ng-submit="editEmployee(Employee)">
+                                                        <div class="row">
+                                                            <section class="col-sm-12 col-md-12 col-lg-6 smart-form">
+                                                                <div class="legend">
+                                                                    <header>Contact</header>
+                                                                    <div class="row">
+                                                                        <section class="col col-2 label">Name</section>
+                                                                        <section class="col col-5 form-group">
+                                                                            <input type="text" class="form-control" name="lastname" data-ng-model="Employee.LastName" required placeholder="Last Name" ng-disabled="!Employee.IsEnable" />
+                                                                        </section>
+                                                                        <section class="col col-5 form-group">
+                                                                            <input type="text" class="form-control" name="firstname" data-ng-model="Employee.FirstName" required placeholder="First Name" ng-disabled="!Employee.IsEnable" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-2  label">Employee #</section>
+                                                                        <section class="col col-5 form-group">
+                                                                            <input type="text" class="form-control" name="employeeno" data-ng-model="Employee.AccountNo" disabled />
+                                                                        </section>
+                                                                        <section class="col col-5">(auto assigned if blank)</section>
+                                                                    </div>
+                                                                    <div class="row  label">
+                                                                        <section class="col col-2">Phone</section>
+                                                                        <section class="col col-5 form-group">
+                                                                            <input type="text" class="form-control" name="mobile" required data-ng-model="Employee.Phone" ng-disabled="!Employee.IsEnable" maxlength="17" />
+                                                                        </section>
+                                                                        <section class="col col-5 form-group">
+                                                                            <label class="checkbox">
+                                                                                <input class="checkbox style-0" name="enable" data-ng-model="Employee.IsEnable" type="checkbox">
+                                                                                <i></i>Active
+                                                                            </label>
+                                                                        </section>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <section class="col col-2  label">
+                                                                            Gender
+                                                                        </section>
+                                                                        <section class="col col-5">
+                                                                            <select name="gender" class="form-control" ng-model="Employee.Gender" required ng-disabled="!Employee.IsEnable">
+                                                                                <option value="" selected="" disabled="">Select</option>
+                                                                                <option value="Male">Male</option>
+                                                                                <option value="Female">Female</option>
+                                                                            </select>
+                                                                        </section>
+                                                                        <section class="col col-5">
+                                                                            <label class="checkbox">
+                                                                                <input class="checkbox style-0" name="enable" data-ng-model="Employee.IsNeverUse" type="checkbox">
+                                                                                <i></i>Never Use
+                                                                            </label>
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-2  label">
+                                                                            Address
+                                                                        </section>
+                                                                        <section class="col col-10 form-group">
+                                                                            <input type="text" class="form-control" name="address1" required data-ng-model="Employee.Address1" ng-disabled="!Employee.IsEnable" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-2"></section>
+                                                                        <section class="col col-10 form-group">
+                                                                            <input type="text" class="form-control" name="address2" data-ng-model="Employee.Address2" ng-disabled="!Employee.IsEnable" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-2  label">
+                                                                            City/Province
+                                                                        </section>
+                                                                        <section class="col col-5 form-group">
+                                                                            <select name="city" class="form-control" ng-model="Employee.CityID" required ng-options="city.CityID as city.CityName for city in Cities">
+                                                                                <option value="" selected="" disabled="">Select</option>
+                                                                            </select>
+                                                                        </section>
+                                                                        <section class="col col-5 form-group">
+                                                                            <select name="state" class="form-control" ng-model="Employee.StateID" required ng-options="state.StateID as state.StateName + ' (' + (state.StateCode) + ')' for state in States" ng-change="getCitiesByStateID(Employee.StateID)">
+                                                                                <option value="" selected="" disabled="">Select</option>
+                                                                            </select>
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-2  label">Postal Code</section>
+                                                                        <section class="col col-5 form-group">
+                                                                            <input type="text" class="form-control" name="postalcode" required data-ng-model="Employee.PostalCode" ng-focus="getZipCode()" ng-disabled="!Employee.IsEnable" />
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </section>
+                                                            <section class="col-sm-12 col-md-12 col-lg-6 smart-form">
+                                                                <div class="legend">
+                                                                    <header>Payroll</header>
+                                                                    <div class="row">
+                                                                        <section class="col col-3  label">Date of Birth</section>
+                                                                        <section class="col col-5 form-group">
+                                                                            <input type="text" class="form-control" name="dob" ng-model="Employee.DOB" required placeholder="MM/DD/YYYY" dateconvert datepicker ng-disabled="!Employee.IsEnable" />
+                                                                        </section>
+                                                                        <section class="col col-4">
+                                                                            <label class="checkbox">
+                                                                                <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="Employee.Garnishee" ng-disabled="!Employee.IsEnable" />
+                                                                                <i></i>Garnishee
+                                                                            </label>
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3  label">
+                                                                            SIN #
+                                                                        </section>
+                                                                        <section class="col col-5 form-group">
+                                                                            <input type="text" class="form-control" name="sin" required data-ng-model="Employee.SIN" disabled />
+                                                                        </section>
+                                                                        <section class="col col-4"></section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3  label">
+                                                                            Withhold
+                                                                        </section>
+                                                                        <section class="col col-5 form-group">
+                                                                            <input type="text" class="form-control" name="withhold" data-ng-model="Employee.Withholding" step="0.01" />
+                                                                        </section>
+                                                                        <section class="col col-4">%</section>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <section class="col col-12  label">
+                                                                            <a href="#">Current Transactions</a>
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3  label">
+                                                                            Pay Stubs
+                                                                        </section>
+                                                                        <section class="col col-5 form-group">
+                                                                            <input type="text" class="form-control" name="paystub" data-ng-model="Employee.PayStubs" placeholder="MM/DD/YYYY" dateconvert datepicker />
+                                                                        </section>
+                                                                        <section class="col col-4"><button type="button" class="btn btn-success">View</button></section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3  label">
+                                                                            Pay Frequency
+                                                                        </section>
+                                                                        <section class="col col-5 form-group">
+                                                                            <select name="type" class="form-control" ng-model="Employee.PayFrequencyID" ng-options="freq.PayFrequencyID as freq.PayFrequencyName for freq in PayFrequencies">
+                                                                                <option value="" selected="" disabled="">Select</option>
+                                                                            </select>
+                                                                        </section>
+                                                                        <section class="col col-4"></section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3  label">
+                                                                            Dormant Funds
+                                                                        </section>
+                                                                        <section class="col col-5 form-group">
+                                                                            <input type="text" class="form-control" name="dormant" data-ng-model="Employee.Dormant" step="0.01" />
+                                                                        </section>
+                                                                        <section class="col col-4"></section>
+                                                                    </div>
+                                                                </div>
+                                                            </section>
+                                                        </div>
+                                                        <div class="tab-form-action">
+                                                            <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="tab-pane fade" id="labour">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="dualmultiselect">
+                                                                <div class="row">
+                                                                    <section class="col-lg-6 col-md-6 col-sm-6">
+                                                                        <div class="legend">
+                                                                            <h4>Selected Labour Classifications</h4>
+                                                                            <table class="table table-bordered table-striped">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Labour Classifications</th>
+                                                                                        <th class="edit-data">Rate</th>
+                                                                                        <th class="width_25p center">Actions</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr ng-repeat="empLabourClassification in EmployeeLabourClassifications" ng-show="isDisplayLabourClassifications">
+                                                                                        <td class="edit-height">{{empLabourClassification.LabourClassificationName}}</td>
+                                                                                        <td class="edit-data edit-height" ng-click="editRow(empLabourClassification.EmployeeLabourClassificationID)">
+                                                                                            <span ng-show="tempEmployeeLabourClassificationID != empLabourClassification.EmployeeLabourClassificationID">{{empLabourClassification.Rate | number:2}}</span>
+                                                                                            <span ng-show="tempEmployeeLabourClassificationID == empLabourClassification.EmployeeLabourClassificationID">
+                                                                                                <input type="text" class="form-control" data-ng-model="empLabourClassification.Rate" ng-keyup="$event.keyCode == 13 ? editEmployeeLabourClassification(empLabourClassification.EmployeeLabourClassificationID, empLabourClassification.Rate) : null" />
+                                                                                            </span>
+                                                                                        </td>
+                                                                                        <td class="edit-height center">
+                                                                                            <a class="btn-cust" ng-show="tempEmployeeLabourClassificationID == empLabourClassification.EmployeeLabourClassificationID" ng-click="editEmployeeLabourClassification(empLabourClassification.EmployeeLabourClassificationID, empLabourClassification.Rate)"><i class="fa fa-save"></i> Save</a>
+                                                                                            <a class="btn-cust" ng-show="tempEmployeeLabourClassificationID != empLabourClassification.EmployeeLabourClassificationID" ng-click="editRow(empLabourClassification.EmployeeLabourClassificationID)"><i class="fa fa-edit"></i> Edit</a>
+                                                                                            <a class="btn-cust" ng-click="removeEmployeeLabourClassification(empLabourClassification.EmployeeLabourClassificationID)"><i class="fa fa-trash-o"></i> Delete</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </section>
+                                                                    <section class="col-lg-6 col-md-6 col-sm-6">
+                                                                        <div class="legend">
+                                                                            <h4>All Labour Classifications</h4>
+                                                                            <div class="row margin-bottom-10">
+                                                                                <section class="col-lg-12 col-md-12 col-sm-12">
+                                                                                    <input class="form-control" ng-model="searchLabourClassification" ng-change="getFilteredLabourClassifications(searchLabourClassification)" placeholder="Search Labour Classification">
+                                                                                </section>
+                                                                            </div>
+                                                                            <table class="table table-bordered table-striped">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th class="edit-actions">Select</th>
+                                                                                        <th>Available Classifications</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr ng-repeat="LabourClassification in FilteredLabourClassifications">
+                                                                                        <td class="edit-height center">
+                                                                                            <input class="table-checkbox" checked="checked" type="checkbox" ng-checked="ParentCk" ng-model="LabourClassification.IsChecked" ng-change="LabourClassificationChecked(LabourClassification.IsChecked, LabourClassification.LabourClassificationID)">
+                                                                                        </td>
+                                                                                        <td class="edit-height">{{LabourClassification.LabourClassificationName}}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="certificate">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="dualmultiselect">
+                                                                <div class="row">
+                                                                    <section class="col-lg-6 col-md-6 col-sm-6">
+                                                                        <div class="legend">
+                                                                            <h4>Employee Certifications</h4>
+                                                                            <table class="table table-bordered table-striped">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Certifications</th>
+                                                                                        <th class="center">Actions</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr ng-repeat="empCertification in EmployeeCertifications" ng-show="isDisplayCertifications">
+                                                                                        <td class="edit-height">{{empCertification.CertificationName}}</td>
+                                                                                        <td class="edit-height center">
+                                                                                            <a class="btn-cust" ng-click="OpenUploadModal(empCertification.EmployeeCertificationID)"><i class="fa fa-upload"></i> Upload</a>
+                                                                                            <a class="btn-cust" ng-click="editRow(empCertification.EmployeeCertificationID)"><i class="fa fa-envelope"></i> Edit</a>
+                                                                                            <a class="btn-cust" target="_blank" href="{{photoURI}}/Files/Certifications/{{empCertification.Picture}}"><i class="fa fa-eye"></i> Preview</a>
+                                                                                            <a class="btn-cust" ng-click="removeEmployeeCertification(empCertification.EmployeeCertificationID)"><i class="fa fa-trash-o"></i> Delete</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </section>
+                                                                    <section class="col-lg-6 col-md-6 col-sm-6">
+                                                                        <div class="legend">
+                                                                            <h4>All Certifications</h4>
+                                                                            <div class="row margin-bottom-10">
+                                                                                <section class="col-lg-12 col-md-12 col-sm-12">
+                                                                                    <input class="form-control" ng-model="searchCertification" ng-change="getFilteredCertifications(searchCertification)" placeholder="Search Certification">
+                                                                                </section>
+                                                                            </div>
+                                                                            <table class="table table-bordered table-striped">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th class="edit-actions">Select</th>
+                                                                                        <th>Available Certifications</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr ng-repeat="Certification in FilteredCertifications">
+                                                                                        <td class="edit-height center">
+                                                                                            <input class="table-checkbox" checked="checked" type="checkbox" ng-checked="ParentCk" ng-model="Certification.IsChecked" ng-change="CertificationChecked(Certification.IsChecked, Certification.CertificationID)">
+                                                                                        </td>
+                                                                                        <td class="edit-height">{{Certification.CertificationName}}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="skills">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="dualmultiselect">
+                                                                <div class="row">
+                                                                    <section class="col-lg-6 col-md-6 col-sm-6">
+                                                                        <div class="legend">
+                                                                            <h4>Selected Skills</h4>
+                                                                            <table class="table table-bordered table-striped">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Name</th>
+                                                                                        <th class="width_25p center">Actions</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr ng-repeat="empSkill in EmployeeSkills" ng-show="isDisplaySkills">
+                                                                                        <td class="edit-height">{{empSkill.SkillName}}</td>
+                                                                                        <td class="edit-height center   ">
+                                                                                            <a class="btn-cust" ng-click="removeEmployeeSkill(empSkill.EmployeeSkillID)"><i class="fa fa-trash-o"></i> Delete</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </section>
+                                                                    <section class="col-lg-6 col-md-6 col-sm-6">
+                                                                        <div class="legend">
+                                                                            <h4>All Skills</h4>
+                                                                            <div class="row margin-bottom-10">
+                                                                                <section class="col-lg-12 col-md-12 col-sm-12">
+                                                                                    <input class="form-control" ng-model="searchSkill" ng-change="getFilteredSkills(searchSkill)" placeholder="Search Skill">
+                                                                                </section>
+                                                                            </div>
+                                                                            <table class="table table-bordered table-striped">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th class="edit-actions">Select</th>
+                                                                                        <th>Available Skills</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr ng-repeat="Skill in FilteredSkills">
+                                                                                        <td class="edit-height center">
+                                                                                            <input class="table-checkbox" checked="checked" type="checkbox" ng-checked="ParentCk" ng-model="Skill.IsChecked" ng-change="SkillChecked(Skill.IsChecked, Skill.SkillID)">
+                                                                                        </td>
+                                                                                        <td class="edit-height">{{Skill.SkillName}}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="customers">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="dualmultiselect">
+                                                                <div class="row">
+                                                                    <section class="col-lg-6 col-md-6 col-sm-6">
+                                                                        <div class="legend">
+                                                                            <h4>Do Not Dispatch To</h4>
+                                                                            <table class="table table-bordered table-striped">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Customer Name</th>
+                                                                                        <th class="width_25p center">Actions</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr ng-repeat="empBlacklist in EmployeeBlacklists" ng-show="isDisplayBlacklists">
+                                                                                        <td class="edit-height">{{empBlacklist.CustomerName}}</td>
+                                                                                        <td class="edit-height center">
+                                                                                            <a class="btn-cust" ng-click="removeEmployeeBlacklist(empBlacklist.EmployeeBlacklistID)"><i class="fa fa-trash-o"></i> Delete</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </section>
+                                                                    <section class="col-lg-6 col-md-6 col-sm-6">
+                                                                        <div class="legend">
+                                                                            <h4>Customers List</h4>
+                                                                            <div class="row margin-bottom-10">
+                                                                                <section class="col-lg-12 col-md-12 col-sm-12">
+                                                                                    <input class="form-control" ng-model="searchCustomer" ng-change="getFilteredCustomers(searchCustomer)" placeholder="Search Customer">
+                                                                                </section>
+                                                                            </div>
+                                                                            <table class="table table-bordered table-striped">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th class="edit-actions">Select</th>
+                                                                                        <th>Customer Name</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr ng-repeat="Customer in FilteredCustomers">
+                                                                                        <td class="edit-height center">
+                                                                                            <input class="table-checkbox" checked="checked" type="checkbox" ng-checked="ParentCk" ng-model="Customer.IsChecked" ng-change="CustomerChecked(Customer.IsChecked, Customer.CustomerID)">
+                                                                                        </td>
+                                                                                        <td class="edit-height">{{Customer.CustomerName}}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="tab-pane" id="notes">
+                                                    <form ng-submit="addEmployeeNote(EmployeeNote)">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <section class="form-group">
+                                                                    <label class="control-label">Note</label>
+                                                                    <input type="text" class="form-control" name="note" data-ng-model="EmployeeNote.Note" rows="3" />
+                                                                </section>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-form-action">
+                                                            <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                                        </div>
+                                                    </form>
+                                                    <hr class="hr-dark" />
+                                                    <div class="row">
+                                                        <div class="col-lg-12" ng-repeat="empNote in EmployeeNotes">
+                                                            <div style="font-size:14px; padding:15px;width:100%;background-color:#f5f5f5;margin-bottom:5px;">
+                                                                <p>
+                                                                    {{empNote.Note}}<br />
+                                                                    <span>
+                                                                        <strong>
+                                                                            By {{empNote.CreatedBy}} on {{empNote.Created | date:'dd-MMM-yyyy hh:mm:ss a'}}
+                                                                        </strong>
+                                                                    </span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div data-ui-view="site" data-autoscroll="false"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+
+<script type="text/ng-template" id="uploadFileModal.html">
+    <div class="modal-header modal-header-color">
+        <button type="button" class="close" ng-click="CloseModal()">
+            &times;
+        </button>
+        <h4 class="modal-title">
+            Upload Certification Image
+        </h4>
+    </div>
+    <div class="modal-body no-padding">
+        <form ng-submit="uploadCertificationImage()" class="smart-form client-form">
+            <fieldset>
+                <div class="row">
+                    <div class="col-lg-12 center">
+                        <img ng-if="Picture != ''" ngf-src="Picture" src="{{photoURI}}/Files/Certifications/{{Picture}}" class="img-border" style="width:100%; height:100%">
+                        <img ng-if="Picture == null" src="styles/img/avatars/male.png" class="img-border" style="width:100%; height:100%">
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="fileUpload btn btn-danger">
+                            <span>Click To Choose Image</span>
+                            <input type="file" class="upload" ngf-select="selectedFile($files)" ng-model="Picture" name="HttpPicture" accept="image/*">
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <div class="row">
+                        <div class="col col-4">
+                            &nbsp;
+                        </div>
+                        <div class="col col-8 pull-right">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Upload</button>
+                        </div>
+                    </div>
+                </footer>
+            </fieldset>
+        </form>
+    </div>
+</script>

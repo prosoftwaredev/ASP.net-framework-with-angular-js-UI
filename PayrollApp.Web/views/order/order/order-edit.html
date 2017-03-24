@@ -1,0 +1,259 @@
+﻿<div id="content">
+    <div class="row">
+        <a class="btn btn-default hidden-mobile pull-right" data-ui-sref="app.order.order"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
+    </div>
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" data-widget-color="darken" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Edit Order </h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding1">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12" order-form>
+                                    <form ng-submit="editOrder(Order)" class="smart-form client-form">
+                                        <div class="row">
+                                            <div class="col-lg-3 select-position">
+                                                <section class="form-group">
+                                                    <label class="control-label">Customer Name</label>
+                                                    <select name="customername" class="form-control" ng-model="Order.CustomerID" ng-options="cust.CustomerID as cust.CustomerName for cust in Customers" ng-change="getAllCustomerSitesByCustomerID(Order.CustomerID)">
+                                                        <option value="">Choose</option>
+                                                    </select>
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <section class="form-group">
+                                                    <label class="control-label">Company Name</label>
+                                                    <input type="text" class="form-control" name="companyname" data-ng-model="Order.CompanyName" disabled />
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-3 select-position">
+                                                <section class="form-group">
+                                                    <label class="control-label">Site Location</label>
+                                                    <select name="customersite" class="form-control" ng-model="Order.CustomerSiteID" ng-options="site.CustomerSiteID as site.SiteName for site in CustomerSites" ng-change="getCustomerSiteByID(Order.CustomerSiteID)">
+                                                        <option value="">Choose</option>
+                                                    </select>
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <section class="form-group">
+                                                    <label class="control-label">Site Description</label>
+                                                    <input type="text" class="form-control" name="description" data-ng-model="Order.SiteDescription" />
+                                                </section>
+                                            </div>                                               
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <section class="form-group">
+                                                    <label class="control-label">Account #</label>
+                                                    <input type="text" class="form-control" name="account" data-ng-model="Order.AccountNo" disabled />
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <section class="form-group">
+                                                    <label class="control-label">Requested By (Contact Name)</label>
+                                                    <input type="text" class="form-control" name="requested" data-ng-model="Order.ContactName" />
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <section class="form-group">
+                                                    <label class="control-label">Phone Number</label>
+                                                    <input type="text" class="form-control" name="phone" data-ng-model="Order.Phone" maxlength="17" />
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <section class="form-group">
+                                                    <label class="control-label">Number of People Required</label>
+                                                    <input type="number" class="form-control" name="people" data-ng-model="Order.People" min="0" max="1000" value="0" />
+                                                </section>
+                                            </div>                                           
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <section class="form-group">
+                                                    <label class="control-label">PO #</label>
+                                                    <input type="text" class="form-control" name="ponumer" data-ng-model="Order.PONumber" />
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Work Starts</label>
+                                                            <input class="form-control" type="text" name="workstart" ng-model="Order.WorkStartRsv" placeholder="MM/DD/YYYY" dateconvert datepicker />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Choose Time</label>
+                                                            <input class="form-control" data-smart-clockpicker type="text" name="starttime" placeholder="Select time" data-autoclose="true" ng-model="Order.StartTimeRsv">
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 select-position">
+                                                <section class="form-group">
+                                                    <label class="control-label">Labour Classification</label>
+                                                    <select name="labourclassification" class="form-control" ng-model="Order.LabourClassificationID" ng-options="lc.LabourClassificationID as lc.LabourClassificationName for lc in LabourClassifications">
+                                                        <option value="">Choose</option>
+                                                    </select>
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <section class="form-group">
+                                                    <label class="control-label">Reporting To</label>
+                                                    <input type="text" class="form-control" name="reporting" data-ng-model="Order.Reporting" />
+                                                </section>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-3" ng-show="!isDisplayJobLocations && Order.CustomerSiteJobLocationID < 0">
+                                                <section class="form-group">
+                                                    <label class="control-label">Job Location</label>
+                                                    <input class="form-control" type="text" name="joblocation" ng-model="Order.JobLocation" />
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-3" ng-show="!isDisplayJobLocations && Order.CustomerSiteJobLocationID >= 0">
+                                                <div class="row">
+                                                    <div class="col-lg-9">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Job Location</label>
+                                                            <input class="form-control" type="text" name="joblocation" ng-model="Order.JobLocation" />
+                                                            <p class="label label-info label-custom-margin">Press "List" button to view all job location for selected site</p>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group pull-right">
+                                                            <br />
+                                                            <button type="button" class="btn btn-info" style="margin-top:5px;" ng-click="showList()">List</button>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 select-position" ng-show="isDisplayJobLocations">
+                                                <div class="row">
+                                                    <div class="col-lg-9">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Job Location</label>
+                                                            <select name="customersite" class="form-control" ng-model="Order.CustomerSiteJobLocationID" ng-options="location.CustomerSiteJobLocationID as location.JobLocation for location in CustomerSiteJobLocations" ng-change="getCustomerSiteJobLocationByID(Order.CustomerSiteJobLocationID)">
+                                                                <option value="">Choose</option>
+                                                            </select>
+                                                            <p class="label label-info label-custom-margin">Press "Add" button to add new job location for selected site</p>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group pull-right">
+                                                            <br />
+                                                            <button type="button" class="btn btn-info" style="margin-top:5px;" ng-click="addNewJob()">Add</button>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <section class="form-group">
+                                                    <label class="control-label">Job Address</label>
+                                                    <input type="text" class="form-control" name="jobaddress" data-ng-model="Order.JobAddress" />
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <section class="form-group">
+                                                    <label class="control-label">Job Note</label>
+                                                    <input type="text" class="form-control" name="jobnote" data-ng-model="Order.JobNote" />
+                                                </section>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <section class="form-group">
+                                                    <label class="control-label">Comment</label>
+                                                    <input type="text" class="form-control" name="comment" data-ng-model="Order.Comment" />
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <section class="form-group">
+                                                    <label class="control-label">Dispatch Note (Not printed on timesheet)</label>
+                                                    <input type="text" class="form-control" name="dispatch" data-ng-model="Order.DispatchNote" />
+                                                </section>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <section class="form-group">
+                                                    <div class="col-lg-12">
+                                                        <label class="control-label pull-left">Job Duration</label>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <label class="radio"><input name="radio" checked="checked" type="radio" ng-model="Order.JobDuration" value="1"><i></i>One Day</label>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <label class="radio"><input name="radio" checked="checked" type="radio" ng-model="Order.JobDuration" value="2"><i></i>Weekly</label>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <section class="form-group">
+                                                            <label class="control-label">No overtime before</label>
+                                                            <input type="tel" class="form-control" name="otperday" data-ng-model="Order.OTPerDay" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <br />
+                                                        <label class="control-label" style="margin-top:10px;">/ hours per day</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <section class="form-group">
+                                                            <label class="control-label">No overtime before</label>
+                                                            <input type="tel" class="form-control" name="otperweek" data-ng-model="Order.OTPerWeek" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <br />
+                                                        <label class="control-label" style="margin-top:10px;">/ hours per week</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <section class="form-group">
+                                                    <label class="label">Equipments</label>
+                                                    <div class="col-lg-3" ng-repeat="equipment in Equipments">
+                                                        <label class="checkbox"><input name="checkbox" type="checkbox" ng-model="equipment.Flag" ng-change="IsEquipmentChecked(equipment.Flag, equipment.EquipmentID)"><i></i>{{equipment.EquipmentName}}</label>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                &nbsp;
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <a class="btn btn-primary pull-right btn-margin-left" ui-sref="app.order.order.timeslip({id: Order.OrderID})"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Timeslip</a>
+                                                <button type="submit" class="btn btn-success pull-right"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

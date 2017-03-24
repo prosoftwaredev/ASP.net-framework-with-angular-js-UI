@@ -1,0 +1,213 @@
+<!-- MAIN CONTENT -->
+<div id="content">
+    <!--<div class="row">
+        <a class="btn btn-primary hidden-mobile pull-right" ui-sref="app.employee.employee.add"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add New Employee</a>
+    </div>-->
+
+    <!-- widget grid -->
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" data-widget-color="darken" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>EMPLOYEES</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding">
+                            <div class="dt-toolbar">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-lg-3">
+                                        <div id="DataTables_Table_1_filter" class="dataTables_filter">
+                                            <label class="control-label">Search anything</label>
+                                            <label>
+                                                <span class="input-group-addon input-sm">
+                                                    <i class="glyphicon glyphicon-search"></i>
+                                                </span>
+                                                <input class="form-control input-sm" placeholder="Search anything" aria-controls="DataTables_Table_1" type="search" ng-model="Search.globalSearch" ng-change="getEmployees()">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-lg-3">
+                                        <div id="DataTables_Table_1_filter">
+                                            <label class="control-label">Search by Skill</label>
+                                            <label>
+                                                <select name="type" class="form-control input-sm" aria-controls="DataTables_Table_1" ng-model="Search.SkillID" ng-options="skill.SkillID as skill.SkillName for skill in Skills" ng-change="getEmployees()">
+                                                    <option value="">---Choose---</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-lg-3">
+                                        <div id="DataTables_Table_1_filter">
+                                            <label class="control-label">Search by Certification</label>
+                                            <label>
+                                                <select name="type" class="form-control input-sm" aria-controls="DataTables_Table_1" ng-model="Search.CertificationID" ng-options="cert.CertificationID as cert.CertificationName for cert in Certifications" ng-change="getEmployees()">
+                                                    <option value="">---Choose---</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 col-lg-1 hidden-xs">
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 col-lg-2">
+                                        <div class="pull-right">
+                                            <label class="control-label">Pagesize</label>
+                                            <label>
+                                                <select class="form-control input-sm" ng-model="pageSize" ng-options="size.PageSize as size.PageSize for size in PageSizes">
+                                                </select>
+                                            </label>
+                                        </div>
+                                        <!--<div class="pull-right" id="DataTables_Table_1_length">
+                                            <button class="btn btn-success" ng-click="getEmployees()"><i class="fa fa-search"></i>&nbsp;Search</button>
+                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="display projects-table table table-striped table-bordered table-hover" bind-filters="true" width="100%">
+                                <thead>
+                                    <!--<tr>
+                                        <th>
+                                            <a href="" ng-click="order('EmployeeNo')">Employee #</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'EmployeeNo'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Name')">Name</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Name'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Email')">Email</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Email'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Phone')">Phone</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Phone'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th width="14%">
+                                            <a href="" ng-click="order('DateCreated')">Date Created</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'DateCreated'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th width="8%">
+                                            <a href="" ng-click="order('IsActive')">IsActive</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'IsActive'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th width="8%">
+                                            <a href="" ng-click="order('IsNeverUse')">IsNeverUse</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'IsNeverUse'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th width="11%">Actions</th>
+                                    </tr>-->
+
+                                    <tr>
+                                        <th>
+                                            <a href="" ng-click="order('EmployeeNo')">Employee #</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'EmployeeNo'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Name')">Name</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Name'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Phone')">Phone</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Phone'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('NAC')">NAC List</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'NAC'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Notes')">Notes</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Notes'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th width="8%">
+                                            <a href="" ng-click="order('IsActive')">IsActive</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'IsActive'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th width="8%">
+                                            <a href="" ng-click="order('Orientation')">Orientation</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Orientation'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th width="11%">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--<tr dir-paginate="emp in Employees | date:'yyyy-MM-dd' | itemsPerPage: pageSize | orderBy:predicate:reverse" total-items="totalEmployees" current-page="pagination.current" ng-dblclick="goToDetails(emp.EmployeeID)">
+                                        <td>{{emp.AccountNo}}</td>
+                                        <td>{{emp.PrintName}}  </td>
+                                        <td>{{emp.EmailMain}}</td>
+                                        <td>{{emp.Phone}}</td>
+                                        <td>{{emp.Created | date:'dd-MMM-yyyy hh:mm:ss a'}}</td>
+                                        <td>
+                                            <span class="onoffswitch">
+                                                <input type="checkbox" name="enable{{emp.EmployeeID}}" ng-model="emp.IsEnable" class="onoffswitch-checkbox" id="enable{{emp.EmployeeID}}" ng-change="editEmployeeIsEnable(emp.EmployeeID, !emp.IsEnable)">
+                                                <label class="onoffswitch-label" for="enable{{emp.EmployeeID}}">
+                                                    <span class="onoffswitch-inner" data-swchon-text="Yes" data-swchoff-text="No"></span>
+                                                    <span class="onoffswitch-switch"></span>
+                                                </label>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="onoffswitch">
+                                                <input type="checkbox" name="neveruse{{emp.EmployeeID}}" ng-model="emp.IsNeverUse" class="onoffswitch-checkbox" id="neveruse{{emp.EmployeeID}}" ng-change="editEmployeeIsNeverUse(emp.EmployeeID, !emp.IsNeverUse)">
+                                                <label class="onoffswitch-label" for="neveruse{{emp.EmployeeID}}">
+                                                    <span class="onoffswitch-inner" data-swchon-text="Yes" data-swchoff-text="No"></span>
+                                                    <span class="onoffswitch-switch"></span>
+                                                </label>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <a class="btn-cust" title="Edit Employee" ui-sref="app.employee.employee.edit({id: emp.EmployeeID})">   <i class="fa fa-edit"></i> Edit</a>&nbsp;
+                                            <a class="btn-cust" title="View Details of Employee" ui-sref="app.employee.employee.detail({id: emp.EmployeeID})">   <i class="fa fa-search"></i> View</a>&nbsp;
+                                        </td>
+                                    </tr>-->
+
+                                    <tr dir-paginate="emp in Employees | date:'yyyy-MM-dd' | itemsPerPage: pageSize | orderBy:predicate:reverse" total-items="totalEmployees" current-page="pagination.current" ng-dblclick="goToDetails(emp.EmployeeID)">
+                                        <td>{{emp.AccountNo}}</td>
+                                        <td>{{emp.PrintName}}  </td>
+                                        <td>{{emp.Phone}}</td>
+                                        <td>{{emp.NACList}}</td>
+                                        <td>{{emp.Notes}}</td>
+                                        <td>
+                                            <span class="onoffswitch">
+                                                <input type="checkbox" name="enable{{emp.EmployeeID}}" ng-model="emp.IsEnable" class="onoffswitch-checkbox" id="enable{{emp.EmployeeID}}" ng-change="editEmployeeIsEnable(emp.EmployeeID, !emp.IsEnable)">
+                                                <label class="onoffswitch-label" for="enable{{emp.EmployeeID}}">
+                                                    <span class="onoffswitch-inner" data-swchon-text="Yes" data-swchoff-text="No"></span>
+                                                    <span class="onoffswitch-switch"></span>
+                                                </label>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="onoffswitch">
+                                                <input type="checkbox" name="neveruse{{emp.EmployeeID}}" ng-model="emp.IsNeverUse" class="onoffswitch-checkbox" id="neveruse{{emp.EmployeeID}}" ng-change="editEmployeeIsNeverUse(emp.EmployeeID, !emp.IsNeverUse)">
+                                                <label class="onoffswitch-label" for="neveruse{{emp.EmployeeID}}">
+                                                    <span class="onoffswitch-inner" data-swchon-text="Yes" data-swchoff-text="No"></span>
+                                                    <span class="onoffswitch-switch"></span>
+                                                </label>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <a class="btn-cust" title="Edit Employee" ui-sref="app.employee.employee.edit({id: emp.EmployeeID})">   <i class="fa fa-edit"></i> Edit</a>&nbsp;
+                                            <a class="btn-cust" title="View Details of Employee" ui-sref="app.employee.employee.detail({id: emp.EmployeeID})">   <i class="fa fa-search"></i> View</a>&nbsp;
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="dt-toolbar-footer">
+                                <div class="col-sm-6 col-xs-12 hidden-xs">
+                                    <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">Showing total {{totalEmployees}} entries</div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="dataTables_paginate paging_full_numbers"
+                                         id="DataTables_Table_1_paginate">
+                                        <dir-pagination-controls boundary-links="true" on-page-change="pageChanged(newPageNumber)" template-url="../../../partials/layout/pagination.html"></dir-pagination-controls>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

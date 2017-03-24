@@ -1,0 +1,225 @@
+﻿<div id="content">
+    <div class="row">
+        <a class="btn btn-default hidden-mobile pull-right" data-ui-sref="app.employee.employee"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
+    </div>
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" data-widget-color="darken" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>ADD NEW EMPLOYEE</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding1">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <ul id="myTab1" class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#s1" data-toggle="tab">PERSONAL INFORMATION</a>
+                                        </li>
+                                        <li id="s22">
+                                            <a href="#s2" class="not-allowed">PAYROLL INFORMATION</a>
+                                        </li>
+                                        <li id="s33">
+                                            <a href="#s3" class="not-allowed">LABOUR CLASSIFICATION INFORMATION</a>
+                                        </li>
+                                        <li id="s44">
+                                            <a href="#s4" class="not-allowed">CERTIFICATE INFORMATION</a>
+                                        </li>
+                                        <li id="s55">
+                                            <a href="#s5" class="not-allowed">SKILL INFORMATION</a>
+                                        </li>
+                                        <li id="s66">
+                                            <a href="#s6" class="not-allowed">BACKLIST INFORMATION</a>
+                                        </li>
+                                        <li id="s77">
+                                            <a href="#s7" class="not-allowed">NOTES COLLECTED</a>
+                                        </li>
+                                    </ul>
+
+                                    <div id="myTabContent1" class="tab-content padding-10">
+                                        <div class="tab-pane fade in active" id="s1" personal-form>
+                                            <form ng-submit="addEmployee(Employee)">
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">First Name</label>
+                                                            <input type="text" class="form-control" name="firstname" data-ng-model="Employee.FirstName" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Middle Initial</label>
+                                                            <input type="text" class="form-control" name="middlename" data-ng-model="Employee.MiddleName" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Last Name</label>
+                                                            <input type="text" class="form-control" name="lastname" data-ng-model="Employee.LastName" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Print Name As</label>
+                                                            <input type="text" class="form-control" name="printname" data-ng-model="Employee.PrintName" ng-value="Employee.PrintName = Employee.FirstName + ' ' + Employee.MiddleName + ' ' + Employee.LastName" />
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">SIN #</label>
+                                                            <input type="text" class="form-control" name="sin" data-ng-model="Employee.SIN" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3 select-position">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Gender</label>
+                                                            <select name="gender" class="form-control" ng-model="Employee.Gender" ng-change="getAllTitleByGender(Employee.Gender)">
+                                                                <option value="">Choose</option>
+                                                                <option value="Male">Male</option>
+                                                                <option value="Female">Female</option>
+                                                            </select>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3 select-position">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Title of Courtesy</label>
+                                                            <select name="initial" class="form-control" ng-model="Employee.TitleID" ng-options="title.TitleID as title.TitleName for title in SelectedTitles">
+                                                                <option value="">Choose</option>
+                                                            </select>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Date of Birth</label>
+                                                            <input type="text" class="form-control" name="dob" ng-model="Employee.DOB" placeholder="MM/DD/YYYY" dateconvert />
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Home Number</label>
+                                                            <input type="tel" class="form-control" name="phone" data-ng-model="Employee.Phone" maxlength="17" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Mobile Number</label>
+                                                            <input type="text" class="form-control" name="mobile" data-ng-model="Employee.Mobile" maxlength="17" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Email</label>
+                                                            <input type="email" class="form-control" name="email" data-ng-model="Employee.EmailMain" />
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Address Line 1</label>
+                                                            <input type="text" class="form-control" name="address1" data-ng-model="Employee.Address1" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Address Line 2</label>
+                                                            <input type="text" class="form-control" name="address2" data-ng-model="Employee.Address2" />
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3 select-position">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Country</label>
+                                                            <select name="country" class="form-control" ng-model="Employee.CountryID" ng-options="country.CountryID as country.CountryName + ' (' + (country.CountryCode) + ')' for country in Countries" ng-change="getStatesByCountryID(Employee.CountryID)" ng-focus="getAllCountries()" disabled>
+                                                                <option value="">Choose</option>
+                                                            </select>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3 select-position">
+                                                        <section class="form-group">
+                                                            <label class="control-label">State, Region or Province</label>
+                                                            <select name="state" class="form-control" ng-model="Employee.StateID" ng-options="state.StateID as state.StateName + ' (' + (state.StateCode) + ')' for state in States" ng-change="getCitiesByStateID(Employee.StateID)" disabled>
+                                                                <option value="">Choose</option>
+                                                            </select>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3 select-position">
+                                                        <section class="form-group">
+                                                            <label class="control-label">City, Town or Suberb</label>
+                                                            <select name="city" class="form-control" ng-model="Employee.CityID" ng-options="city.CityID as city.CityName for city in Cities" disabled>
+                                                                <option value="">Choose</option>
+                                                            </select>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Postal code</label>
+                                                            <input type="text" class="form-control" name="postalcode" data-ng-model="Employee.PostalCode" ng-focus="getZipCode()" />
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                 <div class="form-actions">
+                                                        <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                                 </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+
+
+<script type="text/ng-template" id="uploadFileModal.html">
+    <div class="modal-header modal-header-color">
+        <button type="button" class="close" ng-click="CloseModal()">
+            &times;
+        </button>
+        <h4 class="modal-title">
+            Upload Certification Image
+        </h4>
+    </div>
+    <div class="modal-body no-padding">
+        <form ng-submit="uploadCertificationImage()" class="smart-form client-form">
+            <fieldset>
+                <div class="row">
+                    <div class="col-lg-12 center">
+                        <img ng-if="Picture != ''" ngf-src="Picture" src="{{photoURI}}/Files/Certifications/{{Picture}}" class="img-border" style="width:100%; height:100%">
+                        <img ng-if="Picture == null" src="styles/img/avatars/male.png" class="img-border" style="width:100%; height:100%">
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="fileUpload btn btn-danger">
+                            <span>Click To Choose Image</span>
+                            <input type="file" class="upload" ngf-select="selectedFile($files)" ng-model="Picture" name="HttpPicture" accept="image/*">
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <div class="row">
+                        <div class="col col-4">
+                            &nbsp;
+                        </div>
+                        <div class="col col-8 pull-right">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Upload</button>
+                        </div>
+                    </div>
+                </footer>
+            </fieldset>
+        </form>
+    </div>
+</script>

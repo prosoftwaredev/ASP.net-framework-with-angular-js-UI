@@ -1,0 +1,162 @@
+﻿<!-- MAIN CONTENT -->
+<div id="content">
+    <!-- widget grid -->
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" data-widget-color="darken" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Timeslips </h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding">
+                            <div class="dt-toolbar">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-lg-3">
+                                        <div id="DataTables_Table_1_filter" class="dataTables_filter">
+                                            <label class="control-label">Search anything</label>
+                                            <label>
+                                                <span class="input-group-addon input-sm">
+                                                    <i class="glyphicon glyphicon-search"></i>
+                                                </span>
+                                                <input class="form-control input-sm" placeholder="Search anything" aria-controls="DataTables_Table_1" type="search" ng-model="Search.globalSearch" ng-change="getOrderTimeslips()">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-lg-2">
+                                        <div id="DataTables_Table_1_filter">
+                                            <label class="control-label">Search by Customer</label>
+                                            <label>
+                                                <select name="type" class="form-control input-sm" aria-controls="DataTables_Table_1" ng-model="Search.CustomerID" ng-options="customer.CustomerID as customer.CustomerName for customer in Customers" ng-change="getAllEmployeesByCustomerID(Search.CustomerID)">
+                                                    <option value="">---Choose---</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-lg-2">
+                                        <div id="DataTables_Table_1_filter">
+                                            <label class="control-label">Search by Employee</label>
+                                            <label>
+                                                <select name="type" class="form-control input-sm" aria-controls="DataTables_Table_1" ng-model="Search.EmployeeID" ng-options="emp.EmployeeID as emp.EmployeeName for emp in Employees" ng-change="getOrderTimeslips()">
+                                                    <option value="">---Choose---</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 col-lg-3">
+                                        <label class="control-label">Dates</label>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <input class="form-control" type="text" name="workstart" ng-model="Search.WorkStartRsv" placeholder="MM/DD/YYYY" dateconvert datepicker ng-keyup="$event.keyCode == 13 ? getOrderTimeslips() : null" />
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <input class="form-control" type="text" name="workstart" ng-model="Search.WorkEndRsv" placeholder="MM/DD/YYYY" dateconvert datepicker ng-keyup="$event.keyCode == 13 ? getOrderTimeslips() : null" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 col-lg-2">
+                                        <div class="pull-right">
+                                            <label class="control-label">Pagesize</label>
+                                            <label>
+                                                <select class="form-control input-sm" ng-model="pageSize" ng-options="size.PageSize as size.PageSize for size in PageSizes"></select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table class="display projects-table table table-striped table-bordered table-hover" bind-filters="true" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <a href="" ng-click="order('StartDate')">Start Date</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'StartDate'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Name')">Customer Name</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Name'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('TimeslipID')">Timeslip</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'TimeslipID'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Employee')">Employee Name</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Employee'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('StartTime')">Start Time</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'StartTime'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Report')">Report To</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Report'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Site')">Location</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Site'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('Classification')">Labour Classification</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Classification'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+
+                                      
+                                        <th>
+                                            <a href="" ng-click="order('Comments')">Comments</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Comments'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th>
+                                            <a href="" ng-click="order('State')">State</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'State'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        
+                                        <th>
+                                            <a href="" ng-click="order('Overdue')">Overdue</a>
+                                            <span class="sortorder pull-right" ng-show="predicate === 'Overdue'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th width="14%">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr dir-paginate="emp in OrderTimeslips | date:'yyyy-MM-dd' | itemsPerPage: pageSize | orderBy:predicate:reverse" total-items="totalOrderTimeslips" current-page="pagination.current" ng-dblclick="goToDetails(emp.OrderID)">
+                                        <td>{{emp.WorkStartRsv| date:'dd-MMM-yyyy'}}</td>
+                                        <td>{{emp.CustomerName}}  </td>
+                                        <td>{{emp.OrderTimeslipID}}  </td>
+                                        <td>{{emp.EmployeeName}}</td>
+                                        <td>{{emp.StartTimeRsv}}</td>
+                                        <td>{{emp.Reporting}}</td>
+                                        <td>{{emp.JobLocation}}</td>
+                                        <td>{{emp.LabourClassificationName}}</td>
+                                        <td>{{emp.Comment}}</td>
+                                        <td>{{emp.BillState}}</td>
+                                        <td>{{emp.Overdue}}</td>
+                                        <td>
+                                            <a class="btn-cust" title="View Details of Order" ui-sref="app.order.order.detail({id: emp.OrderID})">   <i class="fa fa-search"></i> View</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="dt-toolbar-footer">
+                                <div class="col-sm-6 col-xs-12 hidden-xs">
+                                    <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">Showing total {{totalOrderTimeslips}} entries</div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="dataTables_paginate paging_full_numbers"
+                                         id="DataTables_Table_1_paginate">
+                                        <dir-pagination-controls boundary-links="true" on-page-change="pageChanged(newPageNumber)" template-url="../../../partials/layout/pagination.html"></dir-pagination-controls>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+
+
+

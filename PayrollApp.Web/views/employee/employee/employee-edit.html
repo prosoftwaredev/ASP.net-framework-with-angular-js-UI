@@ -1,0 +1,616 @@
+﻿<div id="content">
+    <div class="row">
+        <a class="btn btn-default hidden-mobile pull-right" data-ui-sref="app.employee.employee"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
+    </div>
+    <!-- widget grid -->
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" data-widget-color="darken" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Edit Employee </h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding1">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <ul id="myTab1" class="nav nav-tabs">
+                                        <li id="s11" class="active">
+                                            <a href="#s1" data-toggle="tab" ng-click="getAllCountries()">Personal Information</a>
+                                        </li>
+                                        <li id="s22">
+                                            <a href="#s2" data-toggle="tab" ng-click="getAllPayFrequencies()">Payroll Information</a>
+                                        </li>
+                                        <li id="s33">
+                                            <a href="#s3" data-toggle="tab" ng-click="getAllLabourClassifications()">Labour Classification Information</a>
+                                        </li>
+                                        <li id="s44">
+                                            <a href="#s4" data-toggle="tab" ng-click="getAllCertifications()">Certificate Information</a>
+                                        </li>
+                                        <li id="s55">
+                                            <a href="#s5" data-toggle="tab" ng-click="getAllSkills()">Skill Information</a>
+                                        </li>
+                                        <li id="s66">
+                                            <a href="#s6" data-toggle="tab" ng-click="getAllCustomers()">Blacklist Information</a>
+                                        </li>
+                                        <li id="s77">
+                                            <a href="#s7" data-toggle="tab" ng-click="getNotesByEmployeeID()">Notes Collected</a>
+                                        </li>
+                                    </ul>
+
+                                    <div id="myTabContent1" class="tab-content padding-10">
+                                        <div class="tab-pane fade in active" id="s1" personal-form>
+                                            <br />
+                                            <form ng-submit="editEmployee(Employee)">
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">First Name</label>
+                                                            <input type="text" class="form-control" name="firstname" data-ng-model="Employee.FirstName" ng-disabled="!Employee.IsEnable" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Middle Initial</label>
+                                                            <input type="text" class="form-control" name="middlename" data-ng-model="Employee.MiddleName" ng-disabled="!Employee.IsEnable" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Last Name</label>
+                                                            <input type="text" class="form-control" name="lastname" data-ng-model="Employee.LastName" ng-disabled="!Employee.IsEnable" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Print Name As</label>
+                                                            <input type="text" class="form-control" name="printname" data-ng-model="Employee.PrintName" ng-value="Employee.PrintName = Employee.FirstName + ' ' + Employee.MiddleName + ' ' + Employee.LastName" ng-disabled="!Employee.IsEnable" />
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">SIN #</label>
+                                                            <input type="text" class="form-control" name="sin" data-ng-model="Employee.SIN" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3 select-position">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Gender</label>
+                                                            <select name="gender" class="form-control" ng-model="Employee.Gender" ng-change="getAllTitleByGender(Employee.Gender)" ng-disabled="!Employee.IsEnable">
+                                                                <option value="">Choose</option>
+                                                                <option value="Male">Male</option>
+                                                                <option value="Female">Female</option>
+                                                            </select>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3 select-position">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Title of Courtesy</label>
+                                                            <select name="initial" class="form-control" ng-model="Employee.TitleID" ng-options="title.TitleID as title.TitleName for title in SelectedTitles" ng-disabled="!Employee.IsEnable">
+                                                                <option value="">Choose</option>
+                                                            </select>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Date of Birth</label>
+                                                            <input type="text" class="form-control" name="dob" ng-model="Employee.DOB" placeholder="MM/DD/YYYY" dateconvert ng-disabled="!Employee.IsEnable" />
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Home Number</label>
+                                                            <input type="tel" class="form-control" name="phone" data-ng-model="Employee.Phone" ng-disabled="!Employee.IsEnable" maxlength="17" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Mobile Number</label>
+                                                            <input type="text" class="form-control" name="mobile" data-ng-model="Employee.Mobile" ng-disabled="!Employee.IsEnable" maxlength="17" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Email</label>
+                                                            <input type="email" class="form-control" name="email" data-ng-model="Employee.EmailMain" ng-disabled="!Employee.IsEnable" />
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Address Line 1</label>
+                                                            <input type="text" class="form-control" name="address1" data-ng-model="Employee.Address1" ng-disabled="!Employee.IsEnable" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Address Line 2</label>
+                                                            <input type="text" class="form-control" name="address2" data-ng-model="Employee.Address2" ng-disabled="!Employee.IsEnable" />
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3 select-position">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Country</label>
+                                                            <select name="country" class="form-control" ng-model="Employee.CountryID" ng-options="country.CountryID as country.CountryName + ' (' + (country.CountryCode) + ')' for country in Countries" ng-change="getStatesByCountryID(Employee.CountryID)" ng-focus="getAllCountries()" disabled>
+                                                                <option value="">Choose</option>
+                                                            </select>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3 select-position">
+                                                        <section class="form-group">
+                                                            <label class="control-label">State, Region or Province</label>
+                                                            <select name="state" class="form-control" ng-model="Employee.StateID" ng-options="state.StateID as state.StateName + ' (' + (state.StateCode) + ')' for state in States" ng-change="getCitiesByStateID(Employee.StateID)" disabled>
+                                                                <option value="">Choose</option>
+                                                            </select>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3 select-position">
+                                                        <section class="form-group">
+                                                            <label class="control-label">City, Town or Suberb</label>
+                                                            <select name="city" class="form-control" ng-model="Employee.CityID" ng-options="city.CityID as city.CityName for city in Cities" disabled>
+                                                                <option value="">Choose</option>
+                                                            </select>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Postal code</label>
+                                                            <input type="text" class="form-control" name="postalcode" data-ng-model="Employee.PostalCode" ng-focus="getZipCode()" ng-disabled="!Employee.IsEnable" />
+                                                        </section>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <div class="col-lg-10">
+                                                        &nbsp;
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <button type="submit" class="btn btn-success pull-right"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade in" id="s2" payroll-form>
+                                            <br />
+                                            <form ng-submit="editEmployeeAndPayroll(Employee)">
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Employee #</label>
+                                                            <input type="text" class="form-control" name="employeeno" data-ng-model="Employee.AccountNo" disabled />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Balance Due</label>
+                                                            <input type="text" class="form-control" name="balancedue" data-ng-model="Employee.Balance" step="0.01" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">% of Withhold</label>
+                                                            <input type="text" class="form-control" name="withhold" data-ng-model="Employee.Withholding" step="0.01" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Dormant Funds</label>
+                                                            <input type="text" class="form-control" name="dormant" data-ng-model="Employee.Dormant" step="0.01" />
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-3 select-position">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Pay Frequency</label>
+                                                            <select name="type" class="form-control" ng-model="Employee.PayFrequencyID" ng-options="freq.PayFrequencyID as freq.PayFrequencyName for freq in PayFrequencies">
+                                                                <option value="">Choose</option>
+                                                            </select>
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Pay Stubs</label>
+                                                            <input type="text" class="form-control" name="paystub" data-ng-model="Employee.PayStubs" placeholder="MM/DD/YYYY" dateconvert datepicker />
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-1">
+                                                        <br />
+                                                        <button class="btn btn-success">View</button>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <br />
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="Employee.Garnishee">
+                                                                <span>Garnishee</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-10">
+                                                        &nbsp;
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <button type="submit" class="btn btn-success pull-right"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade in" id="s3">
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="dualmultiselect">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                                <input class="form-control" ng-model="searchLabourClassification" ng-change="getFilteredLabourClassifications(searchLabourClassification)" placeholder="Search Labour Classification">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <h3>All Labour Classifications</h3>
+                                                                <div class="pool">
+                                                                    <ul>
+                                                                        <li ng-repeat="LabourClassification in FilteredLabourClassifications">
+                                                                            <span>
+                                                                                <label>
+                                                                                    <input class="checkbox style-0" checked="checked" type="checkbox" ng-checked="ParentCk" ng-model="LabourClassification.IsChecked" ng-change="LabourClassificationChecked(LabourClassification.IsChecked, LabourClassification.LabourClassificationID)">
+                                                                                    <span>{{LabourClassification.LabourClassificationName}}</span>
+                                                                                </label>
+                                                                            </span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <h3>Selected Labour Classifications</h3>
+                                                                <div class="pool">
+                                                                    <ul>
+                                                                        <li>
+                                                                            <div class="row">
+                                                                                <div class="col-lg-7">
+                                                                                    <p><strong>Labour Classifications</strong></p>
+                                                                                </div>
+                                                                                <div class="col-lg-3">
+                                                                                    <p><strong>Rate</strong></p>
+                                                                                </div>
+                                                                                <div class="col-lg-2">
+                                                                                    <p><strong>Actions</strong></p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li ng-repeat="empLabourClassification in EmployeeLabourClassifications" ng-show="isDisplayLabourClassifications">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-7">
+                                                                                    <span>{{empLabourClassification.LabourClassificationName}}</span>
+                                                                                </div>
+                                                                                <div class="col-lg-3">
+                                                                                    <span ng-show="tempEmployeeLabourClassificationID != empLabourClassification.EmployeeLabourClassificationID">{{empLabourClassification.Rate | number:2}}</span>
+                                                                                    <span ng-show="tempEmployeeLabourClassificationID == empLabourClassification.EmployeeLabourClassificationID">
+                                                                                        <label class="input">
+                                                                                            <input type="text" class="form-control" data-ng-model="empLabourClassification.Rate" ng-keyup="$event.keyCode == 13 ? editEmployeeLabourClassification(empLabourClassification.EmployeeLabourClassificationID, empLabourClassification.Rate) : null" />
+                                                                                        </label>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <div class="col-lg-2">
+                                                                                    <span>
+                                                                                        <button class="btn btn-primary btn-cust" ng-click="editRow(empLabourClassification.EmployeeLabourClassificationID)">
+                                                                                            <i class="fa fa-edit"></i>
+                                                                                        </button>
+                                                                                        <button class="btn btn-danger btn-cust" ng-click="removeEmployeeLabourClassification(empLabourClassification.EmployeeLabourClassificationID)">
+                                                                                            <i class="fa fa-trash-o"></i>
+                                                                                        </button>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade in" id="s4">
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="dualmultiselect">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                                <input class="form-control" ng-model="searchCertification" ng-change="getFilteredCertifications(searchCertification)" placeholder="Search Certification">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <h3>All Certification</h3>
+                                                                <div class="pool">
+                                                                    <ul>
+                                                                        <li ng-repeat="Certification in FilteredCertifications">
+                                                                            <span>
+                                                                                <label>
+                                                                                    <input class="checkbox style-0" checked="checked" type="checkbox" ng-checked="ParentCk" ng-model="Certification.IsChecked" ng-change="CertificationChecked(Certification.IsChecked, Certification.CertificationID)">
+                                                                                    <span>{{Certification.CertificationName}}</span>
+                                                                                </label>
+                                                                            </span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <h3>Selected Certifications</h3>
+                                                                <div class="pool">
+                                                                    <ul>
+                                                                        <li>
+                                                                            <div class="row">
+                                                                                <div class="col-lg-8">
+                                                                                    <p><strong>Certifications</strong></p>
+                                                                                </div>
+                                                                                <div class="col-lg-4">
+                                                                                    <p><strong>Actions</strong></p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li ng-repeat="empCertification in EmployeeCertifications" ng-show="isDisplayCertifications">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-8">
+                                                                                    <span>{{empCertification.CertificationName}}</span>
+                                                                                </div>
+                                                                                <div class="col-lg-4">
+                                                                                    <span>
+                                                                                        <button class="btn btn-warning btn-cust" ng-click="OpenUploadModal(empCertification.EmployeeCertificationID)">
+                                                                                            <i class="fa fa-upload"></i>
+                                                                                        </button>
+                                                                                        <button class="btn btn-primary btn-cust" ng-click="editRow(empCertification.EmployeeCertificationID)">
+                                                                                            <i class="fa fa-envelope"></i>
+                                                                                        </button>
+                                                                                        <a href="{{photoURI}}/Files/Certifications/{{empCertification.Picture}}" class="btn btn-info btn-cust" target="_blank">
+                                                                                            <i class="fa fa-eye"></i>
+                                                                                        </a>
+                                                                                        <button class="btn btn-danger btn-cust" ng-click="removeEmployeeCertification(empCertification.EmployeeCertificationID)">
+                                                                                            <i class="fa fa-trash-o"></i>
+                                                                                        </button>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade in" id="s5">
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="dualmultiselect">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                                <input class="form-control" ng-model="searchSkill" ng-change="getFilteredSkills(searchSkill)" placeholder="Search Skill">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <h3>All Skills</h3>
+                                                                <div class="pool">
+                                                                    <ul>
+                                                                        <li ng-repeat="Skill in FilteredSkills">
+                                                                            <span>
+                                                                                <label>
+                                                                                    <input class="checkbox style-0" checked="checked" type="checkbox" ng-checked="ParentCk" ng-model="Skill.IsChecked" ng-change="SkillChecked(Skill.IsChecked, Skill.SkillID)">
+                                                                                    <span>{{Skill.SkillName}}</span>
+                                                                                </label>
+                                                                            </span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <h3>Selected Skills</h3>
+                                                                <div class="pool">
+                                                                    <ul>
+                                                                        <li>
+                                                                            <div class="row">
+                                                                                <div class="col-lg-10">
+                                                                                    <p><strong>Skills</strong></p>
+                                                                                </div>
+                                                                                <div class="col-lg-2">
+                                                                                    <p><strong>Actions</strong></p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li ng-repeat="empSkill in EmployeeSkills" ng-show="isDisplaySkills">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-10">
+                                                                                    <span>{{empSkill.SkillName}}</span>
+                                                                                </div>
+                                                                                <div class="col-lg-2">
+                                                                                    <span>
+                                                                                        <button class="btn btn-danger btn-cust" ng-click="removeEmployeeSkill(empSkill.EmployeeSkillID)">
+                                                                                            <i class="fa fa-trash-o"></i>
+                                                                                        </button>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade in" id="s6">
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="dualmultiselect">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                                <input class="form-control" ng-model="searchCustomer" ng-change="getFilteredCustomers(searchCustomer)" placeholder="Search Customer">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <h3>All Customers</h3>
+                                                                <div class="pool">
+                                                                    <ul>
+                                                                        <li ng-repeat="Customer in FilteredCustomers">
+                                                                            <span>
+                                                                                <label>
+                                                                                    <input class="checkbox style-0" checked="checked" type="checkbox" ng-checked="ParentCk" ng-model="Customer.IsChecked" ng-change="CustomerChecked(Customer.IsChecked, Customer.CustomerID)">
+                                                                                    <span>{{Customer.CustomerName}}</span>
+                                                                                </label>
+                                                                            </span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <h3>Selected Customers for Blacklist</h3>
+                                                                <div class="pool">
+                                                                    <ul>
+                                                                        <li>
+                                                                            <div class="row">
+                                                                                <div class="col-lg-10">
+                                                                                    <p><strong>Customers</strong></p>
+                                                                                </div>
+                                                                                <div class="col-lg-2">
+                                                                                    <p><strong>Actions</strong></p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li ng-repeat="empBlacklist in EmployeeBlacklists" ng-show="isDisplayBlacklists">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-10">
+                                                                                    <span>{{empBlacklist.CustomerName}}</span>
+                                                                                </div>
+                                                                                <div class="col-lg-2">
+                                                                                    <span>
+                                                                                        <button class="btn btn-danger btn-cust" ng-click="removeEmployeeBlacklist(empBlacklist.EmployeeBlacklistID)">
+                                                                                            <i class="fa fa-trash-o"></i>
+                                                                                        </button>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade in" id="s7">
+                                            <br />
+                                            <form ng-submit="addEmployeeNote(EmployeeNote)">
+                                                <div class="row">
+                                                    <div class="col-lg-11">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Note</label>
+                                                            <input type="text" class="form-control" name="note" data-ng-model="EmployeeNote.Note" rows="3" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-1">
+                                                        <br />
+                                                        <button type="submit" class="btn btn-success pull-right"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-lg-12" ng-repeat="empNote in EmployeeNotes">
+                                                    <div style="font-size:14px; padding:15px;width:100%;background-color:#f5f5f5;margin-bottom:5px;">
+                                                        <p>
+                                                            {{empNote.Note}}<br />
+                                                            <span>
+                                                                <strong>
+                                                                    By {{empNote.CreatedBy}} on {{empNote.Created | date:'dd-MMM-yyyy hh:mm:ss a'}}
+                                                                </strong>
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--<br />
+                                            <div class="row">
+                                                <div class="col-lg-10">
+                                                    &nbsp;
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <a class="btn btn-danger pull-right" ui-sref="app.employee.employee">Finish&nbsp;&nbsp;<i class="fa fa-flag-checkered" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+
+<script type="text/ng-template" id="uploadFileModal.html">
+    <div class="modal-header modal-header-color">
+        <button type="button" class="close" ng-click="CloseModal()">
+            &times;
+        </button>
+        <h4 class="modal-title">
+            Upload Certification Image
+        </h4>
+    </div>
+    <div class="modal-body no-padding">
+        <form ng-submit="uploadCertificationImage()" class="smart-form client-form">
+            <fieldset>
+                <div class="row">
+                    <div class="col-lg-12 center">
+                        <img ng-if="Picture != ''" ngf-src="Picture" src="{{photoURI}}/Files/Certifications/{{Picture}}" class="img-border" style="width:100%; height:100%">
+                        <img ng-if="Picture == null" src="styles/img/avatars/male.png" class="img-border" style="width:100%; height:100%">
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="fileUpload btn btn-danger">
+                            <span>Click To Choose Image</span>
+                            <input type="file" class="upload" ngf-select="selectedFile($files)" ng-model="Picture" name="HttpPicture" accept="image/*">
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <div class="row">
+                        <div class="col col-4">
+                            &nbsp;
+                        </div>
+                        <div class="col col-8 pull-right">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Upload</button>
+                        </div>
+                    </div>
+                </footer>
+            </fieldset>
+        </form>
+    </div>
+</script>

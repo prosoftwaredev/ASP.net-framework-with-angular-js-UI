@@ -1,0 +1,4 @@
+﻿SET IDENTITY_INSERT [dbo].[Roles] ON 
+INSERT [dbo].[Roles] ([RoleID], [RoleName], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (1, N'Admin', 1, 1, CAST(N'2017-02-25 14:49:33.623' AS DateTime), CAST(N'2017-02-25 14:49:33.623' AS DateTime), N'--', 0, 1, 1)
+INSERT [dbo].[Roles] ([RoleID], [RoleName], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (2, N'Clerk', 1, 1, CAST(N'2017-02-25 14:49:34.073' AS DateTime), CAST(N'2017-02-27 22:11:40.313' AS DateTime), N'--', 0, 1, 1)
+SET IDENTITY_INSERT [dbo].[Roles] OFF

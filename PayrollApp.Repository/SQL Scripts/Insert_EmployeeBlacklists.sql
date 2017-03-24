@@ -1,0 +1,7 @@
+﻿SET IDENTITY_INSERT [dbo].[EmployeeBlacklists] ON 
+INSERT [dbo].[EmployeeBlacklists] ([EmployeeBlacklistID], [EmployeeID], [CustomerID], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (1, 4, 6, 1, 1, CAST(N'2017-03-07 12:07:08.167' AS DateTime), NULL, N'--', 0, 1, NULL)
+INSERT [dbo].[EmployeeBlacklists] ([EmployeeBlacklistID], [EmployeeID], [CustomerID], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (2, 4, 11, 1, 1, CAST(N'2017-03-07 12:07:12.777' AS DateTime), NULL, N'--', 0, 1, NULL)
+INSERT [dbo].[EmployeeBlacklists] ([EmployeeBlacklistID], [EmployeeID], [CustomerID], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (3, 4, 5, 1, 1, CAST(N'2017-03-12 21:48:13.953' AS DateTime), NULL, N'--', 0, 1, NULL)
+INSERT [dbo].[EmployeeBlacklists] ([EmployeeBlacklistID], [EmployeeID], [CustomerID], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (4, 4, 4, 1, 1, CAST(N'2017-03-13 08:39:54.867' AS DateTime), NULL, N'--', 0, 1, NULL)
+INSERT [dbo].[EmployeeBlacklists] ([EmployeeBlacklistID], [EmployeeID], [CustomerID], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (10004, 4, 7, 1, 1, CAST(N'2017-03-15 22:27:11.370' AS DateTime), NULL, N'--', 0, 1, NULL)
+SET IDENTITY_INSERT [dbo].[EmployeeBlacklists] OFF

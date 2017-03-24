@@ -1,0 +1,192 @@
+﻿<!-- MAIN CONTENT -->
+<div id="content">
+    <!-- widget grid -->
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" data-widget-color="darken" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Rollovers </h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding">
+                            <div class="dt-toolbar">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-lg-3">
+                                        <div id="DataTables_Table_1_filter" class="dataTables_filter">
+                                            <label class="control-label">Search anything</label>
+                                            <label>
+                                                <span class="input-group-addon input-sm">
+                                                    <i class="glyphicon glyphicon-search"></i>
+                                                </span>
+                                                <input class="form-control input-sm" placeholder="Search anything" aria-controls="DataTables_Table_1" type="search" ng-model="Search.globalSearch" ng-change="getOrders()">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-lg-3">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-lg-3">
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 col-lg-1 hidden-xs">
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 col-lg-2">
+                                        <div class="pull-right">
+                                            <label class="control-label">Pagesize</label>
+                                            <label>
+                                                <select class="form-control input-sm" ng-model="pageSize" ng-options="size.PageSize as size.PageSize for size in PageSizes"></select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group" style="margin-top:10px;">
+                                        <label class="control-label col-md-4">Dispatch Date</label>
+                                        <div class="col-md-5">
+                                            <input class="form-control" type="text" name="workstart" dateconvert="MM/dd/yyyy" ng-model="dispatchDate" placeholder="MM/DD/YYYY" datepicker />
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="button" class="btn btn-danger" ng-click="getRollovers()"><i class="fa fa-refresh"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="radio">
+                                        <input name="radio" type="radio">
+                                        <i></i>Dailv Sales Review
+                                    </label>
+                                    <label class="radio">
+                                        <input name="radio" type="radio">
+                                        <i></i>Dispatch Today
+                                    </label>
+                                    <label class="radio">
+                                        <input name="radio" type="radio">
+                                        <i></i>Dispatch By Customer
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            Hide Confirmed?
+                                        </label>
+                                    </div>
+                                    <h4>104 Timeslips, 76 Confirmed</h4>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-danger btn-bg" ng-click="makeRollover()">Roll Over</button>
+                                    <p>Generate 0 Timeslips schedules to Roll to Thersday 12/3/2017</p>
+                                </div>
+                            </div>
+                            
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <strong>Timeslip</strong>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <strong>Company Name/Address Phone/Placed By</strong>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <strong>Emp No State</strong>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <strong>Employee Name Job Location</strong>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <strong>Start</strong>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <strong>Continue Working?</strong>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <strong>This Week</strong>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <strong>Rollover Week</strong>
+                                                </div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr dir-paginate="rollover in Rollovers | date:'yyyy-MM-dd' | itemsPerPage: pageSize | orderBy:predicate:reverse" total-items="totalRollovers" current-page="pagination.current" ng-dblclick="goToDetails(emp.OrderID)">
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    {{rollover.OrderTimeslipID }}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    {{rollover.CompanyName }} / {{rollover.Address }} / {{rollover.Phone }} / {{rollover.CreatedByName }}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    {{rollover.AccountNo }}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    {{rollover.EmployeeName }} / {{rollover.JobLocation }}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    {{rollover.StartTimeRsv }}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <a href="" class="btn btn-warning" style="background-color:yellow;color:black;" ng-click="yelloButtonClick(rollover, status.Date)">YES</a>&nbsp;<a href="" class="btn btn-danger" style="background-color:black;" ng-click="blackButtonClick(rollover, status.Date)">NO</a>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button type="button" class="btn-weeks" ng-repeat="status in rollover.DayStatusData.DayStatusList" ng-style="{'background-color': status.BackColor, 'color': status.ForeColor, 'font-weight': status.FontStyle, 'font-style': status.FontStyle, 'border': '1px solid grey' }" title="{{status.Date}} - {{status.Status}}" ng-if="status.Visible === true && $index <=6" ng-click="changeStatusOnRollover(rollover, status.Date)">{{status.Text}}</button>
+                                                    <!--<a href="" class="btn btn-primary">SU</a><a href="" class="btn btn-primary">MO</a><a href="" class="btn btn-primary">TU</a><a href="" class="btn btn-primary">WE</a><a href="" class="btn btn-primary">TH</a><a href="" class="btn btn-primary">FR</a><a href="" class="btn btn-primary">SA</a>-->
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" ng-model="rollover.DayStatusData.IsToBeRolledOver">
+                                                            Rollover?
+                                                        </label>
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <input class="form-control" id="appendbutton" type="text">
+                                                        <div class="input-group-btn">
+                                                            <button class="btn btn-primary" type="button">
+                                                                Save
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button type="button" class="btn-weeks" ng-repeat="status in rollover.DayStatusData.DayStatusList" ng-style="{'background-color': status.BackColor, 'color': status.ForeColor, 'font-weight': status.FontStyle, 'font-style': status.FontStyle, 'border': '1px solid grey' }" title="{{status.Date}} - {{status.Status}}" ng-if="status.Visible === true && $index > 6" ng-click="changeStatusOnRollover(rollover, status.Date)">{{status.Text}}</button>
+                                                    <div class="form-group" style="margin-top:10px;">
+                                                        <label class="control-label col-md-2">Starting</label>
+                                                        <div class="col-md-6">
+                                                            <input class="form-control" type="text" name="workstart" ng-model="rollover.RollOverStart" placeholder="MM/DD/YYYY" dateconvert datepicker />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            <div class="dt-toolbar-footer">
+                                <div class="col-sm-6 col-xs-12 hidden-xs">
+                                    <!--<div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">Showing {{Start}} to {{End}} of {{totalOrders}} entries</div>-->
+                                    <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">Showing total {{totalRollovers}} entries</div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="dataTables_paginate paging_full_numbers"
+                                         id="DataTables_Table_1_paginate">
+                                        <dir-pagination-controls boundary-links="true" on-page-change="pageChanged(newPageNumber)" template-url="../../../partials/layout/pagination.html"></dir-pagination-controls>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

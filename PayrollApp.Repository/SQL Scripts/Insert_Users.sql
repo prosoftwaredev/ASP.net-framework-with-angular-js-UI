@@ -1,0 +1,3 @@
+﻿SET IDENTITY_INSERT [dbo].[Users] ON 
+INSERT [dbo].[Users] ([UserID], [Firstname], [Lastname], [Email], [Password], [Phone], [Gender], [Picture], [DOB], [Hash], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (1, N'Mathieu', N'Cupryk', N'admin@admin.com', N'01b307acba4f54f55aafc33bb06bbbf6ca803e9a', N'2043396704', N'Male', N'2d/2dd9018ba56640219e674ce2d10907bd/index.jpg', CAST(N'1973-10-18' AS Date), N'', 1, 1, CAST(N'2017-02-25 14:49:34.380' AS DateTime), CAST(N'2017-02-25 03:57:30.093' AS DateTime), N'--', 0, 1, 1)
+SET IDENTITY_INSERT [dbo].[Users] OFF

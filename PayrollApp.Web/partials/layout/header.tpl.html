@@ -1,0 +1,77 @@
+﻿<header id="header">
+    <div id="logo-group">
+
+        <!-- PLACE YOUR LOGO HERE -->
+        <span id=""> <img src="/styles/img/logo-blue.png" alt="Aactive" style="width:160px;padding-top:7px;"> </span>
+        <!-- END LOGO PLACEHOLDER -->
+        <!-- Note: The activity badge color changes when clicked and resets the number to 0
+        Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
+        <!--<span id="activity" class="activity-dropdown" activities-dropdown-toggle>
+            <i class="fa fa-user"></i>
+            <b class="badge bg-color-red">21</b>
+        </span>-->
+        <!--<div smart-include="partials/dashboard/activities.html"></div>-->
+    </div>
+
+    <div class="pull-right">
+        <!-- fullscreen button -->
+        <div id="fullscreen" class="btn-header transparent pull-left">
+            <span>
+                <a full-screen title="Full Screen">
+                    <i class="fa fa-arrows-alt"></i>
+                </a>
+            </span>
+        </div>
+        <!-- end fullscreen button -->
+        <div class="project-context hidden-xs">
+            <span class="label"><ds-widget-clock show-digital digital-format="'MMM dd yyyy hh:mm:ss a'"></ds-widget-clock></span>
+        </div>
+        <!-- collapse menu button -->
+        <div id="hide-menu" class="btn-header pull-right">
+            <span>
+                <a toggle-menu title="Collapse Menu">
+                    <i class="fa fa-reorder"></i>
+                </a>
+            </span>
+        </div>
+        <!-- end collapse menu -->
+        <!-- logout button -->
+        <user-logout username="authData.firstName">
+            <div id="logout" class="btn-header transparent1 pull-right">
+                <span> <a href="/login" title="Logout" data-action="userLogout" data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i class="fa fa-lg fa-sign-out"></i></a> </span>
+            </div>
+        </user-logout>
+        <!-- end logout button -->
+
+        <!-- #MOBILE -->
+        <!-- Top menu profile link : this shows only when top menu is active -->
+        <ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
+            <li class="">
+                <a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
+                    <img ng-if="authData.img == 'NA'" src="styles/img/avatars/male.png" class="online" />
+                    <img ng-if="authData.img != 'NA'" src="{{photoURI}}/Files/Users/{{authData.img}}" class="online" />
+                    <span class="label header-name">{{authData.firstName}}</span>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                    <li>
+                        <a ui-sref="app.account.profile" class="padding-5 padding-top-5 padding-bottom-5">
+                            <i class="fa fa-user"></i>&nbsp;&nbsp;
+                            <u>P</u>rofile
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a ui-sref="app.account.changepassword" class="padding-5 padding-top-5 padding-bottom-5"
+                           data-action="launchFullscreen"><i class="fa fa-key"></i>&nbsp;&nbsp;<u>C</u>hange Password</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a ui-sref="login" class="padding-5 padding-top-5 padding-bottom-5" data-action="userLogout">
+                            <i class="fa fa-sign-out fa-lg"></i>&nbsp;&nbsp;<strong><u>L</u>ogout</strong>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>

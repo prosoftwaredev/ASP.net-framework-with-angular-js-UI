@@ -1,0 +1,357 @@
+﻿<div id="content">
+    <div class="row">
+        <a class="btn btn-default hidden-mobile pull-right" data-ui-sref="app.customer.customer"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
+    </div>
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" data-widget-color="darken" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>ADD NEW CUSTOMER</h2>
+                    </header>
+                    <div class="widget-body no-padding1">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12" customer-contact-form>
+                                <form ng-submit="addCustomer(CustomerSite)">
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <h6>REGISTERATION INFORMATION</h6>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <section class="form-group">
+                                                    <label class="control-label">Customer Name</label>
+                                                    <input type="text" class="form-control" name="customername" data-ng-model="CustomerSite.CustomerName" />
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <section class="form-group">
+                                                    <label class="control-label">Company Name</label>
+                                                    <input type="text" class="form-control" name="companyname" data-ng-model="CustomerSite.CompanyName" />
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <section class="form-group">
+                                                    <label class="control-label">Sales Rep</label>
+                                                    <select name="salesrep" class="form-control" ng-model="CustomerSite.SalesRepID" ng-options="salerep.SalesRepID as salerep.SalesRepName for salerep in SalesReps">
+                                                        <option value="">Choose</option>
+                                                    </select>
+                                                </section>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <section class="form-group">
+                                                    <label class="control-label">Terms</label>
+                                                    <select name="initial" class="form-control" ng-model="CustomerSite.PaymentTermID" ng-options="payterm.PaymentTermID as payterm.PaymentTermName for payterm in PaymentTerms">
+                                                        <option value="">Choose</option>
+                                                    </select>
+                                                </section>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.RequirePO">
+                                                        <span>All Orders Require PO #</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.UniquePO">
+                                                        <span>PO # must be Unique</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.PayByCC">
+                                                        <span>Pay By Credit Card</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceDiscountMessage">
+                                                        <span>Enable Invoice Discount Message</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.HideCustomerName">
+                                                        <span>Hide Customer Name on Timeslip</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <br />
+                                                <span class="onoffswitch-title">
+                                                    Delinquent
+                                                </span>
+                                                <span class="onoffswitch">
+                                                    <input type="checkbox" name="start_interval" ng-model="CustomerSite.Delinquent" class="onoffswitch-checkbox" id="start_interval">
+                                                    <label class="onoffswitch-label" for="start_interval">
+                                                        <span class="onoffswitch-inner" data-swchon-text="Yes" data-swchoff-text="No"></span>
+                                                        <span class="onoffswitch-switch"></span>
+                                                    </label>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <h6>CONTACT INFORMATION</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Contact Name</label>
+                                                        <input type="text" class="form-control" name="prcontactname" data-ng-model="CustomerSite.PrContactName" />
+                                                    </section>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Email</label>
+                                                        <input type="tel" class="form-control" name="premail" data-ng-model="CustomerSite.PrEmail" />
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Home Number</label>
+                                                        <input type="tel" class="form-control" name="prphone" data-ng-model="CustomerSite.PrPhone" maxlength="17" />
+                                                    </section>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Mobile Number</label>
+                                                        <input type="tel" class="form-control" name="prmobile" data-ng-model="CustomerSite.PrMobile" maxlength="17" />
+                                                    </section>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Fax Number</label>
+                                                        <input type="tel" class="form-control" name="prfax" data-ng-model="CustomerSite.PrFax" maxlength="17" />
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Address Line 1</label>
+                                                        <input type="text" class="form-control" name="praddress1" data-ng-model="CustomerSite.PrAddress1" />
+                                                    </section>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Address Line 2</label>
+                                                        <input type="text" class="form-control" name="praddress2" data-ng-model="CustomerSite.PrAddress2" />
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Country</label>
+                                                        <select name="prcountry" class="form-control" ng-model="CustomerSite.PrCountryID" ng-options="country.CountryID as country.CountryName + ' (' + (country.CountryCode) + ')' for country in Countries" ng-change="getStatesByCountryIDForPrimary(CustomerSite.PrCountryID)">
+                                                            <option value="">Choose</option>
+                                                        </select>
+                                                    </section>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">State, Region or Pro.</label>
+                                                        <select name="prstate" class="form-control" ng-model="CustomerSite.PrStateID" ng-options="state.StateID as state.StateName + ' (' + (state.StateCode) + ')' for state in PrStates" ng-change="getCitiesByStateIDForPrimary(CustomerSite.PrStateID)">
+                                                            <option value="">Choose</option>
+                                                        </select>
+                                                    </section>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">City, Town or Suberb</label>
+                                                        <select name="prcity" class="form-control" ng-model="CustomerSite.PrCityID" ng-options="city.CityID as city.CityName for city in PrCities">
+                                                            <option value="">Choose</option>
+                                                        </select>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Postal code</label>
+                                                        <input type="text" class="form-control" name="prpostalcode" data-ng-model="CustomerSite.PrPostalCode" ng-focus="getPrZipCode()" />
+                                                    </section>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6" style="border-left:1px dashed #bfbfbf;">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <h6>INVOICE INFORMATION</h6>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input class="checkbox style-0" checked="checked" type="checkbox" ng-model="IsChecked" ng-change="sameAsPrimary(IsChecked)">
+                                                            <span>Same as Contact Information</span>
+                                                        </label>
+                                                    </div>
+                                                </div>                                                
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Contact Name</label>
+                                                        <input type="text" class="form-control" name="incontactname" data-ng-model="CustomerSite.InContactName" />
+                                                    </section>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Email</label>
+                                                        <input type="tel" class="form-control" name="inemail" data-ng-model="CustomerSite.InEmail" />
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Phone Number</label>
+                                                        <input type="tel" class="form-control" name="inphone" data-ng-model="CustomerSite.InPhone" maxlength="17" />
+                                                    </section>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Mobile Number</label>
+                                                        <input type="tel" class="form-control" name="inmobile" data-ng-model="CustomerSite.InMobile" maxlength="17" />
+                                                    </section>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Fax Number</label>
+                                                        <input type="tel" class="form-control" name="infax" data-ng-model="CustomerSite.InFax" maxlength="17" />
+                                                    </section>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Address Line 1</label>
+                                                        <input type="text" class="form-control" name="inaddress1" data-ng-model="CustomerSite.InAddress1" />
+                                                    </section>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Address Line 2</label>
+                                                        <input type="text" class="form-control" name="inaddress2" data-ng-model="CustomerSite.InAddress2" />
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Country</label>
+                                                        <select name="incountry" class="form-control" ng-model="CustomerSite.InCountryID" ng-options="country.CountryID as country.CountryName + ' (' + (country.CountryCode) + ')' for country in Countries" ng-change="getStatesByCountryIDForInvoice (CustomerSite.InCountryID)" ng-focus="getAllCountries()">
+                                                            <option value="">Choose</option>
+                                                        </select>
+                                                    </section>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">State, Region or Pro.</label>
+                                                        <select name="instate" class="form-control" ng-model="CustomerSite.InStateID" ng-options="state.StateID as state.StateName + ' (' + (state.StateCode) + ')' for state in InStates" ng-change="getCitiesByStateIDForInvoice (CustomerSite.InStateID)">
+                                                            <option value="">Choose</option>
+                                                        </select>
+                                                    </section>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">City, Town or Suberb</label>
+                                                        <select name="incity" class="form-control" ng-model="CustomerSite.InCityID" ng-options="city.CityID as city.CityName for city in InCities">
+                                                            <option value="">Choose</option>
+                                                        </select>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <section class="form-group">
+                                                        <label class="control-label">Postal code</label>
+                                                        <input type="text" class="form-control" name="inpostalcode" data-ng-model="CustomerSite.InPostalCode" ng-focus="getInZipCode()" />
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceViaMail">
+                                                            <span>Invoice via Mail</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceViaFax">
+                                                            <span>Invoice via Fax</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceViaEmail">
+                                                            <span>Invoice via E-Mail</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceAutomatically">
+                                                            <span>Automatically Email Invoice Daily</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceCombine">
+                                                            <span>Combine Timeslips for Daily Invoice</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

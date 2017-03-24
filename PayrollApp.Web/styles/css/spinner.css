@@ -1,0 +1,101 @@
+﻿.loading-cnt{
+
+			margin:1em 0;
+
+		}
+		.global-loading-cnt {
+
+			position: fixed;
+			z-index: 99999;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			background:rgba(255,255,255,0.85);
+			display: table;
+
+		}
+		.global-loading-cnt div {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+		}
+		.animation-spin {
+			-webkit-animation: spin 2s infinite linear;
+			-moz-animation: spin 2s infinite linear;
+			-o-animation: spin 2s infinite linear;
+			animation: spin 2s infinite linear;
+		}
+		@-moz-keyframes spin {
+			0% {
+				-moz-transform: rotate(0deg);
+			}
+			100% {
+				-moz-transform: rotate(359deg);
+			}
+		}
+		@-webkit-keyframes spin {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+			100% {
+				-webkit-transform: rotate(359deg);
+			}
+		}
+		@-o-keyframes spin {
+			0% {
+				-o-transform: rotate(0deg);
+			}
+			100% {
+				-o-transform: rotate(359deg);
+			}
+		}
+		@keyframes spin {
+			0% {
+				-webkit-transform: rotate(0deg);
+				transform: rotate(0deg);
+			}
+			100% {
+				-webkit-transform: rotate(359deg);
+				transform: rotate(359deg);
+			}
+		}
+		.icon32{
+			width: 32px;
+			height: 32px;
+			display: inline-block;
+		}
+		.icon20{
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.icon-loading {
+			background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQogdmlld0JveD0iMCAwIDUwMCA1MDAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDUwMCA1MDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQo8cGF0aCBmaWxsPSIjOTk5OTk5IiBkPSJNNDk1LjIsMzEyLjZsLTQ5LjUtMjJjMjIuNC04Ny42LTIxLTE4MC45LTEwNi4zLTIxOC44Yy02MS4yLTI3LjEtMTI5LjEtMTktMTgwLjksMTUuNmwzNi40LDUxLjQNCmMzNC40LTIyLjIsNzguOS0yNy4zLDExOS4xLTkuNGM1My40LDIzLjYsODEuOSw4MC4yLDcyLjksMTM1LjNsLTUwLjEtMjIuNWMtNi4zLTIuOC0xMC4xLDAuNC04LjIsN2wzNC42LDEyNy43DQpjMS44LDYuNyw4LjMsOS42LDE0LjUsNi40bDExNy45LTYwLjFDNTAxLjcsMzIwLjEsNTAxLjYsMzE1LjMsNDk1LjIsMzEyLjZ6Ii8+DQo8cGF0aCBmaWxsPSIjOTk5OTk5IiBkPSJNMTg2LDM3MC43Yy01My40LTIzLjYtODEuOS04MC4yLTcyLjktMTM1LjNsNTAuMSwyMi4yYzYuMywyLjgsMTAuMS0wLjQsOC4yLTdsLTM0LjYtMTI3LjUNCmMtMS44LTYuNy04LjMtOS42LTE0LjUtNi40TDQuNiwxNzYuN2MtNi4yLDMuMS02LDgsMC4zLDEwLjhsNDkuNSwyMmMtMjIuNCw4Ny42LDIxLDE4MC45LDEwNi4zLDIxOC44DQpjNjEuMiwyNy4xLDEyOS4xLDE5LDE4MC45LTE1LjZsLTM2LjQtNTEuNEMyNzAuNywzODMuNCwyMjYuMiwzODguNiwxODYsMzcwLjd6Ii8+DQo8L2c+DQo8L3N2Zz4=);
+		}
+		.icon-loading-white {
+			background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQogdmlld0JveD0iMCAwIDUwMCA1MDAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDUwMCA1MDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQo8cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNDk1LjIsMzEyLjZsLTQ5LjUtMjJjMjIuNC04Ny42LTIxLTE4MC45LTEwNi4zLTIxOC44Yy02MS4yLTI3LjEtMTI5LjEtMTktMTgwLjksMTUuNmwzNi40LDUxLjQNCmMzNC40LTIyLjIsNzguOS0yNy4zLDExOS4xLTkuNGM1My40LDIzLjYsODEuOSw4MC4yLDcyLjksMTM1LjNsLTUwLjEtMjIuNWMtNi4zLTIuOC0xMC4xLDAuNC04LjIsN2wzNC42LDEyNy43DQpjMS44LDYuNyw4LjMsOS42LDE0LjUsNi40bDExNy45LTYwLjFDNTAxLjcsMzIwLjEsNTAxLjYsMzE1LjMsNDk1LjIsMzEyLjZ6Ii8+DQo8cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTg2LDM3MC43Yy01My40LTIzLjYtODEuOS04MC4yLTcyLjktMTM1LjNsNTAuMSwyMi4yYzYuMywyLjgsMTAuMS0wLjQsOC4yLTdsLTM0LjYtMTI3LjUNCmMtMS44LTYuNy04LjMtOS42LTE0LjUtNi40TDQuNiwxNzYuN2MtNi4yLDMuMS02LDgsMC4zLDEwLjhsNDkuNSwyMmMtMjIuNCw4Ny42LDIxLDE4MC45LDEwNi4zLDIxOC44DQpjNjEuMiwyNy4xLDEyOS4xLDE5LDE4MC45LTE1LjZsLTM2LjQtNTEuNEMyNzAuNywzODMuNCwyMjYuMiwzODguNiwxODYsMzcwLjd6Ii8+DQo8L2c+DQo8L3N2Zz4=);
+		}
+
+		.footer .container {
+			text-align: center;
+			justify-content: center; /* align horizontal */
+			align-items: center; /* align vertical */
+		}
+		.footer .container .info {
+			display: inline-block;
+			position: relative;
+			vertical-align: top;
+			width: 350px;
+
+		}
+
+		.footer .city-rentals {
+			width: 250px;
+		}
+
+		.footer .info p {
+			text-align: left;
+		}

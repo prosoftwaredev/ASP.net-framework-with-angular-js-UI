@@ -1,0 +1,246 @@
+<!-- MAIN CONTENT -->
+<div id="content">
+    <div class="row">
+        <a class="btn btn-primary hidden-mobile pull-right" ng-click="OpenAddModal('md')"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add New User</a>
+    </div>
+    <!-- widget grid -->
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget1" data-widget-color="darken" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Users </h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding">
+                            <table datatable dt-options="dtOptions" dt-columns="dtColumns" dt-instance="dtInstance" class="display projects-table table table-striped table-bordered table-hover" bind-filters="true" width="100%"></table>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+
+<script type="text/ng-template" id="addUserModal.html">
+    <div class="modal-header  modal-header-color">
+        <button type="button" class="close" ng-click="CloseModal()">
+            &times;
+        </button>
+        <h3 class="modal-title">
+            Add New User
+        </h3>
+    </div>
+    <div class="modal-body no-padding smart-form client-form">
+        <!-- <hr class="simple">-->
+        <ul id="myTab1" class="nav nav-tabs">
+            <li class="active">
+                <a href="#s1" data-toggle="tab">Basic</a>
+            </li>
+            <li>
+                <a href="#s2" data-toggle="tab" ng-click="getAllRolesByUserID()">Roles</a>
+            </li>
+        </ul>
+        <div id="myTabContent1" class="tab-content padding-10">
+            <div class="tab-pane fade in active" id="s1" user-form>
+                <form ng-submit="addUser(User)">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <section class="form-group">
+                                    <label class="control-label">First Name</label>
+                                    <input class="form-control" type="text" name="firstname" data-ng-model="User.Firstname" />
+                                </section>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <section class="form-group">
+                                    <label class="control-label">Last Name</label>
+                                    <input class="form-control" type="text" name="lastname" data-ng-model="User.Lastname" />
+                                </section>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <section class="form-group">
+                                    <label class="control-label">Email</label>
+                                    <input class="form-control" type="email" name="email" data-ng-model="User.Email" />
+                                </section>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <footer>
+                        <div class="row">
+                            <div class="col col-4">
+                                &nbsp;
+                            </div>
+                            <div class="col col-8 pull-right">
+                                <button type="button" class="btn btn-danger" ng-click="CloseModal()"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Close</button>
+                                <button type="reset" class="btn btn-warning" ng-click="getClearedModal()"><i class="fa fa-refresh" aria-hidden="true"></i>&nbsp;&nbsp;Clear</button>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                            </div>
+                        </div>
+                    </footer>
+                </form>
+            </div>
+
+            <div class="tab-pane fade" id="s2">
+                <fieldset>
+                    <section>
+                        <div class="row">
+                            <div class="col col-4" ng-repeat="role in Roles">
+                                <label ng-if="oneRolePerUser == true" class="radio">
+                                    <input class="form-control" type="radio" name="subscription" id="subscription" ng-model="role.Flag" ng-value="role.RoleID" ng-change="addUserRoleByRadio(role.RoleID)">
+                                    <i></i> {{role.RoleName}}
+                                </label>
+                                <label ng-if="oneRolePerUser == false" class="checkbox">
+                                    <input class="form-control" type="checkbox" name="subscription" id="subscription" ng-model="role.Flag" ng-change="addUserRole(role.Flag, role.RoleID)">
+                                    <i></i> {{role.RoleName}}
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                    <footer>
+                        <div class="row">
+                            <div class="col col-5">
+                                &nbsp;
+                            </div>
+                            <div class="col col-6 pull-right">
+                                <button type="button" class="btn btn-danger" ng-click="CloseModal()">Close</button>
+                            </div>
+                        </div>
+                    </footer>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="editUserModal.html">
+    <div class="modal-header  modal-header-color">
+        <button type="button" class="close" ng-click="CloseModal()">
+            &times;
+        </button>
+        <h3 class="modal-title">
+            Edit User
+        </h3>
+    </div>
+    <div class="modal-body no-padding smart-form client-form">
+        <hr class="simple">
+        <ul id="myTab1" class="nav nav-tabs">
+            <li class="active">
+                <a href="#s3" data-toggle="tab">Basic</a>
+            </li>
+            <li>
+                <a href="#s4" data-toggle="tab" ng-click="getAllRolesByUserID()">Roles</a>
+            </li>
+        </ul>
+        <div id="myTabContent1" class="tab-content padding-10">
+
+            <div class="tab-pane fade in active" id="s3" user-form>
+                <form ng-submit="editUser(User)" name="editF" id="edit-user-form">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <section class="form-group">
+                                    <label class="control-label">First Name</label>
+                                    <input class="form-control" type="text" name="firstname" data-ng-model="User.Firstname" />
+                                </section>
+                            </div>
+                            <div class="col-lg-6">
+                                <section class="form-group">
+                                    <label class="control-label">Last Name</label>
+                                    <input class="form-control" type="text" name="lastname" data-ng-model="User.Lastname" />
+                                </section>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <section class="form-group">
+                                    <label class="control-label">Email</label>
+                                    <input class="form-control" type="email" name="email" data-ng-model="User.Email" />
+                                </section>
+                            </div>
+                            <div class="col-lg-6">
+                                <section class="form-group">
+                                    <label class="control-label">Gender</label>
+                                    <select name="gender" class="form-control" ng-model="User.Gender">
+                                        <option value="">Choose</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <section class="form-group">
+                                    <label class="control-label">Phone</label>
+                                    <input class="form-control" type="text" name="phone" ng-model="User.Phone" maxlength="17" />
+                                </section>
+                            </div>
+                            <div class="col-lg-6">
+                                <section class="form-group">
+                                    <label class="control-label">Date of Birth</label>
+                                    <input class="form-control" type="text" name="dob" ng-model="User.DOB" placeholder="MM/DD/YYYY" dateconvert datepicker />
+                                </section>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <br />
+                                <label class="checkbox">
+                                    <input class="form-control" type="checkbox" name="isenable" id="subscription" data-ng-model="User.IsEnable">
+                                    <i></i> Is Active
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <footer>
+                        <div class="row">
+                            <div class="col col-4">
+                                &nbsp;
+                            </div>
+                            <div class="col col-8 pull-right">
+                                <button type="button" class="btn btn-danger" ng-click="CloseModal()"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Close</button>
+                                <button type="reset" class="btn btn-warning" ng-click="getClearedModal()"><i class="fa fa-refresh" aria-hidden="true"></i>&nbsp;&nbsp;Clear</button>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                            </div>
+                        </div>
+                    </footer>
+                </form>
+            </div>
+
+            <div class="tab-pane fade" id="s4">
+                <fieldset>
+                    <section>
+                        <div class="row">                                                                                                                                                               
+                            <div class="col col-4" ng-repeat="role in Roles">
+                                <label ng-if="oneRolePerUser == true" class="radio">
+                                    <input class="form-control" type="radio" name="subscription" id="subscription" ng-model="role.Flag" ng-value="role.RoleID" ng-change="addUserRoleByRadio(role.RoleID)">
+                                    <i></i> {{role.RoleName}}
+                                </label>
+                                <label ng-if="oneRolePerUser == false" class="checkbox">
+                                    <input class="form-control" type="checkbox" name="subscription" id="subscription" ng-model="role.Flag" ng-change="addUserRole(role.Flag, role.RoleID)">
+                                    <i></i> {{role.RoleName}}
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                    <footer>
+                        <div class="row">
+                            <div class="col col-5">
+                                &nbsp;
+                            </div>
+                            <div class="col col-6 pull-right">
+                                <button type="button" class="btn btn-danger" ng-click="CloseModal()">Close</button>
+                            </div>
+                        </div>
+                    </footer>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</script>

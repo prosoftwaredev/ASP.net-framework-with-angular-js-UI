@@ -1,0 +1,768 @@
+﻿<div id="content">
+    <div class="row">
+        <a class="btn btn-primary hidden-mobile pull-right btn-margin-left" ui-sref="app.customer.customer.sites.add({id : CustomerSite.CustomerID})"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add New Customer Site</a>
+        <a class="btn btn-default hidden-mobile pull-right" data-ui-sref="app.customer.customer.sites"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
+    </div>
+    <!-- widget grid -->
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" data-widget-color="darken" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Edit Customer Site </h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding1">
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h3>Registration Information</h3><hr />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <section class="form-group">
+                                                <label class="control-label"><strong>Name</strong></label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <section class="form-group">
+                                                <label class="control-label">{{Customer.CustomerName}}</label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <section class="form-group">
+                                                <label class="control-label"><strong>Company</strong></label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <section class="form-group">
+                                                <label class="control-label">{{Customer.CompanyName}}</label>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <section class="form-group">
+                                                <label class="control-label"><strong>Sales Rep</strong></label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <section class="form-group">
+                                                <label class="control-label">{{Customer.SalesRepName}}</label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <section class="form-group">
+                                                <label class="control-label"><strong>Terms</strong></label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <section class="form-group">
+                                                <label class="control-label">{{Customer.PaymentTermName}}</label>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <section class="form-group">
+                                                <label class="control-label"><strong>Is Active</strong></label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <section class="form-group">
+                                                <label class="label label-success" ng-if="Customer.IsEnable === true">Yes</label>
+                                                <label class="label label-danger" ng-if="Customer.IsEnable === false">No</label>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6" style="border-left:1px dashed #ddd;">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h3>Required Information</h3><hr />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <section class="form-group">
+                                                <label class="control-label"><strong>All Orders Require PO #</strong></label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <section class="form-group">
+                                                <label class="label label-success" ng-if="Customer.RequirePO === true">Yes</label>
+                                                <label class="label label-danger" ng-if="Customer.RequirePO === false">No</label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <section class="form-group">
+                                                <label class="control-label"><strong>PO # must be Unique</strong></label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <section class="form-group">
+                                                <label class="label label-success" ng-if="Customer.UniquePO === true">Yes</label>
+                                                <label class="label label-danger" ng-if="Customer.UniquePO === false">No</label>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <section class="form-group">
+                                                <label class="control-label"><strong>Pay By Credit Card</strong></label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <section class="form-group">
+                                                <label class="label label-success" ng-if="Customer.PayByCC === true">Yes</label>
+                                                <label class="label label-danger" ng-if="Customer.PayByCC === false">No</label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <section class="form-group">
+                                                <label class="control-label"><strong>Delinquent</strong></label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <section class="form-group">
+                                                <label class="label label-success" ng-if="Customer.Delinquent === true">Yes</label>
+                                                <label class="label label-danger" ng-if="Customer.Delinquent === false">No</label>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <section class="form-group">
+                                                <label class="control-label"><strong>Enable Invoice Discount Message</strong></label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <section class="form-group">
+                                                <label class="label label-success" ng-if="Customer.InvoiceDiscountMessage === true">Yes</label>
+                                                <label class="label label-danger" ng-if="Customer.InvoiceDiscountMessage === false">No</label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <section class="form-group">
+                                                <label class="control-label"><strong>Hide Customer Name on Timeslip</strong></label>
+                                            </section>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <section class="form-group">
+                                                <label class="label label-success" ng-if="Customer.HideCustomerName === true">Yes</label>
+                                                <label class="label label-danger" ng-if="Customer.HideCustomerName === false">No</label>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <ul id="myTab1" class="nav nav-tabs">
+                                        <li id="s11" class="active">
+                                            <a href="#s1" data-toggle="tab">Contact Information</a>
+                                        </li>
+                                        <li id="s22">
+                                            <a href="#s2" data-toggle="tab" ng-click="getLabourClassificationsByCustomerSiteID()">Labour Classification Information</a>
+                                        </li>
+                                        <li id="s33">
+                                            <a href="#s3" data-toggle="tab">Overtime Information</a>
+                                        </li>
+                                        <li id="s44">
+                                            <a href="#s4" data-toggle="tab">Reminder Information</a>
+                                        </li>
+                                        <li id="s55">
+                                            <a href="#s5" data-toggle="tab" ng-click="getNotesByCustomerSiteID()">Notes Collected</a>
+                                        </li>
+                                    </ul>
+
+                                    <div id="myTabContent1" class="tab-content padding-10">
+                                        <div class="tab-pane fade in active" id="s1" contact-form>
+                                            <form ng-submit="editContact(CustomerSite)">
+                                                <div class="col-lg-12">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <h4>Site Information</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Site Name</label>
+                                                                <input type="text" class="form-control" name="sitename" data-ng-model="CustomerSite.SiteName" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Site Description</label>
+                                                                <input type="tel" class="form-control" name="sitedescription" data-ng-model="CustomerSite.SiteDescription" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                            </section>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <h4>Contact Information</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Contact Name</label>
+                                                                <input type="text" class="form-control" name="prcontactname" data-ng-model="CustomerSite.PrContactName" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Email</label>
+                                                                <input type="tel" class="form-control" name="premail" data-ng-model="CustomerSite.PrEmail" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Account #</label>
+                                                                <input type="tel" class="form-control" name="praccount" data-ng-model="CustomerSite.AccountNo" disabled />
+                                                            </section>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Home Number</label>
+                                                                <input type="tel" class="form-control" name="prphone" data-ng-model="CustomerSite.PrPhone" maxlength="17" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Mobile Number</label>
+                                                                <input type="tel" class="form-control" name="prmobile" data-ng-model="CustomerSite.PrMobile" maxlength="17" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Fax Number</label>
+                                                                <input type="tel" class="form-control" name="prfax" data-ng-model="CustomerSite.PrFax" maxlength="17" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                            </section>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Address Line 1</label>
+                                                                <input type="text" class="form-control" name="praddress1" data-ng-model="CustomerSite.PrAddress1" />
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Address Line 2</label>
+                                                                <input type="text" class="form-control" name="praddress2" data-ng-model="CustomerSite.PrAddress2" />
+                                                            </section>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Country</label>
+                                                                <select name="prcountry" class="form-control" ng-model="CustomerSite.PrCountryID" ng-options="country.CountryID as country.CountryName + ' (' + (country.CountryCode) + ')' for country in Countries" ng-change="getStatesByCountryIDForPrimary(CustomerSite.PrCountryID)">
+                                                                    <option value="">Choose</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">State, Region or Pro.</label>
+                                                                <select name="prstate" class="form-control" ng-model="CustomerSite.PrStateID" ng-options="state.StateID as state.StateName + ' (' + (state.StateCode) + ')' for state in PrStates" ng-change="getCitiesByStateIDForPrimary(CustomerSite.PrStateID)">
+                                                                    <option value="">Choose</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">City, Town or Suberb</label>
+                                                                <select name="prcity" class="form-control" ng-model="CustomerSite.PrCityID" ng-options="city.CityID as city.CityName for city in PrCities">
+                                                                    <option value="">Choose</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Postal code</label>
+                                                                <input type="text" class="form-control" name="prpostalcode" data-ng-model="CustomerSite.PrPostalCode" ng-focus="getPrZipCode()" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                            </section>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <br />
+                                                            <span class="onoffswitch-title">Is Active</span>
+                                                            <span class="onoffswitch">
+                                                                <input type="checkbox" name="start_interval" ng-model="CustomerSite.IsEnable" class="onoffswitch-checkbox" id="start_interval">
+                                                                <label class="onoffswitch-label" for="start_interval">
+                                                                    <span class="onoffswitch-inner" data-swchon-text="Yes" data-swchoff-text="No"></span>
+                                                                    <span class="onoffswitch-switch"></span>
+                                                                </label>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6" style="border-left:1px dashed #cecece;">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <h4>Invoice Information</h4>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="checkbox">
+                                                                <label>
+                                                                    <input class="checkbox style-0" checked="checked" type="checkbox" ng-model="IsChecked" ng-change="sameAsPrimary(IsChecked)" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable">
+                                                                    <span>Same as Contact Information</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Contact Name</label>
+                                                                <input type="text" class="form-control" name="incontactname" data-ng-model="CustomerSite.InContactName" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Email</label>
+                                                                <input type="tel" class="form-control" name="inemail" data-ng-model="CustomerSite.InEmail" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                            </section>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Phone Number</label>
+                                                                <input type="tel" class="form-control" name="inphone" data-ng-model="CustomerSite.InPhone" maxlength="17" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Mobile Number</label>
+                                                                <input type="tel" class="form-control" name="inmobile" data-ng-model="CustomerSite.InMobile" maxlength="17" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Fax Number</label>
+                                                                <input type="tel" class="form-control" name="infax" data-ng-model="CustomerSite.InFax" maxlength="17" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                            </section>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Address Line 1</label>
+                                                                <input type="text" class="form-control" name="inaddress1" data-ng-model="CustomerSite.InAddress1" />
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Address Line 2</label>
+                                                                <input type="text" class="form-control" name="inaddress2" data-ng-model="CustomerSite.InAddress2" />
+                                                            </section>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Country</label>
+                                                                <select name="incountry" class="form-control" ng-model="CustomerSite.InCountryID" ng-options="country.CountryID as country.CountryName + ' (' + (country.CountryCode) + ')' for country in Countries" ng-change="getStatesByCountryIDForInvoice (CustomerSite.InCountryID)" ng-focus="getAllCountries()" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable">
+                                                                    <option value="">Choose</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">State, Region or Pro.</label>
+                                                                <select name="instate" class="form-control" ng-model="CustomerSite.InStateID" ng-options="state.StateID as state.StateName + ' (' + (state.StateCode) + ')' for state in InStates" ng-change="getCitiesByStateIDForInvoice (CustomerSite.InStateID)" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable">
+                                                                    <option value="">Choose</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">City, Town or Suberb</label>
+                                                                <select name="incity" class="form-control" ng-model="CustomerSite.InCityID" ng-options="city.CityID as city.CityName for city in InCities" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable">
+                                                                    <option value="">Choose</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <section class="form-group">
+                                                                <label class="control-label">Postal code</label>
+                                                                <input type="text" class="form-control" name="inpostalcode" data-ng-model="CustomerSite.InPostalCode" ng-focus="getInZipCode()" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                            </section>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="checkbox">
+                                                                <label>
+                                                                    <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceViaMail" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable">
+                                                                    <span>Invoice via Mail</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="checkbox">
+                                                                <label>
+                                                                    <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceViaFax" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable">
+                                                                    <span>Invoice via Fax</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="checkbox">
+                                                                <label>
+                                                                    <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceViaEmail" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable">
+                                                                    <span>Invoice via E-Mail</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <div class="checkbox">
+                                                                <label>
+                                                                    <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceAutomatically" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable">
+                                                                    <span>Automatically Email Invoice Daily</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <div class="checkbox">
+                                                                <label>
+                                                                    <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceCombine" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable">
+                                                                    <span>Combine Timeslips for Daily Invoice</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <br />
+                                                <div class="row">
+                                                    <div class="col-lg-10">
+                                                        &nbsp;
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <button type="submit" class="btn btn-success pull-right"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade in" id="s2">
+                                            <br />
+
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="dualmultiselect">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                                <input class="form-control" ng-model="searchLabourClassification" ng-change="getFilteredLabourClassifications(searchLabourClassification)" placeholder="Search Labour Classification">
+                                                            </div>
+                                                        </div>
+                                                        <br />
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                                <div class="pool">
+                                                                    <ul>
+                                                                        <li>
+                                                                            <div class="row">
+                                                                                <div class="col-lg-6">
+                                                                                    <p><strong>Labour Classifications</strong></p>
+                                                                                </div>
+                                                                                <div class="col-lg-2">
+                                                                                    <p><strong>Pay Rate</strong></p>
+                                                                                </div>
+                                                                                <div class="col-lg-2">
+                                                                                    <p><strong>Invoice Rate</strong></p>
+                                                                                </div>
+                                                                                <div class="col-lg-2">
+                                                                                    <p><strong>Actions</strong></p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li ng-repeat="labourClassification in FilteredLabourClassifications" ng-show="isDisplayLabourClassifications">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-6">
+                                                                                    <span>{{labourClassification.LabourClassificationName}}</span>
+                                                                                </div>
+                                                                                <div class="col-lg-2">
+                                                                                    <span ng-show="tempCustomerSiteLabourClassificationID != labourClassification.CustomerSiteLabourClassificationID">{{labourClassification.PayRate | number:2}}</span>
+                                                                                    <span ng-show="tempCustomerSiteLabourClassificationID == labourClassification.CustomerSiteLabourClassificationID">
+                                                                                        <label class="input">
+                                                                                            <input type="text" class="form-control" data-ng-model="labourClassification.PayRate" ng-keyup="$event.keyCode == 13 ? editCustomerSiteLabourClassification(labourClassification.CustomerSiteLabourClassificationID, labourClassification.PayRate, labourClassification.InvoiceRate) : null" />
+                                                                                        </label>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <div class="col-lg-2">
+                                                                                    <span ng-show="tempCustomerSiteLabourClassificationID != labourClassification.CustomerSiteLabourClassificationID">{{labourClassification.InvoiceRate | number:2}}</span>
+                                                                                    <span ng-show="tempCustomerSiteLabourClassificationID == labourClassification.CustomerSiteLabourClassificationID">
+                                                                                        <label class="input">
+                                                                                            <input type="text" class="form-control" data-ng-model="labourClassification.InvoiceRate" ng-keyup="$event.keyCode == 13 ? editCustomerSiteLabourClassification(labourClassification.CustomerSiteLabourClassificationID, labourClassification.PayRate, labourClassification.InvoiceRate) : null" />
+                                                                                        </label>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <div class="col-lg-2">
+                                                                                    <span>
+                                                                                        <button class="btn btn-primary btn-cust" ng-click="editRow(labourClassification.CustomerSiteLabourClassificationID)">
+                                                                                            <i class="fa fa-edit"></i>
+                                                                                        </button>
+                                                                                        <button class="btn btn-danger btn-cust" ng-click="removeCustomerSiteLabourClassification(labourClassification.CustomerSiteLabourClassificationID)">
+                                                                                            <i class="fa fa-trash-o"></i>
+                                                                                        </button>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <!--<form>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <table class="table table-responsive center" width="70%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th width="70%">Labour Classifications</th>
+                                                                    <th>Pay Amount</th>
+                                                                    <th>Invoice Amount</th>
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr ng-repeat="labourClassification in CustomerSiteLabourClassifications">
+                                                                    <td>{{labourClassification.LabourClassificationName}}</td>
+                                                                    <td>{{labourClassification.PayRate | number:2}}</td>
+                                                                    <td>{{labourClassification.InvoiceRate | number:2}}</td>
+                                                                    <td>
+                                                                        <button class="btn btn-danger btn-cust" ng-click="removeCustomerSiteLabourClassification(labourClassification.CustomerSiteLabourClassificationID)">
+                                                                            <i class="fa fa-trash-o"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </form>-->
+                                        </div>
+                                        <div class="tab-pane fade in" id="s3">
+                                            <form ng-submit="editOvertime(CustomerSite)">
+                                                <br />
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Certificate Number</label>
+                                                            <input type="tel" class="form-control" name="phone" data-ng-model="CustomerSite.CertificateNo" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <section class="form-group">
+                                                                    <label class="control-label">No overtime before</label>
+                                                                    <input type="tel" class="form-control" name="email" data-ng-model="CustomerSite.OTPerDay" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                                </section>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <br />
+                                                                <label class="control-label" style="margin-top:10px;">/ hours per day</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <section class="form-group">
+                                                                    <label class="control-label">No overtime before</label>
+                                                                    <input type="tel" class="form-control" name="ccemail" data-ng-model="CustomerSite.OTPerWeek" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                                </section>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <br />
+                                                                <label class="control-label" style="margin-top:10px;">/ hours per week</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Timeslip Msg</label>
+                                                            <textarea class="form-control" name="phone" data-ng-model="CustomerSite.TimeslipMsg" rows="3" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-10">
+                                                        &nbsp;
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <button type="submit" class="btn btn-success pull-right"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade in" id="s4">
+                                            <form ng-submit="editReminder(CustomerSite)">
+                                                <br />
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Reminder</label>
+                                                            <textarea class="form-control" name="phone" data-ng-model="CustomerSite.Reminder" rows="3" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-10">
+                                                        &nbsp;
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <button type="submit" class="btn btn-success pull-right"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade in" id="s5">
+                                            <br />
+                                            <form ng-submit="addCustomerSiteNote(CustomerSiteNote)">
+                                                <div class="row">
+                                                    <div class="col-lg-11">
+                                                        <section class="form-group">
+                                                            <label class="control-label">Note</label>
+                                                            <input type="text" class="form-control" name="note" data-ng-model="CustomerSiteNote.Note" rows="3" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="col-lg-1">
+                                                        <br />
+                                                        <button type="submit" class="btn btn-success pull-right"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-lg-12" ng-repeat="customerSiteNote in CustomerSiteNotes">
+                                                    <div style="font-size:14px; padding:15px;width:100%;background-color:#f5f5f5;margin-bottom:5px;">
+                                                        <p>
+                                                            {{customerSiteNote.Note}}<br />
+                                                            <span>
+                                                                <strong>
+                                                                    By {{customerSiteNote.CreatedBy}} on {{customerSiteNote.Created | date:'dd-MMM-yyyy hh:mm:ss a'}}
+                                                                </strong>
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+
+<script type="text/ng-template" id="addNewSiteModal.html">
+    <div class="modal-header modal-header-color">
+        <button type="button" class="close" ng-click="CloseModal()">
+            &times;
+        </button>
+        <h4 class="modal-title">
+            Add New Site
+        </h4>
+    </div>
+    <div class="modal-body no-padding">
+        <form ng-submit="addCustomerSite(Site)" class="smart-form client-form">
+            <fieldset>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <section class="form-group">
+                            <label class="control-label">Site Name</label>
+                            <input type="text" class="form-control" name="prcontactname" data-ng-model="Site.PrContactName" />
+                        </section>
+                    </div>
+                </div>
+                <footer>
+                    <div class="row">
+                        <div class="col col-4">
+                            &nbsp;
+                        </div>
+                        <div class="col col-8 pull-right">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                        </div>
+                    </div>
+                </footer>
+            </fieldset>
+        </form>
+    </div>
+</script>
+
+<div class="modal fade" id="addNewSiteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-header-color">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">
+                    Add New Site
+                </h4>
+            </div>
+            <div class="modal-body no-padding">
+                <form ng-submit="uploadCertificationImage()" class="smart-form client-form">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <section class="form-group">
+                                    <label class="control-label">Site Name</label>
+                                    <input type="text" class="form-control" name="prcontactname" data-ng-model="CustomerSite.PrContactName" />
+                                </section>
+                            </div>
+                        </div>
+                        <footer>
+                            <div class="row">
+                                <div class="col col-4">
+                                    &nbsp;
+                                </div>
+                                <div class="col col-8 pull-right">
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                </div>
+                            </div>
+                        </footer>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

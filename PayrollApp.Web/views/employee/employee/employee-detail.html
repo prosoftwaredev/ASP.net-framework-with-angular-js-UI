@@ -1,0 +1,352 @@
+﻿<div id="content">
+    <div class="row">
+        <a class="btn btn-default hidden-mobile pull-right" data-ui-sref="app.employee.employee"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
+    </div>
+    <!-- widget grid -->
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" class="top-container-border" data-widget-colorbutton="false" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" role="widget">
+
+                    <div class="widget-body no-padding1">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12" customer-contact-form>
+                                <div class="widget-body no-padding1">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-12" customer-form>
+                                            <ul id="myTab1" class="nav nav-tabs">
+                                                <li class="active">
+                                                    <a href="#personal" data-toggle="tab" aria-expanded="true">Personal Information</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#labour" data-toggle="tab">Labour Classification Information</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#certificate" data-toggle="tab">Certificate Information</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#skills" data-toggle="tab" aria-expanded="false">Skills</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="#customers" data-toggle="tab" aria-expanded="false">Dissatisfied Customers</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="#notes" data-toggle="tab" aria-expanded="false">Notes Collected</a>
+                                                </li>
+                                            </ul>
+                                            <div id="myTabContent1" class="tab-content padding-10">
+                                                <div class="tab-pane fade active in" id="personal">
+                                                    <div class="row">
+                                                        <section class="col-sm-12 col-md-12 col-lg-6 smart-form">
+                                                            <div class="legend">
+                                                                <header>Contact</header>
+                                                                <div class="row line-height-35">
+                                                                    <section class="col col-2 "><b>Name</b></section>
+                                                                    <section class="col col-5 form-group">
+                                                                        {{Employee.LastName}}
+                                                                    </section>
+                                                                    <section class="col col-5 form-group">
+                                                                        {{Employee.FirstName}}
+                                                                    </section>
+                                                                </div>
+                                                                <div class="row line-height-35">
+                                                                    <section class="col col-2  "><b>Employee #</b></section>
+                                                                    <section class="col col-5 form-group">
+                                                                        {{Employee.AccountNo}}
+                                                                    </section>
+                                                                    <section class="col col-5"></section>
+                                                                </div>
+                                                                <div class="row line-height-35">
+                                                                    <section class="col col-2"><b>Phone</b></section>
+                                                                    <section class="col col-5 form-group">
+                                                                        {{Employee.Phone}}
+                                                                    </section>
+                                                                    <section class="col col-5 form-group">
+                                                                        <label class="checkbox">
+                                                                            <input class="checkbox style-0 " name="enable" disabled data-ng-model="Employee.IsEnable" type="checkbox">
+                                                                            <i class="transparent-background"></i>Active
+                                                                        </label>
+                                                                    </section>
+                                                                </div>
+
+                                                                <div class="row line-height-35">
+                                                                    <section class="col col-2  ">
+                                                                        <b>Gender</b>   
+                                                                    </section>
+                                                                    <section class="col col-5">
+                                                                        <select name="gender" class="form-control readonly-select" disabled ng-model="Employee.Gender" required ng-disabled="!Employee.IsEnable">
+                                                                            <option value="" selected="" disabled="">Select</option>
+                                                                            <option value="Male">Male</option>
+                                                                            <option value="Female">Female</option>
+                                                                        </select>
+                                                                    </section>
+                                                                    <section class="col col-5">
+                                                                        <label class="checkbox">
+                                                                            <input class="checkbox style-0 " disabled name="enable" data-ng-model="Employee.IsNeverUse" type="checkbox">
+                                                                            <i class="transparent-background"></i>Never Use
+                                                                        </label>
+                                                                    </section>
+                                                                </div>
+                                                                <div class="row line-height-35">
+                                                                    <section class="col col-2  "><b>Address</b></section>
+                                                                    <section class="col col-10 form-group">
+                                                                        {{Employee.Address1}}
+                                                                    </section>
+                                                                </div>
+                                                                <div class="row line-height-35">
+                                                                    <section class="col col-2"></section>
+                                                                    <section class="col col-10 form-group">
+                                                                        {{Employee.Address2}}
+                                                                    </section>
+                                                                </div>
+                                                                <div class="row line-height-35">
+                                                                    <section class="col col-2  ">
+                                                                        <b>City/Province</b>
+                                                                    </section>
+                                                                    <section class="col col-5 form-group">
+                                                                        <select name="city" class="form-control readonly-select" disabled ng-model="Employee.CityID" required ng-options="city.CityID as city.CityName for city in Cities">
+                                                                            <option value="" selected="" disabled="">Select</option>
+                                                                        </select>
+                                                                    </section>
+                                                                    <section class="col col-5 form-group">
+                                                                        <select name="state" class="form-control readonly-select" disabled ng-model="Employee.StateID" required ng-options="state.StateID as state.StateName + ' (' + (state.StateCode) + ')' for state in States" ng-change="getCitiesByStateID(Employee.StateID)">
+                                                                            <option value="" selected="" disabled="">Select</option>
+                                                                        </select>
+                                                                    </section>
+                                                                </div>
+                                                                <div class="row line-height-35">
+                                                                    <section class="col col-2  "><b>Postal Code</b></section>
+                                                                    <section class="col col-5 form-group">
+                                                                        {{Employee.PostalCode}}
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                        <section class="col-sm-12 col-md-12 col-lg-6 smart-form">
+                                                            <div class="legend">
+                                                                <header>Payroll</header>
+                                                                <div class="row line-height-35">
+                                                                    <section class="col col-3  "><b>Date of Birth</b></section>
+                                                                    <section class="col col-5 form-group">
+                                                                        {{Employee.DOB}}
+                                                                    </section>
+                                                                    <section class="col col-4">
+                                                                        <label class="checkbox">
+                                                                            <input class="checkbox style-0 " disabled checked="chezcked" type="checkbox" data-ng-model="Employee.Garnishee" ng-disabled="!Employee.IsEnable" />
+                                                                            <i class="transparent-background"></i>Garnishee
+                                                                        </label>
+                                                                    </section>
+                                                                </div>
+                                                                <div class="row line-height-35">
+                                                                    <section class="col col-3">
+                                                                        <b>SIN #</b>
+                                                                    </section>
+                                                                    <section class="col col-5 form-group">
+                                                                        {{Employee.SIN}}
+                                                                    </section>
+                                                                    <section class="col col-4"></section>
+                                                                </div>
+                                                                <div class="row line-height-35">
+                                                                    <section class="col col-3  ">
+                                                                        <b>Withhold</b>
+                                                                    </section>
+                                                                    <section class="col col-5 form-group">
+                                                                        {{Employee.Withholding}}&nbsp;%
+                                                                    </section>
+                                                                    <section class="col col-4"></section>
+                                                                </div>
+                                                                <div class="row line-height-35">
+                                                                    <section class="col col-3  ">
+                                                                        <b>Pay Stubs</b>
+                                                                    </section>
+                                                                    <section class="col col-5 form-group">
+                                                                        {{Employee.PayStubs}}
+                                                                    </section>
+                                                                    <section class="col col-4"></section>
+                                                                </div>
+                                                                <div class="row line-height-35">
+                                                                    <section class="col col-3  ">
+                                                                        <b>Pay Frequency</b>
+                                                                    </section>
+                                                                    <section class="col col-5 form-group">
+                                                                        <select name="type" class="form-control readonly-select" disabled ng-model="Employee.PayFrequencyID" ng-options="freq.PayFrequencyID as freq.PayFrequencyName for freq in PayFrequencies">
+                                                                            <option value="" selected="" disabled="">Select</option>
+                                                                        </select>
+                                                                    </section>
+                                                                    <section class="col col-4"></section>
+                                                                </div>
+                                                                <div class="row line-height-35">
+                                                                    <section class="col col-3  ">
+                                                                        <b>Dormant Funds</b>
+                                                                    </section>
+                                                                    <section class="col col-5 form-group">
+                                                                        {{Employee.Dormant}}
+                                                                    </section>
+                                                                    <section class="col col-4"></section>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+
+                                                </div>
+                                                <div class="tab-pane fade" id="labour">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="dualmultiselect">
+                                                                <div class="row">
+                                                                    <section class="col-lg-12 col-md-12 col-sm-12">
+                                                                        <div class="legend">
+                                                                            <h4>Selected Labour Classifications</h4>
+                                                                            <table class="table table-bordered table-striped">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Labour Classifications</th>
+                                                                                        <th class="edit-data">Rate</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr ng-repeat="empLabourClassification in EmployeeLabourClassifications">
+                                                                                        <td class="edit-height">{{empLabourClassification.LabourClassificationName}}</td>
+                                                                                        <td class="edit-data edit-height">
+                                                                                            <span>{{empLabourClassification.Rate | number:2}}</span>
+
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="certificate">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="dualmultiselect">
+                                                                <div class="row">
+                                                                    <section class="col-lg-12 col-md-12 col-sm-12">
+                                                                        <div class="legend">
+                                                                            <h4>Employee Certifications</h4>
+                                                                            <table class="table table-bordered table-striped">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Certifications</th>
+                                                                                        <th class="center">Actions</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr ng-repeat="empCertification in EmployeeCertifications" ng-show="isDisplayCertifications">
+                                                                                        <td class="edit-height">{{empCertification.CertificationName}}</td>
+                                                                                        <td class="edit-height center">
+                                                                                            <a class="btn-cust" target="_blank" href="{{photoURI}}/Files/Certifications/{{empCertification.Picture}}"><i class="fa fa-eye"></i> Preview</a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </section>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="skills">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="dualmultiselect">
+                                                                <div class="row">
+                                                                    <section class="col-lg-12 col-md-12 col-sm-12">
+                                                                        <div class="legend">
+                                                                            <h4>Selected Skills</h4>
+                                                                            <table class="table table-bordered table-striped">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Name</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr ng-repeat="empSkill in EmployeeSkills" ng-show="isDisplaySkills">
+                                                                                        <td class="edit-height">{{empSkill.SkillName}}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="customers">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="dualmultiselect">
+                                                                <div class="row">
+                                                                    <section class="col-lg-12 col-md-12 col-sm-12">
+                                                                        <div class="legend">
+                                                                            <h4>Do Not Dispatch To</h4>
+                                                                            <table class="table table-bordered table-striped">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Customer Name</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr ng-repeat="empBlacklist in EmployeeBlacklists" ng-show="isDisplayBlacklists">
+                                                                                        <td class="edit-height">{{empBlacklist.CustomerName}}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="tab-pane" id="notes">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="dualmultiselect">
+                                                                <div class="row">
+                                                                    <section class="col-lg-12 col-md-12 col-sm-12">
+                                                                        <div class="legend">
+                                                                            <h4>Notes</h4>
+                                                                            <div class="col col-12" ng-repeat="empNote in EmployeeNotes">
+                                                                                <div style="font-size:14px; padding:15px;width:100%;margin-bottom:5px;">
+                                                                                    <p>
+                                                                                        {{empNote.Note}}<br />
+                                                                                        <span>
+                                                                                            <strong>
+                                                                                                By {{empNote.CreatedBy}} on {{empNote.Created | date:'dd-MMM-yyyy hh:mm:ss a'}}
+                                                                                            </strong>
+                                                                                        </span>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div data-ui-view="site" data-autoscroll="false"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

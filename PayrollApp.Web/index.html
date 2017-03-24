@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="en-us" class="no-js">
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <title>Aactive Personnel Services Ltd.</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/css/font-awesome.min.css">
+
+    <!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/css/smartadmin-production-plugins.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/css/smartadmin-production.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/css/smartadmin-skins.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/css/smartadmin-angular.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/css/smartadmin-rtl.min.css">
+
+    <!--YourCSS Here-->
+    <link href="styles/css/your_style.css" rel="stylesheet" />
+    <link href="styles/css/spinner.css" rel="stylesheet" />
+    <link href="styles/css/angular-toastr.css" rel="stylesheet" />
+    <link href="styles/css/intlTelInput.css" rel="stylesheet" />
+    <link href="styles/css/dualmultiselect.css" rel="stylesheet" />
+
+    <!--Timeslip css-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/your_style.css?v=762" rel="stylesheet">
+
+    <!--<link href="styles/css/angular-clock1.css" rel="stylesheet" />-->
+
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/css/demo.min.css">
+
+    <link rel="shortcut icon" href="styles/img/favicon/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+    <!--<link href="http://fonts.googleapis.com/css?family=Syncopate:400,700" rel="stylesheet" type="text/css">-->
+
+    <link rel="apple-touch-icon" href="styles/img/splash/sptouch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="styles/img/splash/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="styles/img/splash/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="styles/img/splash/touch-icon-ipad-retina.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-startup-image" href="styles/img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+    <link rel="apple-touch-startup-image" href="styles/img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+    <link rel="apple-touch-startup-image" href="styles/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
+
+</head>
+<body data-smart-device-detect data-smart-fast-click data-smart-layout data-smart-page-title="SmartAdmin AngularJS" class="menu-on-top" ng-class="{'login-back': extrpage !== null}">
+
+    <div data-ui-view="root" data-autoscroll="false"></div>
+
+    <div ng-show="IsLoading" class="global-loading-cnt">
+        <div>
+            <span class="animation-spin icon32 icon-loading"></span>
+            <h3 style="color:black;">Please Wait !!!</h3>
+        </div>
+    </div>
+
+
+
+    <script src="modules/jquery/dist/jquery.min.js"></script>
+    <script src="modules/jquery-ui/jquery-ui.min.js"></script>
+    <script src="modules/lodash/lodash.min.js"></script>
+    <script src="modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="modules/angular/angular.js"></script>
+    <script src="modules/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="modules/angular-animate/angular-animate.min.js"></script>
+    <script src="modules/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="modules/angular-resource/angular-resource.min.js"></script>
+    <script src="modules/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="modules/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+    <script src="modules/angular-google-maps/dist/angular-google-maps.min.js"></script>
+    <script src="modules/restangular/dist/restangular.min.js"></script>
+    <script src="modules/fastclick/lib/fastclick.js"></script>
+    <script src="modules/moment/min/moment-with-locales.min.js"></script>
+    <script src="modules/moment-timezone/builds/moment-timezone.min.js"></script>
+    <script src="scripts/ang/angular-moment.min.js"></script>
+    <script src="modules/smartadmin-plugin/fullcalendar/jquery.fullcalendar.min.js"></script>
+    <script src="modules/smartadmin-plugin/notification/SmartNotification.min.js"></script>
+    <script src="modules/smartadmin-plugin/smartwidgets/jarvis.widget.min.js"></script>
+    <script src="modules/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+    <script src="modules/relayfoods-jquery.sparkline/dist/jquery.sparkline.min.js"></script>
+    <script src="modules/bower-jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="modules/bower-jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="modules/smartadmin-plugin/legacy/flot/jquery.flot.cust.min.js"></script>
+    <script src="modules/smartadmin-plugin/legacy/flot/jquery.flot.resize.min.js"></script>
+    <script src="modules/smartadmin-plugin/legacy/flot/jquery.flot.fillbetween.min.js"></script>
+    <script src="modules/smartadmin-plugin/legacy/flot/jquery.flot.orderBar.min.js"></script>
+    <script src="modules/smartadmin-plugin/legacy/flot/jquery.flot.pie.min.js"></script>
+    <script src="modules/smartadmin-plugin/legacy/flot/jquery.flot.time.min.js"></script>
+    <script src="modules/smartadmin-plugin/legacy/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="modules/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="modules/angular-datatables/dist/angular-datatables.min.js"></script>
+    <script src="modules/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.min.js"></script>
+    <script src="modules/select2/select2.min.js"></script>
+    <script src="modules/summernote/dist/summernote.min.js"></script>
+    <script src="modules/markdown/lib/markdown.js"></script>
+    <script src="modules/he/he.js"></script>
+    <script src="modules/to-markdown/dist/to-markdown.js"></script>
+    <script src="modules/bootstrap-markdown/js/bootstrap-markdown.js"></script>
+    <script src="modules/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <script src="modules/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="modules/jquery-maskedinput/dist/jquery.maskedinput.min.js"></script>
+    <script src="modules/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+    <script src="modules/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
+    <script src="modules/nouislider/distribute/jquery.nouislider.min.js"></script>
+    <script src="modules/bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox.min.js"></script>
+    <script src="modules/bootstrap3-fontawesome-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="modules/clockpicker/dist/bootstrap-clockpicker.min.js"></script>
+    <script src="//oss.maxcdn.com/jquery.mask/1.11.4/jquery.mask.min.js"></script>
+
+
+    <!--<script src="build/vendor.js"></script>-->
+    <script src="scripts/ang/angular-local-storage.min.js"></script>
+    <script src="scripts/ang/angular-toastr.js"></script>
+    <script src="scripts/ang/ng-file-upload-shim.min.js"></script>
+    <script src="scripts/ang/ng-file-upload.min.js"></script>
+    <script src="scripts/ang/angular-clock.js"></script>
+    <script src="scripts/ang/angular-breadcrumb.js"></script>
+    <script src="scripts/ang/ng-intl-tel-input.js"></script>
+    <script src="scripts/ang/intlTelInput.js"></script>
+    <script src="scripts/ang/utils.js"></script>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyC4Jj0dFfFmAg1FcNAAdZ-kf_Vx0Q7VPjY"></script>
+    <script src="scripts/ang/pagination.js"></script>
+    <script src="scripts/ang/SigWebTablet.js"></script>
+    <!--<script src="build/app.js"></script>-->
+    <script src="scripts/app/ng_app_config.js"></script>
+    <script src="scripts/app/ng_main.js"></script>
+    <script src="scripts/app/ng_app.js"></script>
+    <script src="scripts/app/ng_state.js"></script>
+    <script src="scripts/app/ng_service.js"></script>
+    <script src="scripts/app/ng_httpservice.js"></script>
+    <script src="scripts/app/ng_error.js"></script>
+    <script src="scripts/app/ng_smart_admin.js"></script>
+
+    <!-----------------------SmartAdmin------------------->
+    <script src="views/auth/ng_auth.js"></script>
+
+    <script src="views/dashboard/ng_dashboard.js"></script>
+
+    <script src="views/account/ng_account.js"></script>
+
+    <script src="views/admin/user/ng_user.js"></script>
+    <script src="views/admin/preference/ng_preferences.js"></script>
+
+    <script src="views/admin/role/ng_role.js"></script>
+    <script src="views/admin/exception/ng_exception.js"></script>
+    <script src="views/admin/country/ng_country.js"></script>
+    <script src="views/admin/state/ng_state.js"></script>
+    <script src="views/admin/city/ng_city.js"></script>
+    <script src="views/admin/pay-frequency/ng_payfrequency.js"></script>
+    <script src="views/admin/labour-classification/ng_labour_classification.js"></script>
+    <script src="views/admin/certification/ng_certification.js"></script>
+    <script src="views/admin/title/ng_title.js"></script>
+    <script src="views/admin/employee-type/ng_employee_type.js"></script>
+    <script src="views/admin/skill/ng_skill.js"></script>
+    <script src="views/admin/payment-term/ng_paymentterm.js"></script>
+    <script src="views/admin/sales-rep/ng_salesrep.js"></script>
+    <script src="views/admin/equipment/ng_equipment.js"></script>
+
+    <script src="views/employee/employee/ng_employee.js"></script>
+
+    <script src="views/customer/customer/ng_customer.js"></script>
+    <script src="views/report/report/ng_report.js"></script>
+    <script src="views/order/order/ng_order.js"></script>
+
+    <script src="views/image/image/ng_image.js"></script>
+
+    <script src="views/rollover/rollover/ng_rollover.js"></script>
+    <script src="views/devices/topez/ng_device.js"></script>>
+    <script src="views/timeslip/timeslip/ng_timeslip.js"></script>
+
+</body>
+
+</html>

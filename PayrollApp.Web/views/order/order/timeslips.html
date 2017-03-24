@@ -1,0 +1,253 @@
+﻿<!-- MAIN CONTENT -->
+<div id="content">
+    <!-- widget grid -->
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" data-widget-color="darken" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Orders </h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding">
+                            <div class="dt-toolbar">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-lg-3">
+                                        <div id="DataTables_Table_1_filter" class="dataTables_filter">
+                                            <label class="control-label">Search anything</label>
+                                            <label>
+                                                <span class="input-group-addon input-sm">
+                                                    <i class="glyphicon glyphicon-search"></i>
+                                                </span>
+                                                <input class="form-control input-sm" placeholder="Search anything" aria-controls="DataTables_Table_1" type="search" ng-model="Search.globalSearch" ng-change="getOrders()">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-lg-6">
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 col-lg-1 hidden-xs">
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 col-lg-2">
+                                        <div class="pull-right">
+                                            <label class="control-label">Pagesize</label>
+                                            <label>
+                                                <select class="form-control input-sm" ng-model="pageSize" ng-options="size.PageSize as size.PageSize for size in PageSizes"></select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>PO#</th>
+                                        <th>Name</th>
+                                        <th>Company</th>
+                                        <th>Contact</th>
+                                        <th>Phone</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Site Location</th>
+                                        <th>Active</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat-start="order in OrderTimeslips">
+                                        <td class="toggle" ng-click="openTimeslip(order.OrderID)"><span ng-show="selectedOrder != order.OrderID">+</span><span ng-show="selectedOrder == order.OrderID">-</span></td>
+                                        <td>{{order.PONumber}}</td>
+                                        <td>{{order.CustomerName}}</td>
+                                        <td>{{order.CompanyName}}</td>
+                                        <td>{{order.ContactName}}</td>
+                                        <td>{{order.Phone}}</td>
+                                        <td>{{order.WorkStartRsv | date:'dd-MMM-yyyy hh:mm:ss a'}}</td>
+                                        <td>{{order.WorkEndRsv | date:'dd-MMM-yyyy hh:mm:ss a'}}</td>
+                                        <td>{{order.PrContactName}}</td>
+                                        <td>
+                                            <label>
+                                                <span class="label label-success" ng-if="order.IsEnable === true">Yes</span>
+                                                <span class="label label-danger" ng-if="order.IsEnable === false">No</span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr ng-repeat-end ng-show="selectedOrder == order.OrderID">
+                                        <td colspan="10">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <label>Time Slip Details</label>
+                                                    <table class="table table-bordered table-condensed">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Time Slip ID</th>
+                                                                <th>Employee Name</th>
+                                                                <th>Employee No</th>
+                                                                <th>Job Description</th>
+                                                                <th>Job Location</th>
+                                                                <th>Job Address</th>
+                                                                <th>Report To</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr ng-repeat="slip in order.Timeslips">
+                                                                <td>{{slip.OrderTimeslipID}}</td>
+                                                                <td>{{slip.EmployeeName}}</td>
+                                                                <td>{{slip.AccountNo}}</td>
+                                                                <td>{{slip.LabourClassificationName}}</td>
+                                                                <td>{{slip.JobLocation}}</td>
+                                                                <td>{{slip.JobAddress}}</td>
+                                                                <td>{{slip.Reporting}}</td>
+                                                                <td><a class="btn-cust" title="View Details of Timeslip" ui-sref="app.order.order.detail({id: emp.OrderID})">   <i class="fa fa-search"></i> View</a>&nbsp;</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+
+                            <!--<table class="table table-bordered">
+                                <tbody>
+                                    <tr dir-paginate="order in OrderTimeslips | date:'yyyy-MM-dd' | itemsPerPage: pageSize | orderBy:predicate:reverse" total-items="totalOrderTimeslips" current-page="pagination.current" ng-dblclick="goToDetails(emp.OrderID)">
+                                        <td>
+                                            <div class="panel-group smart-accordion-default" id="accordion">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h6 class="panel-title row">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"> <i class="fa fa-lg fa-angle-down pull-right"></i> <i class="fa fa-lg fa-angle-up pull-right"></i>Order ID: #ORA847214 </a>
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{order.OrderID}}" class="col-sm-12">
+                                                                <i class="fa fa-lg fa-angle-down pull-right"></i> <i class="fa fa-lg fa-angle-up pull-right"></i>
+                                                                <span class="col-sm-2">Order ID: {{order.OrderID}}</span>
+                                                                <span class="col-sm-3">Company Name: {{order.CompanyName}}</span>
+                                                                <span class="col-sm-3">Customer Name: {{order.CustomerName}}</span>
+                                                            </a>
+                                                        </h6>
+                                                    </div>
+                                                    <div id="collapse{{order.OrderID}}" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+
+                                                            <div class="row">
+                                                                <div class="col-sm-1">
+                                                                    <label>PO#</label>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <label>{{order.PONumber}}</label>
+                                                                </div>
+                                                                <div class="col-sm-1">
+                                                                    <label>Name</label>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <label>{{order.CustomerName}}</label>
+                                                                </div>
+                                                                <div class="col-sm-1">
+                                                                    <label>Company</label>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <label>{{order.CompanyName}}</label>
+                                                                </div>
+                                                                <div class="col-sm-1">
+                                                                    <label>Contact</label>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <label>{{order.ContactName}}</label>
+                                                                </div>
+                                                                <div class="col-sm-1">
+                                                                    <label>Phone</label>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <label>{{order.Phone}}</label>
+                                                                </div>
+                                                                <div class="col-sm-1">
+                                                                    <label>Start Date</label>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <label>{{order.WorkStartRsv | date:'dd-MMM-yyyy hh:mm:ss a'}}</label>
+                                                                </div>
+                                                                <div class="col-sm-1">
+                                                                    <label>End Date</label>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <label>{{order.WorkEndRsv | date:'dd-MMM-yyyy hh:mm:ss a'}}</label>
+                                                                </div>
+                                                                <div class="col-sm-1">
+                                                                    <label>IsActive</label>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <label>
+                                                                        <span class="label label-success" ng-if="order.IsEnable === true">Yes</span>
+                                                                        <span class="label label-danger" ng-if="order.IsEnable === false">No</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-sm-1">
+                                                                    <label>Site Location</label>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <label>{{order.PrContactName}}</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <h3>Time Slip Details</h3>
+                                                                    <table class="table table-bordered table-condensed">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Time Slip ID</th>
+                                                                                <th>Employee Name</th>
+                                                                                <th>Employee No</th>
+                                                                                <th>Job Description</th>
+                                                                                <th>Job Location</th>
+                                                                                <th>Job Address</th>
+                                                                                <th>Report To</th>
+                                                                                <th>Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr ng-repeat="slip in order.Timeslips">
+                                                                                <td>{{slip.OrderTimeslipID}}</td>
+                                                                                <td>{{slip.EmployeeName}}</td>
+                                                                                <td>{{slip.AccountNo}}</td>
+                                                                                <td>{{slip.LabourClassificationName}}</td>
+                                                                                <td>{{slip.JobLocation}}</td>
+                                                                                <td>{{slip.JobAddress}}</td>
+                                                                                <td>{{slip.Reporting}}</td>
+                                                                                <td><a class="btn-cust" title="View Details of Timeslip" ui-sref="app.order.order.detail({id: emp.OrderID})">   <i class="fa fa-search"></i> View</a>&nbsp;</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>-->
+
+                            <div class="dt-toolbar-footer">
+                                <div class="col-sm-6 col-xs-12 hidden-xs">
+                                    <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">Showing total {{totalOrders}} entries</div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="dataTables_paginate paging_full_numbers"
+                                         id="DataTables_Table_1_paginate">
+                                        <dir-pagination-controls boundary-links="true" on-page-change="pageChanged(newPageNumber)" template-url="../../../partials/layout/pagination.html"></dir-pagination-controls>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+
+
+

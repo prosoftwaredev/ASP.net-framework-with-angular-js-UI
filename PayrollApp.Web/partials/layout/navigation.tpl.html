@@ -1,0 +1,341 @@
+
+<aside id="left-panel">
+
+    <nav>
+
+        <ul data-smart-menu>
+            <li data-menu-collapse>
+                <a data-ui-sref="app.dashboard" title="Dashboard">
+                    <i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span>
+                </a>
+            </li>
+
+            <li data-menu-collapse>
+                <a href="#" title="Users">
+                    <i class="fa fa-lg fa-fw fa-user"></i> <span class="menu-item-parent">Admin</span>
+                </a>
+                <ul>
+                    <li data-menu-collapse>
+                        <a href="#" title="Manage Profiles"><i></i> Manage Profiles </a>
+                        <ul>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.user">Users</a>
+                            </li>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.role">Roles</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-menu-collapse>
+                        <a href="#" title="Manage Preferences"><i></i> Manage Preferences </a>
+                        <ul>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.preference">Company Preferences</a>
+                            </li>
+     
+                        </ul>
+                    </li>
+                    <li data-menu-collapse>
+                        <a href="#" title="Manage Locations"><i></i> Manage Locations </a>
+                        <ul>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.country">Countries</a>
+                            </li>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.state">States</a>
+                            </li>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.city">Cities</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-menu-collapse>
+                        <a href="#" title="Manage Employee Info"><i></i> Manage Employee Info </a>
+                        <ul>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.employeetype">Employee Types</a>
+                            </li>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.payfrequency">Pay Frequencies</a>
+                            </li>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.labourclassification">Labour Classifications</a>
+                            </li>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.certification">Certifications</a>
+                            </li>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.skill">Skills</a>
+                            </li>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.title">Titles</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-menu-collapse>
+                        <a href="#" title="Manage Customer Info"><i></i> Manage Customer Info </a>
+                        <ul>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.paymentterm">Pay Terms</a>
+                            </li>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.salesrep">Sales Reps</a>
+                            </li>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.joblocation">Job Locationss</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-menu-collapse>
+                        <a href="#" title="Manage Customer Info"><i></i> Manage Order Info </a>
+                        <ul>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.equipment">Equipment</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-menu-collapse>
+                        <a href="#" title="Manage Errors"><i></i> Manage Errors </a>
+                        <ul>
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="app.admin.exception">Exceptions</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li data-menu-collapse>
+                <a href="#" title="Orders">
+                    <i class="fa fa-lg fa-fw fa-shopping-cart"></i> <span class="menu-item-parent">Orders</span>
+                </a>
+                <ul>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.order.order">Orders</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.order.order.add">New Order</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.order.timeslip">Order-Timeslips</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li data-menu-collapse>
+                <a href="#" title="Employees">
+                    <i class="fa fa-lg fa-fw fa-group"></i> <span class="menu-item-parent">Employees</span>
+                </a>
+                <ul>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.employee.employee">Employees</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.employee.employee.add">New Employee</a>
+                    </li>
+                </ul>
+
+            </li>
+            <li data-menu-collapse>
+                <a href="#" title="Customers">
+                    <i class="fa fa-lg fa-fw fa-briefcase"></i> <span class="menu-item-parent">Customers</span>
+                </a>
+                <ul>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.customer.customer">Customers</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.customer.customer.add">New Customer</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li data-menu-collapse>
+                <a href="#" title="Timeslips">
+                    <i class="fa fa-lg fa-fw fa-cube"></i> <span class="menu-item-parent">Timeslips</span>
+                </a>
+                <ul>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.timeslip.all">Timeslips</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.timeslip.dispatch">Dispatch</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.timeslip.active">Active</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.timeslip.completed">Completed</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li data-menu-collapse>
+                <a href="#" title="Rollover">
+                    <i class="fa fa-lg fa-fw fa-refresh"></i> <span class="menu-item-parent">Rollovers</span>
+                </a>
+                <ul>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.rollover.rollover">Rollovers</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li data-menu-collapse>
+                <a href="#" title="Images">
+                    <i class="fa fa-lg fa-fw fa-picture-o"></i> <span class="menu-item-parent">Images</span>
+                </a>
+                <ul>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.image.image">Images</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li data-menu-collapse>
+                <a href="#" title="Timeslips">
+                    <i class="fa fa-lg fa-fw fa-cogs"></i> <span class="menu-item-parent">Devices</span>
+                </a>
+                <ul>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.devices.topez">Signature Pad</a>
+                    </li>
+
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.devices.fax">Scan Timeslip</a>
+                    </li>
+
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.devices.printer">Print Receipt</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li data-menu-collapse>
+                <a href="#" title="ATM">
+                    <i class="fa fa-lg fa-fw fa-bank"></i> <span class="menu-item-parent">ATM</span>
+                </a>
+                <ul>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.atm.atm">ATM</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li data-menu-collapse>
+                <a href="#" title="Quickbooks">
+                    <i class="fa fa-lg fa-fw fa-book"></i> <span class="menu-item-parent">Quickbooks</span>
+                </a>
+                <ul>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.quickbook.quickbook">Quickbooks</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li data-menu-collapse>
+                <a href="#" title="Notificatons">
+                    <i class="fa fa-lg fa-fw fa-bell"></i> <span class="menu-item-parent">Notifications</span>
+                </a>
+                <ul>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.notification.notification">Notifications</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li data-menu-collapse>
+                <a href="#" title="Bankings">
+                    <i class="fa fa-lg fa-fw fa-usd"></i> <span class="menu-item-parent">Banking</span>
+                </a>
+                <ul>
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="app.banking.banking">Banking</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li data-menu-collapse>
+                <a href="#" title="Reports">
+                    <i class="fa fa-lg fa-fw fa-bar-chart"></i> <span class="menu-item-parent">Reports</span>
+                </a>
+                <ul ng-controller="ReportCtrl">
+                    <li data-ui-sref-active="active">
+                        <a data-ng-click="runReport('CashMachineTxns', 'Cash Machine Txns Report')">ATM Machine Txns</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ng-click="runReport('CustomerSales', 'Customer Sales Report')">Customer Sales</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ng-click="runReport('DailyDispatch', 'Daily Dispatch Report')">Daily Dispatch</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ng-click="runReport('DailyDispatchByCustomer', 'Daily Dispatch By Customer Report')">Daily Dispatch By Customer</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ng-click="runReport('DailySales', 'Daily Sales Report')">Daily Sales</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ng-click="runReport('DormantAccounts', 'Dormant Accounts Report')">Dormant Accounts</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ng-click="runReport('MissingTimeslips', 'Missing Timeslips Report')">Missing Timeslips</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ng-click="runReport('WeeklyPayrollByEmployee', 'Weekly Payroll By Employee Report')">Weekly Payroll By Employee</a>
+                    </li>
+                    <li data-ui-sref-active="active">
+                        <a data-ng-click="runReport('WeeklySalesByCustomer', 'Weekly Payroll By Employee Report')">Weekly Sales By Customer</a>
+                    </li>
+                    <!-- OTHER REPORT TYPES BELOW -->
+                    <!--
+
+                     <li data-ui-sref-active="active">
+                         <a data-ui-sref="app.report.report">Employee Status</a>
+                     </li>
+                     <li data-ui-sref-active="active">
+                         <a data-ui-sref="app.report.report">My Transactions</a>
+                     </li>
+                     <li data-ui-sref-active="active">
+                         <a data-ui-sref="app.report.report">All Transactions</a>
+                     </li>
+                     <li data-ui-sref-active="active">
+                         <a data-ui-sref="app.report.report">Daily Cash Summary</a>
+                     </li>
+                     <li data-ui-sref-active="active">
+                         <a data-ui-sref="app.report.report">Weekly Cash Summary</a>
+                     </li>
+
+                     <li data-ui-sref-active="active">
+                         <a data-ui-sref="app.report.report">Weekly Payroll By Employee</a>
+                     </li>
+                     <li data-ui-sref-active="active">
+                         <a data-ui-sref="app.report.report">Weekly Sales By Employee</a>
+                     </li>
+                     <li data-ui-sref-active="active">
+                         <a data-ui-sref="app.report.report">Comparative Sales Analysis</a>
+                     </li>
+                     <li data-ui-sref-active="active">
+                         <a data-ui-sref="app.report.report">Comparative Sales Analysis By Rep</a>
+                     </li>
+                    -->
+                    <!--FAKE LIST ITEM FOR THE POPUP -->
+                    <li>
+                        <div id="reportPreviewDiv" data-report data-report-source="reportSource" data-report-name="reportTitle" class="hide"></div>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+
+        <!-- NOTE: This allows you to pull menu items from server -->
+        <!-- <ul data-smart-menu-items="/api/menu-items.json"></ul> -->
+    </nav>
+
+    <span class="minifyme" data-action="minifyMenu" minify-menu>
+        <i class="fa fa-arrow-circle-left hit"></i>
+    </span>
+
+</aside>

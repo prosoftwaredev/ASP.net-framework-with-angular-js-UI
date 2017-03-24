@@ -1,0 +1,125 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollApp.Rest", "PayrollApp.Rest\PayrollApp.Rest.csproj", "{DCE476D8-1532-44CA-A009-77AF450FF5BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollApp.Core", "PayrollApp.Core\PayrollApp.Core.csproj", "{3C07C365-ACA7-4217-835D-357024A9FD3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollApp.Repository", "PayrollApp.Repository\PayrollApp.Repository.csproj", "{80ED91B5-C133-46C7-907E-CD30A553C857}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollApp.Service", "PayrollApp.Service\PayrollApp.Service.csproj", "{57BD8095-07D1-4E81-BD28-ADF1D8CAD3CF}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PayrollApp.Web", "http://localhost:61072", "{661C28AB-182C-4166-8FEE-A7646E6FC887}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{57bd8095-07d1-4e81-bd28-adf1d8cad3cf}|PayrollApp.Service.dll;{3C07C365-ACA7-4217-835D-357024A9FD3F}|PayrollApp.Core.dll;{80ED91B5-C133-46C7-907E-CD30A553C857}|PayrollApp.Repository.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_61072"
+		Debug.AspNetCompiler.PhysicalPath = "PayrollApp.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61072\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_61072"
+		Release.AspNetCompiler.PhysicalPath = "PayrollApp.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61072\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "PayrollApp.Web\"
+		DefaultWebSiteLanguage = "Visual Basic"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{34AD0CCF-21B0-488E-9094-AD9E01C82C72}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "PayrollApp.Reporting", "PayrollApp.Reporting\PayrollApp.Reporting\PayrollApp.Reporting.rptproj", "{4CAE3F66-9F76-401E-A8C0-49664CE0DE24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DebugLocal|Any CPU = DebugLocal|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE476D8-1532-44CA-A009-77AF450FF5BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE476D8-1532-44CA-A009-77AF450FF5BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE476D8-1532-44CA-A009-77AF450FF5BA}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE476D8-1532-44CA-A009-77AF450FF5BA}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{DCE476D8-1532-44CA-A009-77AF450FF5BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE476D8-1532-44CA-A009-77AF450FF5BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C07C365-ACA7-4217-835D-357024A9FD3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C07C365-ACA7-4217-835D-357024A9FD3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C07C365-ACA7-4217-835D-357024A9FD3F}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C07C365-ACA7-4217-835D-357024A9FD3F}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{3C07C365-ACA7-4217-835D-357024A9FD3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C07C365-ACA7-4217-835D-357024A9FD3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80ED91B5-C133-46C7-907E-CD30A553C857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80ED91B5-C133-46C7-907E-CD30A553C857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80ED91B5-C133-46C7-907E-CD30A553C857}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{80ED91B5-C133-46C7-907E-CD30A553C857}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{80ED91B5-C133-46C7-907E-CD30A553C857}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80ED91B5-C133-46C7-907E-CD30A553C857}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57BD8095-07D1-4E81-BD28-ADF1D8CAD3CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57BD8095-07D1-4E81-BD28-ADF1D8CAD3CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57BD8095-07D1-4E81-BD28-ADF1D8CAD3CF}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{57BD8095-07D1-4E81-BD28-ADF1D8CAD3CF}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{57BD8095-07D1-4E81-BD28-ADF1D8CAD3CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57BD8095-07D1-4E81-BD28-ADF1D8CAD3CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{661C28AB-182C-4166-8FEE-A7646E6FC887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{661C28AB-182C-4166-8FEE-A7646E6FC887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{661C28AB-182C-4166-8FEE-A7646E6FC887}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{661C28AB-182C-4166-8FEE-A7646E6FC887}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{661C28AB-182C-4166-8FEE-A7646E6FC887}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{661C28AB-182C-4166-8FEE-A7646E6FC887}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4CAE3F66-9F76-401E-A8C0-49664CE0DE24}.Debug|Any CPU.ActiveCfg = Debug
+		{4CAE3F66-9F76-401E-A8C0-49664CE0DE24}.Debug|Any CPU.Build.0 = Debug
+		{4CAE3F66-9F76-401E-A8C0-49664CE0DE24}.Debug|Any CPU.Deploy.0 = Debug
+		{4CAE3F66-9F76-401E-A8C0-49664CE0DE24}.DebugLocal|Any CPU.ActiveCfg = DebugLocal
+		{4CAE3F66-9F76-401E-A8C0-49664CE0DE24}.DebugLocal|Any CPU.Build.0 = DebugLocal
+		{4CAE3F66-9F76-401E-A8C0-49664CE0DE24}.Release|Any CPU.ActiveCfg = Release
+		{4CAE3F66-9F76-401E-A8C0-49664CE0DE24}.Release|Any CPU.Build.0 = Release
+		{4CAE3F66-9F76-401E-A8C0-49664CE0DE24}.Release|Any CPU.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://rsvpweb.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = PayrollApp.Rest\\PayrollApp.Rest.csproj
+		SccProjectName1 = PayrollApp.Rest
+		SccLocalPath1 = PayrollApp.Rest
+		SccProjectUniqueName2 = PayrollApp.Core\\PayrollApp.Core.csproj
+		SccProjectName2 = PayrollApp.Core
+		SccLocalPath2 = PayrollApp.Core
+		SccProjectUniqueName3 = PayrollApp.Service\\PayrollApp.Service.csproj
+		SccProjectName3 = PayrollApp.Service
+		SccLocalPath3 = PayrollApp.Service
+		SccWebProject4 = true
+		SccProjectUniqueName4 = http://localhost:61072
+		SccProjectName4 = PayrollApp.Web
+		SccLocalPath4 = PayrollApp.Web
+		SccProjectEnlistmentChoice4 = 2
+		SccProjectUniqueName5 = PayrollApp.Repository\\PayrollApp.Repository.csproj
+		SccProjectName5 = PayrollApp.Repository
+		SccLocalPath5 = PayrollApp.Repository
+		SccProjectUniqueName6 = PayrollApp.Reporting\\PayrollApp.Reporting\\PayrollApp.Reporting.rptproj
+		SccProjectName6 = PayrollApp.Reporting/PayrollApp.Reporting
+		SccLocalPath6 = PayrollApp.Reporting\\PayrollApp.Reporting
+	EndGlobalSection
+EndGlobal

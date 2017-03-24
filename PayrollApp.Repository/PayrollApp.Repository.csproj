@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{80ED91B5-C133-46C7-907E-CD30A553C857}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PayrollApp.Repository</RootNamespace>
+    <AssemblyName>PayrollApp.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GenericRepository.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Migrations\CertificationsConfiguration.cs" />
+    <Compile Include="Migrations\CitiesConfiguration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\CountriesConfiguration.cs" />
+    <Compile Include="Migrations\CustomersConfiguration.cs" />
+    <Compile Include="Migrations\EmployeesConfiguration.cs" />
+    <Compile Include="Migrations\EquipmentConfiguration.cs" />
+    <Compile Include="Migrations\LabourClassificationsConfiguration.cs" />
+    <Compile Include="Migrations\PaymentFrequenciesConfiguration.cs" />
+    <Compile Include="Migrations\PaymentTermsConfiguration.cs" />
+    <Compile Include="Migrations\ReportsConfiguration.cs" />
+    <Compile Include="Migrations\RolesConfiguration.cs" />
+    <Compile Include="Migrations\SalesRepConfiguration.cs" />
+    <Compile Include="Migrations\SkillsConfiguration.cs" />
+    <Compile Include="Migrations\StatesConfiguration.cs" />
+    <Compile Include="Migrations\TitlesConfiguration.cs" />
+    <Compile Include="Migrations\UsersConfiguration.cs" />
+    <Compile Include="PayrollAppDbContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IWriteRepository.cs" />
+    <Compile Include="Repository\WriteRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PayrollApp.Core\PayrollApp.Core.csproj">
+      <Project>{3c07c365-aca7-4217-835d-357024a9fd3f}</Project>
+      <Name>PayrollApp.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SQL Scripts\ALTER.sql" />
+    <Content Include="SQL Scripts\Certifications.sql" />
+    <Content Include="SQL Scripts\Cities.sql" />
+    <Content Include="SQL Scripts\Countries.sql" />
+    <Content Include="SQL Scripts\Insert___MigrationHistory.sql" />
+    <Content Include="SQL Scripts\NONCLUSTERED.sql" />
+    <Content Include="SQL Scripts\Customers.sql" />
+    <Content Include="SQL Scripts\CustomerSiteJobLocations.sql" />
+    <Content Include="SQL Scripts\CustomerSiteLabourClassifications.sql" />
+    <Content Include="SQL Scripts\CustomerSiteNotes.sql" />
+    <Content Include="SQL Scripts\CustomerSites.sql" />
+    <Content Include="SQL Scripts\Delete.sql" />
+    <Content Include="SQL Scripts\Drop.sql" />
+    <Content Include="SQL Scripts\EmployeeBlacklists.sql" />
+    <Content Include="SQL Scripts\EmployeeCertifications.sql" />
+    <Content Include="SQL Scripts\EmployeeLabourClassifications.sql" />
+    <Content Include="SQL Scripts\EmployeeNotes.sql" />
+    <Content Include="SQL Scripts\Employees.sql" />
+    <Content Include="SQL Scripts\EmployeeSkills.sql" />
+    <Content Include="SQL Scripts\EmployeeTypes.sql" />
+    <Content Include="SQL Scripts\Equipments.sql" />
+    <Content Include="SQL Scripts\ExcLoggers.sql" />
+    <Content Include="SQL Scripts\Images.sql" />
+    <Content Include="SQL Scripts\Insert_Certifications.sql" />
+    <Content Include="SQL Scripts\Insert_Cities.sql" />
+    <Content Include="SQL Scripts\Insert_Countries.sql" />
+    <Content Include="SQL Scripts\Insert_Customers.sql" />
+    <Content Include="SQL Scripts\Insert_CustomerSiteJobLocations.sql" />
+    <Content Include="SQL Scripts\Insert_CustomerSiteLabourClassifications.sql" />
+    <Content Include="SQL Scripts\Insert_CustomerSiteNotes.sql" />
+    <Content Include="SQL Scripts\Insert_CustomerSites.sql" />
+    <Content Include="SQL Scripts\Insert_EmployeeBlacklists.sql" />
+    <Content Include="SQL Scripts\Insert_EmployeeCertifications.sql" />
+    <Content Include="SQL Scripts\Insert_EmployeeLabourClassifications.sql" />
+    <Content Include="SQL Scripts\Insert_EmployeeNotes.sql" />
+    <Content Include="SQL Scripts\Insert_Employees.sql" />
+    <Content Include="SQL Scripts\Insert_EmployeeSkills.sql" />
+    <Content Include="SQL Scripts\Insert_Equipments.sql" />
+    <Content Include="SQL Scripts\Insert_ExcLoggers.sql" />
+    <Content Include="SQL Scripts\Insert_LabourClassifications.sql" />
+    <Content Include="SQL Scripts\Insert_LastLogins.sql" />
+    <Content Include="SQL Scripts\Insert_OrderEquipments.sql" />
+    <Content Include="SQL Scripts\Insert_Orders.sql" />
+    <Content Include="SQL Scripts\Insert_OrderTimeslips.sql" />
+    <Content Include="SQL Scripts\Insert_PayFrequencies.sql" />
+    <Content Include="SQL Scripts\Insert_PaymentTerms.sql" />
+    <Content Include="SQL Scripts\Insert_Roles.sql" />
+    <Content Include="SQL Scripts\Insert_SalesReps.sql" />
+    <Content Include="SQL Scripts\Insert_Skills.sql" />
+    <Content Include="SQL Scripts\Insert_States.sql" />
+    <Content Include="SQL Scripts\Insert_Titles.sql" />
+    <Content Include="SQL Scripts\Insert_Users.sql" />
+    <Content Include="SQL Scripts\LabourClassifications.sql" />
+    <Content Include="SQL Scripts\LastLogins.sql" />
+    <Content Include="SQL Scripts\OrderEquipments.sql" />
+    <Content Include="SQL Scripts\Orders.sql" />
+    <Content Include="SQL Scripts\OrderTimeslips.sql" />
+    <Content Include="SQL Scripts\PayFrequencies.sql" />
+    <Content Include="SQL Scripts\PaymentTerms.sql" />
+    <Content Include="SQL Scripts\ReportParameters.sql" />
+    <Content Include="SQL Scripts\ReportRequestParameters.sql" />
+    <Content Include="SQL Scripts\ReportRequests.sql" />
+    <Content Include="SQL Scripts\Reports.sql" />
+    <Content Include="SQL Scripts\Roles.sql" />
+    <Content Include="SQL Scripts\SalesReps.sql" />
+    <Content Include="SQL Scripts\Skills.sql" />
+    <Content Include="SQL Scripts\States.sql" />
+    <Content Include="SQL Scripts\Titles.sql" />
+    <Content Include="SQL Scripts\UserRoles.sql" />
+    <Content Include="SQL Scripts\Users.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

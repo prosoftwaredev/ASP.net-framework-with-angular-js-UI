@@ -1,0 +1,50 @@
+.dualmultiselect label {
+    width:100%;
+  /*margin: 10px;*/
+}
+
+/*.dualmultiselect .btn {
+  margin: 10px;
+}*/
+
+.dualmultiselect .pool {
+    background-color:#F5F5F5;
+  border: 1px solid #999;
+  border-radius: 4px;
+  padding: 10px;
+  /*margin: 5px;*/
+  height: 350px;
+  overflow-y: scroll;
+  position:relative;
+}
+
+.dualmultiselect .pool ul {
+  list-style: none;
+  padding-left: 0px;
+  /*background-color:#fff;*/
+}
+
+.dualmultiselect .pool ul li {
+  width: 100%;
+  padding: 8px;
+  border-bottom: 1px solid #CFCFCF;
+  background-color:#fff;
+  margin-top:3px;
+  margin-bottom:3px;
+  cursor:pointer;
+  color:#2196F3;
+  border-radius:4px;
+}
+
+    .dualmultiselect .pool ul li p {
+        color:#333;
+    }
+
+    .dualmultiselect .pool ul li:hover, .dualmultiselect .pool ul li span:hover {
+        background-color:#2196F3 ;
+        color:#fff;
+    }
+
+    .dualmultiselect .pool ul li span {
+        font-size:14px;
+    }

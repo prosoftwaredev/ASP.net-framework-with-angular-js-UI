@@ -1,0 +1,432 @@
+﻿<div id="content">
+    <div class="row">
+        <a class="btn btn-default hidden-mobile pull-right" data-ui-sref="app.customer.customer"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
+    </div>
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" class="top-container-border" data-widget-colorbutton="false" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" role="widget">
+
+                    <div class="widget-body no-padding1">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12" customer-contact-form>
+                                <div class="widget-body no-padding1">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-12" customer-form>
+                                            <ul id="myTab1" class="nav nav-tabs">
+                                                <li class="active">
+                                                    <a href="#contact" data-toggle="tab" aria-expanded="true">Contact Information</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#classify" data-toggle="tab" aria-expanded="false">Labour Classification Information</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="#reminder" data-toggle="tab" aria-expanded="false">Reminder Information</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="#notes" data-toggle="tab" aria-expanded="false">Notes collected</a>
+                                                </li>
+                                            </ul>
+                                            <div id="myTabContent1" class="tab-content padding-10">
+                                                <div class="tab-pane fade active in" id="contact">
+
+                                                        <div class="row">
+                                                            <!-- Modified Section Starts -->
+                                                            <!-- NEW COL START -->
+                                                            <section class="col-sm-12 col-md-12 col-lg-6 smart-form">
+                                                                <div class="legend">
+                                                                    <header>Registration Information</header>
+                                                                    <div class="row line-height-35">
+                                                                        <section class="col col-3">
+                                                                            <b>Customer Name:</b><span class="form-required">&nbsp;*</span>
+                                                                        </section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <input type="text" disabled class="form-control" name="customername" data-ng-model="Customer.CustomerName" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3">
+                                                                            <b>Company Name:</b><span class="form-required">&nbsp;*</span>
+                                                                        </section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <input type="text" disabled class="form-control" name="companyname" data-ng-model="Customer.CompanyName" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>Account Number:</b></section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <input type="text" disabled class="form-control" name="accountno" placeholder="(auto assigned if blank)" data-ng-model="Customer.AccountNo" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>Sales Rep:</b></section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <select name="salesrep" class="form-control" ng-model="Customer.SalesRepID" ng-options="salerep.SalesRepID as salerep.SalesRepName for salerep in SalesReps">
+                                                                                <option value="0" selected="" disabled="">Sales Rep</option>
+                                                                            </select>
+                                                                        </section>
+                                                                        <section class="col col-3 form-group">
+                                                                            <label class="checkbox">
+                                                                                <input class="checkbox style-0" name="enable" data-ng-model="Customer.IsEnable" type="checkbox">
+                                                                                <i></i><b>Active</b>
+                                                                            </label>
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>Terms:</b><span class="form-required">&nbsp;*</span></section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <select name="paymentterm" class="form-control" ng-model="Customer.PaymentTermID" ng-options="payterm.PaymentTermID as payterm.PaymentTermName for payterm in PaymentTerms">
+                                                                                <option value="0" selected="" disabled="">Terms</option>
+                                                                            </select>
+                                                                        </section>
+
+                                                                        <section class="col col-3 form-group">
+                                                                            <label class="checkbox">
+                                                                                <input class="checkbox style-0" name="delinquent" data-ng-model="Customer.Delinquent" type="checkbox">
+                                                                                <i></i><b>Delinquent</b>
+                                                                            </label>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="legend">
+                                                                    <header>
+                                                                        Primary Contact
+                                                                    </header>
+                                                                    <div class="row line-height-35">
+                                                                        <section class="col col-3"><b>Contact Name:</b><span class="form-required">&nbsp;*</span></section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <input type="text" disabled class="form-control" name="prcontactname" data-ng-model="CustomerSite.PrContactName" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>Address Line 1:</b><span class="form-required">&nbsp;*</span></section>
+                                                                        <section class="col col-8 form-group">
+                                                                            <input type="text" disabled class="form-control" name="praddress1" data-ng-model="CustomerSite.PrAddress1" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>Address Line 2:</b></section>
+                                                                        <section class="col col-8 form-group">
+                                                                            <input type="text" disabled class="form-control" name="praddress2" data-ng-model="CustomerSite.PrAddress2" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>State / Province:</b><span class="form-required">&nbsp;*</span></section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <select name="prstate" class="form-control" ng-model="CustomerSite.PrStateID" ng-options="state.StateID as state.StateName + ' (' + (state.StateCode) + ')' for state in PrStates" ng-change="getCitiesByStateIDForPrimary(CustomerSite.PrStateID)">
+                                                                                <option value="" selected="" disabled="">Select</option>
+                                                                            </select>
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>City:</b><span class="form-required">&nbsp;*</span></section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <select name="prcity" class="form-control" ng-model="CustomerSite.PrCityID" ng-options="city.CityID as city.CityName for city in PrCities">
+                                                                                <option value="" selected="" disabled="">Select</option>
+                                                                            </select>
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>Postal / Zip Code:</b><span class="form-required">&nbsp;*</span></section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <input type="text" disabled class="form-control" name="prpostalcode" data-ng-model="CustomerSite.PrPostalCode" ng-focus="getPrZipCode()" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>Phone:</b><span class="form-required">&nbsp;*</span></section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <input type="tel" class="form-control" name="prphone" data-ng-model="CustomerSite.PrPhone" maxlength="17" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>Fax:</b></section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <input type="tel" class="form-control" name="prfax" data-ng-model="CustomerSite.PrFax" maxlength="17" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>Email:</b></section>
+                                                                        <section class="col col-8 form-group">
+                                                                            <input type="email" class="form-control" name="premail" data-ng-model="CustomerSite.PrEmail" />
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="legend">
+                                                                    <header>
+                                                                        Overtime
+                                                                    </header>
+                                                                    <div class="row line-height-35">
+                                                                        <section class="col col-3"><b>Certificate:</b></section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <input type="text" disabled class="form-control" name="certificateno" data-ng-model="CustomerSite.CertificateNo" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>No OT before:</b></section>
+                                                                        <section class="col col-4 form-group">
+                                                                            <input type="text" disabled class="form-control" name="otperday" data-ng-model="CustomerSite.OTPerDay" />
+                                                                        </section>
+                                                                        <section class="col col-4">
+                                                                            <b>hours per day</b>
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>No OT before:</b></section>
+                                                                        <section class="col col-4 form-group">
+                                                                            <input type="text" disabled class="form-control" name="otperweek" data-ng-model="CustomerSite.OTPerWeek" />
+                                                                        </section>
+                                                                        <section class="col col-4">
+                                                                            <b>hours per week</b>
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>Timeslip Message:</b></section>
+                                                                        <section class="col col-8 form-group">
+                                                                            <textarea class="form-control" name="timeslipmsg" data-ng-model="CustomerSite.TimeslipMsg" rows="3" />
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </section>
+                                                            <!-- NEW COL START -->
+                                                            <section class="col-sm-12 col-md-12 col-lg-6 smart-form">
+                                                                <div class="legend padding-bottom-0">
+                                                                    <header>Required Fields</header>
+                                                                    <section>
+                                                                        <label class="checkbox">
+                                                                            <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="Customer.RequirePO">
+                                                                            <i></i><b>All Orders require PO#</b>
+                                                                        </label>
+                                                                    </section>
+                                                                    <section>
+                                                                        <label class="checkbox">
+                                                                            <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="Customer.UniquePO">
+                                                                            <i></i><b>PO# must be Unique</b>
+                                                                        </label>
+                                                                    </section>
+                                                                    <section>
+                                                                        <label class="checkbox">
+                                                                            <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="Customer.PayByCC">
+                                                                            <i></i><b>Pay By Credit Card</b>
+                                                                        </label>
+                                                                    </section>
+                                                                    <section>
+                                                                        <label class="checkbox">
+                                                                            <input type="checkbox" name="start_interval" checked="checked" data-ng-model="Customer.Delinquent">
+                                                                            <i></i><b>Delinquent</b>
+                                                                        </label>
+                                                                    </section>
+                                                                    <section>
+                                                                        <label class="checkbox">
+                                                                            <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="Customer.InvoiceDiscountMessage">
+                                                                            <i></i><b>Enable Invoice Discount Message</b>
+                                                                        </label>
+                                                                    </section>
+                                                                    <section>
+                                                                        <label class="checkbox">
+                                                                            <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="Customer.HideCustomerName">
+                                                                            <i></i><b>Hide Employee Name on Timeslip</b>
+                                                                        </label>
+                                                                    </section>
+                                                                </div>
+                                                                <div class="legend">
+                                                                    <header>
+                                                                        Sent Invoice To
+                                                                    </header>
+                                                                    <section>
+                                                                        <label class="checkbox">
+                                                                            <input class="checkbox style-0" type="checkbox" ng-model="IsChecked" ng-change="sameAsPrimary(IsChecked)">
+                                                                            <i></i><b>Shipping Detail is same as Primary Contact</b>
+                                                                        </label>
+                                                                    </section>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>Name:</b></section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <input type="text" disabled class="form-control" name="incontactname" data-ng-model="CustomerSite.InContactName" ng-value="IsChecked ? CustomerSite.InContactName = CustomerSite.PrContactName : ''" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>Address Line 1:</b></section>
+                                                                        <section class="col col-8 form-group">
+                                                                            <input type="text" disabled class="form-control" name="inaddress1" data-ng-model="CustomerSite.InAddress1" ng-value="IsChecked ? CustomerSite.InAddress1 = CustomerSite.PrAddress1 : ''" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>Address Line 2:</b></section>
+                                                                        <section class="col col-8 form-group">
+                                                                            <input type="text" disabled class="form-control" name="inaddress2" data-ng-model="CustomerSite.InAddress2" ng-value="IsChecked ? CustomerSite.InAddress2 = CustomerSite.PrAddress2 : ''" />
+                                                                        </section>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>State / Province:</b></section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <select name="instate" class="form-control" ng-model="CustomerSite.InStateID" ng-options="state.StateID as state.StateName + ' (' + (state.StateCode) + ')' for state in InStates" ng-change="getCitiesByStateIDForInvoice (CustomerSite.InStateID)" ng-value="IsChecked ? CustomerSite.InStateID = CustomerSite.PrStateID : ''">
+                                                                                <option value="" selected="" disabled="">Select</option>
+                                                                            </select>
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>City:</b></section>
+                                                                        <section class="col col-6 form-group">
+                                                                            <select name="incity" class="form-control" ng-model="CustomerSite.InCityID" ng-options="city.CityID as city.CityName for city in InCities" ng-value="IsChecked ? CustomerSite.InCityID = CustomerSite.PrCityID : ''">
+                                                                                <option value="" selected="" disabled="">Select</option>
+                                                                            </select>
+                                                                        </section>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col col-9">
+                                                                            <div class="row">
+                                                                                <section class="col col-4"><b>Postal / Zip Code:</b></section>
+                                                                                <section class="col col-8 form-group">
+                                                                                    <input type="text" disabled class="form-control" name="inpostalcode" data-ng-model="CustomerSite.InPostalCode" ng-focus="getInZipCode()" ng-value="IsChecked ? CustomerSite.InPostalCode = CustomerSite.PrPostalCode : ''" />
+                                                                                </section>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <section class="col col-4"><b>Phone:</b></section>
+                                                                                <section class="col col-8 form-group">
+                                                                                    <input type="tel" class="form-control" name="inphone" data-ng-model="CustomerSite.InPhone" maxlength="17" ng-value="IsChecked ? CustomerSite.InPhone = CustomerSite.PrPhone : ''" />
+                                                                                </section>
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <section class="col col-4"><b>Fax:</b></section>
+                                                                                <section class="col col-8 form-group">
+                                                                                    <input type="tel" class="form-control" name="infax" data-ng-model="CustomerSite.InFax" maxlength="17" ng-value="IsChecked ? CustomerSite.InFax = CustomerSite.PrFax : ''" />
+                                                                                </section>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col col-3">
+                                                                            <div class="legend">
+                                                                                <header>Invoice Via</header>
+                                                                                <label class="checkbox">
+                                                                                    <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceViaMail">
+                                                                                    <i></i><b>Mail</b>
+                                                                                </label>
+                                                                                <label class="checkbox">
+                                                                                    <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceViaFax">
+                                                                                    <i></i><b>Fax</b>
+                                                                                </label>
+                                                                                <label class="checkbox">
+                                                                                    <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceViaEmail">
+                                                                                    <i></i><b>Email</b>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <section class="col col-3"><b>Email:</b></section>
+                                                                        <section class="col col-8 form-group">
+                                                                            <input type="tel" class="form-control" placeholder="Email" name="inemail" data-ng-model="CustomerSite.InEmail" ng-value="IsChecked ? CustomerSite.InEmail = CustomerSite.PrEmail : ''" />
+                                                                        </section>
+                                                                    </div>
+                                                                    <section>
+                                                                        <label class="checkbox">
+                                                                            <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceAutomatically">
+                                                                            <i></i><b>Automatically Email Invoice Daily</b>
+                                                                        </label>
+                                                                    </section>
+                                                                    <section>
+                                                                        <label class="checkbox">
+                                                                            <input class="checkbox style-0" checked="checked" type="checkbox" data-ng-model="CustomerSite.InvoiceCombine">
+                                                                            <i></i><b>Combine Timeslips for Daily Invoice</b>
+                                                                        </label>
+                                                                    </section>
+                                                                </div>
+                                                                <div class="legend">
+                                                                    <header>
+                                                                        Required Equipment
+                                                                    </header>
+                                                                    <div class="row">
+                                                                        <section class="col-lg-3 form-group" ng-repeat="equipment in Equipments">
+                                                                            <label class="checkbox"><input name="checkbox" type="checkbox" ng-model="flag" ng-change="IsEquipmentChecked(flag, equipment.EquipmentID)"><i></i>{{equipment.EquipmentName}}</label>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </section>
+
+                                                            <!-- NEW COL START -->
+                                                        </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="classify">
+                                                    <br />
+
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="dualmultiselect">
+                                                                <div class="row">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                                        <table class="table table-bordered table-striped">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>Labour Classifications</th>
+                                                                                    <th class="edit-data">Pay Rate</th>
+                                                                                    <th class="edit-data">Invoice Rate</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr ng-repeat="labourClassification in FilteredLabourClassifications" ng-show="isDisplayLabourClassifications">
+                                                                                    <td class="edit-height">
+                                                                                        {{labourClassification.LabourClassificationName}}
+                                                                                    </td>
+                                                                                    <td class="edit-data edit-height" ng-click="editRow(labourClassification.CustomerSiteLabourClassificationID)">
+                                                                                        <span ng-show="tempCustomerSiteLabourClassificationID != labourClassification.CustomerSiteLabourClassificationID">{{labourClassification.PayRate | number:2}}</span>
+                                                                                        <span ng-show="tempCustomerSiteLabourClassificationID == labourClassification.CustomerSiteLabourClassificationID">
+                                                                                            <input type="text" disabled class="edit-control" data-ng-model="labourClassification.PayRate" ng-keyup="$event.keyCode == 13 ? editCustomerSiteLabourClassification(labourClassification.CustomerSiteLabourClassificationID, labourClassification.PayRate, labourClassification.InvoiceRate) : null" />
+                                                                                        </span>
+
+                                                                                    </td>
+                                                                                    <td class="edit-data edit-height" ng-click="editRow(labourClassification.CustomerSiteLabourClassificationID)">
+                                                                                        <span ng-show="tempCustomerSiteLabourClassificationID != labourClassification.CustomerSiteLabourClassificationID">{{labourClassification.InvoiceRate | number:2}}</span>
+                                                                                        <span ng-show="tempCustomerSiteLabourClassificationID == labourClassification.CustomerSiteLabourClassificationID">
+                                                                                            <input type="text" disabled class="edit-control" data-ng-model="labourClassification.InvoiceRate" ng-keyup="$event.keyCode == 13 ? editCustomerSiteLabourClassification(labourClassification.CustomerSiteLabourClassificationID, labourClassification.PayRate, labourClassification.InvoiceRate) : null" />
+                                                                                        </span>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="reminder">
+                                                        <br />
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <section class="form-group">
+                                                                    <label class="control-label">Reminder</label>
+                                                                    <textarea class="form-control" name="phone" data-ng-model="CustomerSite.Reminder" rows="3" ng-disabled="CustomerSiteID == null || !CustomerSite.IsEnable" />
+                                                                </section>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="notes">
+                                                    <div class="row">
+                                                        <div class="col-lg-12" ng-repeat="customerSiteNote in CustomerSiteNotes">
+                                                            <div style="font-size:14px; padding:15px;width:100%;background-color:#f5f5f5;margin-bottom:5px;">
+                                                                <p>
+                                                                    {{customerSiteNote.Note}}<br />
+                                                                    <span>
+                                                                        <strong>
+                                                                            By {{customerSiteNote.CreatedBy}} on {{customerSiteNote.Created | date:'dd-MMM-yyyy hh:mm:ss a'}}
+                                                                        </strong>
+                                                                    </span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div data-ui-view="site" data-autoscroll="false"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

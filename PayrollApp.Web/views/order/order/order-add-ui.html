@@ -1,0 +1,236 @@
+﻿<div id="content">
+    <div class="row">
+        <a class="btn btn-default hidden-mobile pull-right" data-ui-sref="app.order.order"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
+    </div>
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" class="top-container-border" data-widget-colorbutton="false" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false" data-widget-sortable="false" role="widget">
+                    <div class="widget-body no-padding1">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12" order-contact-form>
+                                <!-- order form -->
+                                <form name="orderaddform" ng-submit="addOrder(Order)">
+                                    <div class="widget-body">
+
+                                        <div class="row">
+                                            <section class="col-sm-12 col-md-12 col-lg-6 smart-form">
+                                                <div class="legend">
+                                                    <header>Order Information</header>
+                                                    <div class="row line-height-35">
+                                                        <section class="col col-3"><b>Choose Customer:</b><span class="form-required">&nbsp;*</span></section>
+                                                        <section class="col col-9 form-group">
+                                                            <select name="customername" class="form-control" ng-model="Order.CustomerID" ng-options="cust.CustomerID as cust.CustomerName for cust in Customers" ng-change="getAllCustomerSitesByCustomerID(Order.CustomerID)">
+                                                                <option value="">Choose</option>
+                                                            </select>
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-3"><b>Specify P.O. #:</b></section>
+                                                        <section class="col col-5 form-group">
+                                                            <input type="text" class="form-control" name="ponumer" data-ng-model="Order.PONumber" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-3"><b>Requested By:</b><span class="form-required">&nbsp;*</span></section>
+                                                        <section class="col col-5 form-group">
+                                                            <input type="text" class="form-control" name="requested" data-ng-model="Order.ContactName" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-3"><b>Phone:</b><span class="form-required">&nbsp;*</span></section>
+                                                        <section class="col col-5 form-group">
+                                                            <input type="text" class="form-control" name="phone" data-ng-model="Order.Phone" maxlength="17" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-3"><b>Work Starts:</b><span class="form-required">&nbsp;*</span></section>
+                                                        <section class="col col-3 form-group">
+                                                            <input class="form-control" type="text" name="workstart" ng-model="Order.WorkStartRsv" placeholder="MM/DD/YYYY" dateconvert datepicker />
+                                                        </section>
+                                                        <section class="col col-2 form-group">
+                                                            <input class="form-control" data-smart-clockpicker type="text" name="starttime" placeholder="Select time" data-autoclose="true" ng-model="Order.StartTimeRsv">
+                                                        </section>
+                                                    </div>
+                                                    <hr class="stylesshadow">
+                                                    
+                                                    <div class="row">
+                                                        <section class="col col-3"><b>Labour Classification:</b><span class="form-required">&nbsp;*</span></section>
+                                                        <section class="col col-5 form-group">
+                                                            <select name="labourclassification" class="form-control" ng-model="Order.LabourClassificationID" ng-options="lc.LabourClassificationID as lc.LabourClassificationName for lc in LabourClassifications">
+                                                                <option value="">Choose</option>
+                                                            </select>
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-3"><b>People Required:</b><span class="form-required">&nbsp;*</span></section>
+                                                        <section class="col col-3 form-group">
+                                                            <input type="number" class="form-control" name="people" data-ng-model="Order.People" min="0" max="1000" value="0" />
+                                                        </section>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <section class="col col-3"><b>Dispatch Notes:</b></section>
+                                                        <section class="col col-9 form-group">
+                                                            <input type="text" class="form-control" name="dispatch" data-ng-model="Order.DispatchNote" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-3"><b>Report To:</b><span class="form-required">&nbsp;*</span></section>
+                                                        <section class="col col-5 form-group">
+                                                            <input type="text" class="form-control" name="reporting" data-ng-model="Order.Reporting" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-3"><b>Job Duration:</b><span class="form-required">&nbsp;*</span></section>
+                                                        <section class="col col-5">
+                                                            <label class="radio-inline">
+                                                                <input name="radio" checked="checked" type="radio" ng-model="Order.JobDuration" value="1" ng-change="getTimeslipStatus(Order.JobDuration, Order.CustomerID, Order.WorkStartRsv, Order.StartTimeRsv, Order.LabourClassificationID)"><i></i><b>One Day</b>
+                                                            </label>
+                                                            &nbsp;&nbsp;
+                                                            <label class="radio-inline">
+                                                                <input name="radio" checked="checked" type="radio" ng-model="Order.JobDuration" value="2" ng-change="getTimeslipStatus(Order.JobDuration, Order.CustomerID, Order.WorkStartRsv, Order.StartTimeRsv, Order.LabourClassificationID)"><i></i><b>Weekly</b>
+                                                            </label>
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-3"><b>No OT before:</b><span class="form-required">&nbsp;*</span></section>
+                                                        <section class="col col-2 form-group">
+                                                            <input type="tel" class="form-control" name="otperday" data-ng-model="Order.OTPerDay" />
+                                                        </section>
+                                                        <section class="col col-5">
+                                                            <b>hours per day</b>
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-3"><b>No OT before:</b><span class="form-required">&nbsp;*</span></section>
+                                                        <section class="col col-2 form-group">
+                                                            <input type="tel" class="form-control" name="otperweek" data-ng-model="Order.OTPerWeek" />
+                                                        </section>
+                                                        <section class="col col-5">
+                                                            <b>hours per week</b>
+                                                        </section>
+                                                    </div>
+
+                                                </div>
+                                            </section>
+                                            <section class="col-sm-12 col-md-12 col-lg-6 smart-form">
+                                                <div class="legend">
+                                                    <header>
+                                                        Contact Information
+                                                    </header>
+                                                    <!--<div class="row">
+                                                        <section class="col col-3">Choose Customer Site</section>
+                                                        <section class="col col-9 form-group">
+                                                            <select name="customername" class="form-control" ng-model="Order.CustomerSiteID" ng-options="site.CustomerSiteID as site.SiteName for site in CustomerSites" ng-change="getCustomerSiteByID(Order.CustomerSiteID)">
+                                                                <option value="">Choose</option>
+                                                            </select>
+                                                        </section>
+                                                    </div>-->
+                                                    <!--<div class="row">
+                                                        <section class="col col-3">Customer Site Description</section>
+                                                        <section class="col col-9 form-group"><input type="text" class="form-control" name="description" data-ng-model="Order.SiteDescription" /></section>
+                                                    </div>-->
+                                                    <div class="row line-height-35" ng-show="!isDisplayJobLocations && Order.CustomerSiteJobLocationID < 0">
+                                                        <section class="col-lg-3">&nbsp;<b>Job Location:</b><span class="form-required">&nbsp;*</span></section>
+                                                        <section class="col-lg-9"><input class="form-control" type="text" name="joblocation" ng-model="Order.JobLocation" /></section>
+                                                    </div>
+                                                    <div class="row" ng-show="!isDisplayJobLocations && Order.CustomerSiteJobLocationID >= 0">
+                                                        <section class="col-lg-3">&nbsp;<b>Job Location:</b><span class="form-required">&nbsp;*</span></section>
+                                                        <section class="col-lg-7">
+                                                            <input class="form-control" type="text" name="joblocation" ng-model="Order.JobLocation" />
+                                                            <p class="label label-info label-custom-margin">Press "List" button to view all job location for selected site</p>
+                                                        </section>
+                                                        <section class="col-lg-2">
+                                                            <button type="button" class="btn btn-info" style="margin-top:5px;" ng-click="showList()">List</button>
+                                                        </section>
+                                                    </div>
+
+                                                    <div class="row" ng-show="isDisplayJobLocations">
+                                                        <section class="col-lg-3">&nbsp;<b>Job Location:</b><span class="form-required">&nbsp;*</span></section>
+                                                        <section class="col-lg-7">
+                                                            <select name="customersite" class="form-control" ng-model="Order.CustomerSiteJobLocationID" ng-options="location.CustomerSiteJobLocationID as location.JobLocation for location in CustomerSiteJobLocations" ng-change="getCustomerSiteJobLocationByID(Order.CustomerSiteJobLocationID)">
+                                                                <option value="">Choose</option>
+                                                            </select>
+                                                            <p class="label label-info label-custom-margin">Press "Add" button to add new job location for selected site</p>
+                                                        </section>
+                                                        <section class="col-lg-2">
+                                                            <button type="button" class="btn btn-info" style="margin-top:5px;" ng-click="addNewJob()">Add</button>
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-3">&nbsp;<b>Job Address:</b><span class="form-required">&nbsp;*</span></section>
+                                                        <section class="col col-9 form-group">
+                                                            <input type="text" class="form-control" name="jobaddress" data-ng-model="Order.JobAddress" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-3">&nbsp;<b>Job Note:</b></section>
+                                                        <section class="col col-9 form-group">
+                                                            <input type="text" class="form-control" name="jobnote" data-ng-model="Order.JobNote" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-3"><b>Comments:</b></section>
+                                                        <section class="col col-9 form-group">
+                                                            <input type="text" class="form-control" name="comment" data-ng-model="Order.Comment" />
+                                                            (Not Printed on Timeslip)
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="legend">
+                                                    <header>Required Equipment</header>
+                                                    <div class="row">
+                                                        <section class="col-lg-3 form-group" ng-repeat="equipment in Equipments">
+                                                            <label class="checkbox">
+                                                                <b>
+                                                                    <input name="checkbox" type="checkbox" ng-model="flag" ng-change="IsEquipmentChecked(flag, equipment.EquipmentID)"><i></i>{{equipment.EquipmentName}}
+                                                                </b>
+                                                            </label>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div class="legend">
+                                                    <header>Rollover Details</header>
+                                                    <div class="row line-height-35">
+                                                        <section class="col col-4"><b>Confirmed Through:</b></section>
+                                                        <section class="col col-3 form-group">
+                                                            <input class="form-control" type="text" name="workstart" ng-model="Order.ConfirmedThrough" placeholder="MM/DD/YYYY" dateconvert datepicker />
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-4">
+                                                            <b>Rollover ?</b><label class="checkbox pull-right" style="margin-top:0px;">
+                                                                <input name="checkbox" type="checkbox" ng-model="Order.IsToBeRolledOver"><i></i><b>Start</b>
+                                                            </label>
+                                                        </section>
+                                                        <section class="col col-3 form-group">
+                                                            <input class="form-control" type="text" name="workstart" ng-model="Order.RollOverDate" placeholder="MM/DD/YYYY" dateconvert datepicker />
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-4"><b>New Timeslip:</b></section>
+                                                        <section class="col col-8 form-group">
+                                                            <button type="button" class="btn-weeks" ng-repeat-start="status in TimeslipStatus.DayStatusList" ng-style="{'background-color': status.BackColor, 'color': status.ForeColor, 'font-weight': status.FontStyle, 'font-style': status.FontStyle, 'border': '1px solid grey' }" title="{{status.Date}} - {{status.Status}}" ng-if="status.Visible === true" ng-click="getTimeslipStatusAfterClick(Order.JobDuration, Order.CustomerID, Order.WorkStartRsv, Order.StartTimeRsv, Order.LabourClassificationID, status.Date)">{{status.Text}}</button>
+                                                            <br ng-repeat-end ng-if="$index===6" />
+                                                        </section>
+                                                    </div>
+                                                    <div class="row">
+                                                        <section class="col col-4"><b>Rollover As:</b></section>
+                                                    </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                    </div>
+                                </form>
+                                <!-- end form-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>

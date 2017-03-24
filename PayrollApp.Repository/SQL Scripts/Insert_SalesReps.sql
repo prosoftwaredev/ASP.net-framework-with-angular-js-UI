@@ -1,0 +1,6 @@
+﻿SET IDENTITY_INSERT [dbo].[SalesReps] ON 
+INSERT [dbo].[SalesReps] ([SalesRepID], [SalesRepName], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (1, N'NOCOM', 1, 1, CAST(N'2017-02-25 14:50:04.400' AS DateTime), CAST(N'2017-02-25 14:50:04.400' AS DateTime), N'--', 0, 1, 1)
+INSERT [dbo].[SalesReps] ([SalesRepID], [SalesRepName], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (2, N'AM', 1, 1, CAST(N'2017-02-25 14:50:04.917' AS DateTime), CAST(N'2017-02-25 14:50:04.917' AS DateTime), N'--', 0, 1, 1)
+INSERT [dbo].[SalesReps] ([SalesRepID], [SalesRepName], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (3, N'JN', 1, 1, CAST(N'2017-02-25 14:50:05.260' AS DateTime), CAST(N'2017-02-25 14:50:05.260' AS DateTime), N'--', 0, 1, 1)
+INSERT [dbo].[SalesReps] ([SalesRepID], [SalesRepName], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (4, N'GH', 1, 1, CAST(N'2017-02-25 14:50:05.673' AS DateTime), CAST(N'2017-02-25 14:50:05.673' AS DateTime), N'--', 0, 1, 1)
+SET IDENTITY_INSERT [dbo].[SalesReps] OFF

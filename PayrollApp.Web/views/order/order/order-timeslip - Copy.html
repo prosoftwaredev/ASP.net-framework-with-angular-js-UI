@@ -1,0 +1,481 @@
+﻿<div id="content">
+    <div class="row">
+        <a class="btn btn-default hidden-mobile pull-right" data-ui-sref="app.order.order"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
+    </div>
+    <section widget-grid id="widget-grid">
+        <div class="row">
+            <article>
+                <div jarvis-widget id="standard-datatable-widget" data-widget-color="darken" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-sortable="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-barcode"></i> </span>
+                        <h2>Timeslip {{Timeslip.OrderTimeslipID}}</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding">
+                            <br />
+                            <div class="row">
+                                <div class="col-lg-3" style="margin-left:10px;">
+                                    <section class="form-group">
+                                        <select name="customersite" class="form-control" ng-model="TimeslipID" ng-options="slip.OrderTimeslipID as 'Timeslip ' + index + '' for (index, slip) in Timeslips" ng-change="getOrderTimeslipByID(TimeslipID)">
+                                            <option value="">Choose Timeslip</option>
+                                        </select>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="widget-body-toolbar">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="input-group" style="margin-top:10px;">
+                                            <input class="form-control" type="text" placeholder="1553394" ng-model="Timeslip.OrderTimeslipID">
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-default" type="button">
+                                                    <i class="fa fa-trash-o"></i> Delete
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6  center text-center">
+                                        <img src="styles/img/smlogo.png" style="height:50px;" alt="invoice icon">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="input-group" style="margin-top:10px;">
+                                            <input class="form-control" type="text" placeholder="Type invoice number or date...">
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-default" type="button">
+                                                    <i class="fa fa-search"></i> Search
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="padding-10">
+                                <br>
+
+                                <form ng-submit="editOrderTimeslip(Timeslip)" class="smart-form client-form">
+
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>COMPANY NAME</label>
+                                                        <input class="form-control" type="text" ng-model="Timeslip.CompanyName" disabled>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>START TIME</label>
+                                                        <input class="form-control" data-smart-clockpicker type="text" name="starttime" placeholder="Select time" data-autoclose="true" ng-model="Timeslip.StartTimeRsv">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>P.O. #</label>
+                                                        <input class="form-control" type="text" ng-model="Timeslip.PONumber" disabled>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>JOB DESCRIPTION</label>
+                                                        <select name="labourclassification" class="form-control" ng-model="Timeslip.LabourClassificationID" ng-options="lc.LabourClassificationID as lc.LabourClassificationName for lc in LabourClassifications" ng-change="getRates(Order.CustomerSiteID, Order.LabourClassificationID)">
+                                                            <option value="">Choose</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>DATE</label>
+                                                        <input class="form-control" type="text" name="workstart" ng-model="Timeslip.WorkStartRsv" placeholder="MM/DD/YYYY" dateconvert datepicker />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4">
+                                                    <div class="form-group">
+                                                        <label>JOB LOCATION & DESCRIPTION</label>
+                                                        <select name="customersite" class="form-control" ng-model="Timeslip.CustomerSiteJobLocationID" ng-options="location.CustomerSiteJobLocationID as location.JobLocation for location in CustomerSiteJobLocations" ng-change="getCustomerSiteJobLocationByID(Timeslip.CustomerSiteJobLocationID)">
+                                                            <option value="">Choose</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                                <td colspan="1">
+                                                    <div class="form-group">
+                                                        <label>Dispatch Note</label>
+                                                        <input class="form-control" type="text" ng-model="Timeslip.DispatchNote">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4">
+                                                    <div class="form-group">
+                                                        <label></label>
+                                                        <input class="form-control" type="text" ng-model="Timeslip.JobAddress"><br />
+                                                    </div>
+                                                </td>
+                                                <td colspan="1">
+                                                    <div class="form-group">
+                                                        <label>Comment</label>
+                                                        <input class="form-control" type="text" ng-model="Timeslip.Comment">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>REPORT TO</label>
+                                                        <input class="form-control" type="text" ng-model="Timeslip.Reporting">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>CONTACT PHONE #</label>
+                                                        <input class="form-control" type="text" ng-model="Timeslip.Phone">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>ORDER PLACED BY</label>
+                                                        <input class="form-control" type="text" ng-model="Timeslip.CreatedByName" disabled>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label>PAY RATE</label>
+                                                            <!--<h1>${{Timeslip.PayRate = Timeslip.PayRate == 0 ? Rates.PayRate : Timeslip.PayRate | number:2}}</h1>-->
+                                                            <h1>${{Timeslip.PayRate | number:2}}</h1>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label>INVOICE RATE</label>
+                                                            <!--<h1>${{Timeslip.InvoiceRate = Timeslip.InvoiceRate == 0 ? Rates.InvoiceRate : Timeslip.InvoiceRate | number:2}}</h1>-->
+                                                            <h1>${{Timeslip.InvoiceRate | number:2}}</h1>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="form-group">
+                                                        <label>EMPLOYEE NAME</label>
+                                                        <select class="form-control" ng-model="Timeslip.EmployeeID" ng-options="emp.EmployeeID as emp.EmployeeName for emp in Employees" ng-change="getEmployeeByID(Timeslip.EmployeeID)">
+                                                            <option value="">Select Employee</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>EMPLOYEE NO.</label>
+                                                        <input class="form-control" type="text" ng-model="Timeslip.AccountNo">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Rollover?</label><br />
+                                                            <label>
+                                                                <input class="checkbox" type="checkbox" ng-model="Timeslip.RollOver">
+                                                                <span>Start</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-8">
+                                                        <div class="form-group">
+                                                            <br />
+                                                            <input class="form-control" type="text" name="workstart" ng-model="Timeslip.RollOverStart" placeholder="MM/DD/YYYY" dateconvert datepicker />
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td width="50%" colspan="10" class="text-center"><h5><strong>HOURS OF EMPLOYMENT</strong></h5></td>
+                                                <td width="20%" colspan="3" class="text-center"><h5><strong>1/4 HOURS</strong></h5></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="5%"><p class="font-16">Monday</p></td>
+                                                <td width="5%"><p class="font-16">[4]</p></td>
+                                                <td width="5%"><p class="font-16">[5]</p></td>
+                                                <td width="5%"><p class="font-16">[6]</p></td>
+                                                <td width="5%"><p class="font-16">[7]</p></td>
+                                                <td width="5%"><p class="font-16">[8]</p></td>
+                                                <td width="5%"><p class="font-16">[9]</p></td>
+                                                <td width="5%"><p class="font-16">[10]</p></td>
+                                                <td width="5%"><p class="font-16">[11]</p></td>
+                                                <td width="5%"><p class="font-16">[12]</p></td>
+                                                <td width="5%"><p class="font-16">[15]</p></td>
+                                                <td width="5%"><p class="font-16">[30]</p></td>
+                                                <td width="5%"><p class="font-16">[45]</p></td>
+                                                <td width="20%" rowspan="7">
+                                                    <br /><br /><br /><br /><br />
+                                                    <h5 class="text-center">IF THE WORK WAS NOT PERFORMED PLEASE PLACE AN ‘X’ IN TOTAL TIME WORKED BOX & SIGN THE TIME SLIP</h5>
+                                                    <br /><br />
+                                                    <div class="checkbox form-group">
+                                                        <label>
+                                                            <input class="checkbox" type="checkbox">
+                                                            <span>TRAILER NO SHOW</span>
+                                                        </label>
+                                                    </div>
+                                                    <br /><br />
+                                                    <h5 class="text-center">DO NOT INDICATE ANY HOURS WORKED</h5>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>BUS TCKT</label>
+                                                        <input class="form-control" type="number" min="0" max="100" ng-model="Timeslip.Bus">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><p class="font-16">Tuesday</p></td>
+                                                <td><p class="font-16">[4]</p></td>
+                                                <td><p class="font-16">[5]</p></td>
+                                                <td><p class="font-16">[6]</p></td>
+                                                <td><p class="font-16">[7]</p></td>
+                                                <td><p class="font-16">[8]</p></td>
+                                                <td><p class="font-16">[9]</p></td>
+                                                <td><p class="font-16">[10]</p></td>
+                                                <td><p class="font-16">[11]</p></td>
+                                                <td><p class="font-16">[12]</p></td>
+                                                <td><p class="font-16">[15]</p></td>
+                                                <td><p class="font-16">[30]</p></td>
+                                                <td><p class="font-16">[45]</p></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>HARD HAT</label>
+                                                        <input class="form-control" type="number" min="0" max="100" ng-model="Timeslip.Hat">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><p class="font-16">Wednesday</p></td>
+                                                <td><p class="font-16">[4]</p></td>
+                                                <td><p class="font-16">[5]</p></td>
+                                                <td><p class="font-16">[6]</p></td>
+                                                <td><p class="font-16">[7]</p></td>
+                                                <td><p class="font-16">[8]</p></td>
+                                                <td><p class="font-16">[9]</p></td>
+                                                <td><p class="font-16">[10]</p></td>
+                                                <td><p class="font-16">[11]</p></td>
+                                                <td><p class="font-16">[12]</p></td>
+                                                <td><p class="font-16">[15]</p></td>
+                                                <td><p class="font-16">[30]</p></td>
+                                                <td><p class="font-16">[45]</p></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>BOOTS</label>
+                                                        <input class="form-control" type="number" min="0" max="100" ng-model="Timeslip.Boot">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><p class="font-16">Thursday</p></td>
+                                                <td><p class="font-16">[4]</p></td>
+                                                <td><p class="font-16">[5]</p></td>
+                                                <td><p class="font-16">[6]</p></td>
+                                                <td><p class="font-16">[7]</p></td>
+                                                <td><p class="font-16">[8]</p></td>
+                                                <td><p class="font-16">[9]</p></td>
+                                                <td><p class="font-16">[10]</p></td>
+                                                <td><p class="font-16">[11]</p></td>
+                                                <td><p class="font-16">[12]</p></td>
+                                                <td><p class="font-16">[15]</p></td>
+                                                <td><p class="font-16">[30]</p></td>
+                                                <td><p class="font-16">[45]</p></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>GLOVES</label>
+                                                        <input class="form-control" type="number" min="0" max="100" ng-model="Timeslip.Gloves">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><p class="font-16">Friday</p></td>
+                                                <td><p class="font-16">[4]</p></td>
+                                                <td><p class="font-16">[5]</p></td>
+                                                <td><p class="font-16">[6]</p></td>
+                                                <td><p class="font-16">[7]</p></td>
+                                                <td><p class="font-16">[8]</p></td>
+                                                <td><p class="font-16">[9]</p></td>
+                                                <td><p class="font-16">[10]</p></td>
+                                                <td><p class="font-16">[11]</p></td>
+                                                <td><p class="font-16">[12]</p></td>
+                                                <td><p class="font-16">[15]</p></td>
+                                                <td><p class="font-16">[30]</p></td>
+                                                <td><p class="font-16">[45]</p></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>GLASSES</label>
+                                                        <input class="form-control" type="number" min="0" max="100" ng-model="Timeslip.Glass">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><p class="font-16">Saturday</p></td>
+                                                <td><p class="font-16">[4]</p></td>
+                                                <td><p class="font-16">[5]</p></td>
+                                                <td><p class="font-16">[6]</p></td>
+                                                <td><p class="font-16">[7]</p></td>
+                                                <td><p class="font-16">[8]</p></td>
+                                                <td><p class="font-16">[9]</p></td>
+                                                <td><p class="font-16">[10]</p></td>
+                                                <td><p class="font-16">[11]</p></td>
+                                                <td><p class="font-16">[12]</p></td>
+                                                <td><p class="font-16">[15]</p></td>
+                                                <td><p class="font-16">[30]</p></td>
+                                                <td><p class="font-16">[45]</p></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>COAT</label>
+                                                        <input class="form-control" type="number" min="0" max="100" ng-model="Timeslip.Coat">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><p class="font-16">Sunday</p></td>
+                                                <td><p class="font-16">[4]</p></td>
+                                                <td><p class="font-16">[5]</p></td>
+                                                <td><p class="font-16">[6]</p></td>
+                                                <td><p class="font-16">[7]</p></td>
+                                                <td><p class="font-16">[8]</p></td>
+                                                <td><p class="font-16">[9]</p></td>
+                                                <td><p class="font-16">[10]</p></td>
+                                                <td><p class="font-16">[11]</p></td>
+                                                <td><p class="font-16">[12]</p></td>
+                                                <td><p class="font-16">[15]</p></td>
+                                                <td><p class="font-16">[30]</p></td>
+                                                <td><p class="font-16">[45]</p></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <label>VEST</label>
+                                                        <input class="form-control" type="number" min="0" max="100" ng-model="Timeslip.Vest">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!--<tr>
+                                                <td colspan="13">
+                                                    <div class="form-group">
+                                                        <p>USE DAILY LINE FOR EACH DAY AT THE JOB SITE. MARK THROUGH THE NUMBERS FOR HOURS AND PARTIAL HOURS WRITE TOTAL HOURS AND PARTIAL HOURS WORKED IN TOTAL TIME WORKED BOX. PLEASE SIGN, RETURN WHITE COPY TO OUR EMPLOYEE, RETAIN PINK COPY.</p>
+                                                        <h2><strong>10/5 TOTAL TIME WORKED </strong></h2>
+                                                    </div>
+                                                </td>
+                                                <td colspan="2">
+                                                    <h3>PROVIDING DEPENDABLE LABOUR SINCE 1972</h3>
+                                                    <h5>THE CUSTOMER AGREES TO THE TERMS AND CONDITIONS SET ON THE REVERSE HEREOF AND CERTIFIES THAT THE EMPLOYEE SATISFACTORILY PROVIDED SERVICES FOR THE HOURS SHOWN.</h5>
+                                                </td>
+                                            </tr>-->
+                                        </tbody>
+                                    </table>
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td width="25%">
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <input class="form-control" type="text" ng-model="Timeslip.HrsReg">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <p style="padding-top:5px;">hrs REG $0.00</p>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <input class="form-control" type="text" ng-model="Timeslip.HrsOT">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <p style="padding-top:5px;">hrs OT $0.00</p>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <input class="form-control" type="text" ng-model="Timeslip.HrsTotal">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <p style="padding-top:5px;">TOTAL TIME WORKED</p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td width="25%">
+                                                    <button class="btn btn-success">Save No Dispatch</button>
+                                                    <br /><br /><br />
+                                                    <div class="form-group" style="border-top: 1px solid #ddd;">
+                                                        <label class="pull-right">AUTHORIZED SIGNATURE</label>
+                                                    </div>
+                                                    <br /><br /><br />
+                                                    <div class="form-group" style="border-top: 1px solid #ddd;">
+                                                        <label class="pull-right">PRINT NAME AND TITLE</label>
+                                                    </div>
+                                                </td>
+                                                <td width="25%">
+                                                    <p><strong>Timeslip Totals:</strong></p>
+                                                    <div class="pull-left">
+                                                        <p>Gross Pay: </p>
+                                                        <p>-Withholdings: </p>
+                                                        <p><strong>=Net Pay:</strong> </p>
+                                                        <p>-Items Due: </p>
+                                                        <p>-Advances: </p>
+                                                        <p><strong>=Credit Balance:</strong> </p>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <p>${{Timeslip.GrossPay}} </p>
+                                                        <p>${{Timeslip.WithHolding}} </p>
+                                                        <p><strong>${{Timeslip.NetPay}}</strong> </p>
+                                                        <p>${{Timeslip.ItemsDue}} </p>
+                                                        <p>${{Timeslip.Advances}} </p>
+                                                        <p><strong>${{Timeslip.CreditBalance}}</strong> </p>
+                                                    </div>
+                                                </td>
+                                                <td width="25%">
+                                                    <p><strong>This Txn:</strong></p>
+                                                    <div class="pull-left">
+                                                        <p>Balance Fwd: </p>
+                                                        <p>+ Net Pay: </p>
+                                                        <p>+Returned Items: </p>
+                                                        <p><strong>=Available Bal:</strong> </p>
+                                                        <p>-Pay Now: </p>
+                                                        <p><strong>=Closing Bal:</strong> </p>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <p>${{Timeslip.BalanceFwd}} </p>
+                                                        <p>${{Timeslip.NetPay1}} </p>
+                                                        <p>${{Timeslip.ReturnItems}} </p>
+                                                        <p><strong>${{Timeslip.AvailableBalance}} </strong></p>
+                                                        <p>${{Timeslip.PayNow}} </p>
+                                                        <p><strong>${{Timeslip.ClosingBalance}} </strong></p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-lg-10">
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <button type="submit" class="btn btn-success pull-right"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>    

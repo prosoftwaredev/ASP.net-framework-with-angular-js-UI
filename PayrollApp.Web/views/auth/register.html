@@ -1,0 +1,72 @@
+<div id="main1" role="main" class="animated fadeInDown">
+    <div id="content1" class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-4 hidden-xs">
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="well no-padding login-box" register-form>
+                    <br /><br />
+                    <img src="styles/img/smlogo.png" alt="SmartAdmin" class="center-canvas" width="70%" />
+                    <form ng-submit="signUp(SignUp)" class="smart-form client-form">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <section class="form-group">
+                                        <label class="control-label">First Name</label>
+                                        <i class="icon-append fa fa-user"></i>
+                                        <input type="text" class="form-control" name="firstname" data-ng-model="SignUp.Firstname" />
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <section class="form-group">
+                                        <label class="control-label">Last Name</label>
+                                        <i class="icon-append fa fa-user"></i>
+                                        <input type="text" class="form-control" name="lastname" data-ng-model="SignUp.Lastname" />
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <section class="form-group">
+                                        <label class="control-label">E-mail</label>
+                                        <i class="icon-append fa fa-envelope"></i>
+                                        <input type="email" class="form-control" name="email" data-ng-model="SignUp.Email" />
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <section class="form-group">
+                                        <label class="control-label">Password</label>
+                                        <i class="icon-append fa fa-lock"></i>
+                                        <input type="password" class="form-control" name="password" data-ng-model="SignUp.Password" />
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <section class="form-group">
+                                        <label class="control-label">Gender</label>
+                                        <select name="gender" class="form-control" ng-model="SignUp.Gender">
+                                            <option value="">Choose</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </section>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <footer>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                Sign up
+                            </button>
+                        </footer>
+                        <br />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

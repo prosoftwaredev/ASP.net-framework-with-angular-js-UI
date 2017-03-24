@@ -1,0 +1,5 @@
+﻿SET IDENTITY_INSERT [dbo].[Titles] ON 
+INSERT [dbo].[Titles] ([TitleID], [TitleName], [Gender], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (1, N'Mr.', N'Male', 1, 1, CAST(N'2017-02-25 14:49:35.407' AS DateTime), CAST(N'2017-02-25 14:49:35.407' AS DateTime), N'--', 0, 1, 1)
+INSERT [dbo].[Titles] ([TitleID], [TitleName], [Gender], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (2, N'Ms.', N'Female', 1, 1, CAST(N'2017-02-25 14:49:35.773' AS DateTime), CAST(N'2017-02-25 14:49:35.773' AS DateTime), N'--', 0, 1, 1)
+INSERT [dbo].[Titles] ([TitleID], [TitleName], [Gender], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (3, N'Mrs.', N'Female', 1, 1, CAST(N'2017-02-25 14:49:36.077' AS DateTime), CAST(N'2017-02-25 14:49:36.077' AS DateTime), N'--', 0, 1, 1)
+SET IDENTITY_INSERT [dbo].[Titles] OFF

@@ -1,0 +1,4 @@
+﻿SET IDENTITY_INSERT [dbo].[Countries] ON 
+INSERT [dbo].[Countries] ([CountryID], [CountryCode], [CountryName], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (1, N'CA', N'Canada', 1, 1, CAST(N'2017-01-03 00:00:00.000' AS DateTime), CAST(N'2017-01-03 00:00:00.000' AS DateTime), N'-', 0, 1, 1)
+INSERT [dbo].[Countries] ([CountryID], [CountryCode], [CountryName], [SortOrder], [IsEnable], [Created], [LastUpdated], [Remark], [IsDelete], [CreatedBy], [LastUpdatedBy]) VALUES (2, N'US', N'United States', 1, 1, CAST(N'2017-01-03 00:00:00.000' AS DateTime), CAST(N'2017-01-03 00:00:00.000' AS DateTime), N'-', 0, 1, 1)
+SET IDENTITY_INSERT [dbo].[Countries] OFF

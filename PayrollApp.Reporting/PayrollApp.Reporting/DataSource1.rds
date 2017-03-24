@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="DataSource1">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=SQL5031.SmarterASP.NET;Initial Catalog=DB_A1803F_mayur</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>4d983354-8730-4166-8d34-5360b2945891</DataSourceID>
+</RptDataSource>

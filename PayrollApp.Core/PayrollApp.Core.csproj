@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3C07C365-ACA7-4217-835D-357024A9FD3F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PayrollApp.Core</RootNamespace>
+    <AssemblyName>PayrollApp.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Common\MenuItem.cs" />
+    <Compile Include="Data\Common\PagedCriteria.cs" />
+    <Compile Include="Data\Common\PagedResult.cs" />
+    <Compile Include="Data\Core\ApiResult.cs" />
+    <Compile Include="Data\Core\EditableModel.cs" />
+    <Compile Include="Data\Core\ReadOnlyModel.cs" />
+    <Compile Include="Data\Entities\BaseEntity.cs" />
+    <Compile Include="Data\Entities\Certification.cs" />
+    <Compile Include="Data\Entities\City.cs" />
+    <Compile Include="Data\Entities\Country.cs" />
+    <Compile Include="Data\Entities\Customer.cs" />
+    <Compile Include="Data\Entities\CustomerSite.cs" />
+    <Compile Include="Data\Entities\CustomerSiteLabourClassification.cs" />
+    <Compile Include="Data\Entities\CustomerSiteNote.cs" />
+    <Compile Include="Data\Entities\Employee.cs" />
+    <Compile Include="Data\Entities\EmployeeBlacklist.cs" />
+    <Compile Include="Data\Entities\EmployeeCertification.cs" />
+    <Compile Include="Data\Entities\EmployeeNote.cs" />
+    <Compile Include="Data\Entities\EmployeeLabourClassification.cs" />
+    <Compile Include="Data\Entities\EmployeeSkill.cs" />
+    <Compile Include="Data\Entities\Equipment.cs" />
+    <Compile Include="Data\Entities\Image.cs" />
+    <Compile Include="Data\Entities\CustomerSiteJobLocation.cs" />
+    <Compile Include="Data\Entities\Order.cs" />
+    <Compile Include="Data\Entities\OrderEquipment.cs" />
+    <Compile Include="Data\Entities\OrderTimeslip.cs" />
+    <Compile Include="Data\Entities\PayFrequency.cs" />
+    <Compile Include="Data\Entities\EmployeeType.cs" />
+    <Compile Include="Data\Entities\LabourClassification.cs" />
+    <Compile Include="Data\Entities\PaymentTerm.cs" />
+    <Compile Include="Data\Entities\Report.cs" />
+    <Compile Include="Data\Entities\ReportParameter.cs" />
+    <Compile Include="Data\Entities\ReportRequest.cs" />
+    <Compile Include="Data\Entities\ReportRequestParameter.cs" />
+    <Compile Include="Data\Entities\SalesRep.cs" />
+    <Compile Include="Data\Entities\Skill.cs" />
+    <Compile Include="Data\Entities\State.cs" />
+    <Compile Include="Data\Entities\Preference.cs" />
+    <Compile Include="Data\Entities\Title.cs" />
+    <Compile Include="Data\Mappings\A.cs" />
+    <Compile Include="Data\Mappings\B.cs" />
+    <Compile Include="Data\Mappings\C.cs" />
+    <Compile Include="Data\Reports\Report.cs" />
+    <Compile Include="Data\Reports\ReportParameter.cs" />
+    <Compile Include="Data\Reports\ReportRequest.cs" />
+    <Compile Include="Data\Reports\ReportRequestParameter.cs" />
+    <Compile Include="Data\System\ExcLogger.cs" />
+    <Compile Include="Data\System\LastLogin.cs" />
+    <Compile Include="Data\System\PagedData.cs" />
+    <Compile Include="Data\System\PasswordData.cs" />
+    <Compile Include="Data\System\Role.cs" />
+    <Compile Include="Data\System\RoleHelper.cs" />
+    <Compile Include="Data\System\User.cs" />
+    <Compile Include="Data\System\UserRole.cs" />
+    <Compile Include="Data\ViewModels\DayStatus.cs" />
+    <Compile Include="Data\ViewModels\DayStatusWithData.cs" />
+    <Compile Include="Data\ViewModels\SearchCustomerSite.cs" />
+    <Compile Include="Data\ViewModels\SearchDataTable.cs" />
+    <Compile Include="Data\ViewModels\SearchEmployee.cs" />
+    <Compile Include="Data\ViewModels\SearchOrder.cs" />
+    <Compile Include="Data\ViewModels\SearchTimeslip.cs" />
+    <Compile Include="Data\ViewModels\TempCustomer.cs" />
+    <Compile Include="Data\ViewModels\TempOrderTimeslip.cs" />
+    <Compile Include="Data\ViewModels\UpdateModel.cs" />
+    <Compile Include="Data\ViewModels\TempUser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="XMLFile1.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
